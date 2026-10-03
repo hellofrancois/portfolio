@@ -87,6 +87,7 @@
   </header>
 
   <main>
+    <div id="home-view">
 
     <!-- Hero Section -->
     <section class="hero section">
@@ -221,277 +222,13 @@
             </div>
 
             <div class="case-toggle-bar">
-              <button class="btn btn-secondary btn-small btn-toggle-case" aria-expanded="false" aria-controls="case-content-antibiogo"
-                type="button">
-                <span class="btn-label-expand" lang="en">View Case Study</span>
-                <span class="btn-label-expand" lang="fr">Voir l'étude de cas</span>
-                <span class="btn-label-collapse" lang="en">Collapse Case Study</span>
-                <span class="btn-label-collapse" lang="fr">Replier l'étude de cas</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+              <a href="#antibiogo" class="btn btn-secondary btn-small btn-toggle-case">
+                <span lang="en">Read Case Study</span>
+                <span lang="fr">Lire l'étude complète</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="case-arrow-right">
+                  <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-              </button>
-            </div>
-
-            <!-- Collapsible deep dive content -->
-            <div class="case-study-collapsible" id="case-content-antibiogo" hidden>
-              <div class="case-study-content">
-                <!-- 2 Columns: The Challenge & Methodology -->
-                <div class="case-split-grid">
-                  <div class="case-section">
-                    <h3 lang="en">The Challenge</h3>
-                    <h3 lang="fr">Le Défi</h3>
-                    <p lang="en">
-                      For over 3 years, I led the user experience and product design of Antibiogo, an offline Android
-                      medical device certified under IVDD (with IVDR certification in progress), developed by the MSF
-                      Foundation to combat antimicrobial resistance. The primary challenge was bridging international
-                      clinical microbiology standards (EUCAST and CLSI guidelines) with the frontline realities of
-                      resource-limited laboratories: diverse training and ingrained bad practices to address
-                      constructively,
-                      full standalone autonomy without any remote server, and zero-tolerance clinical safety
-                      requirements.
-                    </p>
-                    <p lang="fr">
-                      Pendant plus de 3 ans, j'ai piloté l'expérience utilisateur et la conception produit d'Antibiogo,
-                      une
-                      application médicale Android certifiée IVDD (et en cours de certification IVDR), développée par La
-                      Fondation MSF pour lutter contre l'antibiorésistance. Le défi central : concilier l'état de l'art
-                      de
-                      la microbiologie clinique (normes internationales EUCAST et CLSI) avec les réalités de terrain
-                      dans
-                      les laboratoires de pays à ressources limitées : niveaux de compétence hétérogènes et mauvaises
-                      pratiques courantes à corriger avec pédagogie, fonctionnement 100 % autonome sans serveur distant
-                      et
-                      sécurité clinique absolue.
-                    </p>
-                    <p class="plain-language" lang="en"><em>In simpler terms: a free smartphone app helping laboratory
-                        technicians in low-resource settings determine which antibiotics are effective against bacterial
-                        infections.</em></p>
-                    <p class="plain-language" lang="fr"><em>En termes simples : une application mobile gratuite qui aide
-                        les
-                        technicien·nes de laboratoire dans les pays à ressources limitées à identifier les antibiotiques
-                        efficaces contre les infections bactériennes.</em></p>
-                    <div class="highlight-box">
-                      <h4 lang="en">Safety-Critical Balance</h4>
-                      <h4 lang="fr">Équilibre de sécurité vitale</h4>
-                      <p lang="en">Ensuring compliance with strict medical device regulations (IVDD/IVDR) and clinical
-                        accuracy, while respecting the diverse frontline skills of local operators.</p>
-                      <p lang="fr">Garantir la conformité aux exigences strictes de certification médicale (IVDD/IVDR)
-                        et
-                        l'exactitude clinique, tout en respectant l'hétérogénéité des compétences sur le terrain.</p>
-                    </div>
-                  </div>
-
-                  <div class="case-section">
-                    <h3 lang="en">Methodology & Action</h3>
-                    <h3 lang="fr">Méthodologie & Actions</h3>
-                    <ul lang="en">
-                      <li><strong>Mixed-Method Research & Clinical Co-Design:</strong> Direct benchtop observations
-                        during
-                        field missions, paired with extensive ongoing remote engagements (regular surveys, in-depth
-                        interviews, and continuous workshops with the internal clinical team and external domain
-                        experts).
-                      </li>
-                      <li><strong>Intentional Friction & Safety Gates:</strong> Unlike consumer products where all
-                        friction
-                        is eliminated, clinical UX introduces deliberate checkpoints on critical decisions to prevent
-                        automatic rubber-stamping, while streamlining interactions during repetitive routine tasks.</li>
-                      <li><strong>Dual-Track Internal Architecture (IVDD & IVDR):</strong> Steered information
-                        architecture
-                        to iterate continuously on the deployed IVDD release while designing major structural updates
-                        for
-                        the upcoming IVDR certified version, ensuring updates to one track never disrupted the other.
-                      </li>
-                      <li><strong>Design System Transition & Visual Refresh:</strong> Directed the comprehensive
-                        component
-                        overhaul alongside a dedicated UI designer: migration from Material 2 to Material 3, updated
-                        aesthetics with new typography, refreshed brand colors, and an expanded functional palette.</li>
-                    </ul>
-                    <ul lang="fr">
-                      <li><strong>Recherche utilisateur·rices & cadrage médical :</strong> Observations directes de
-                        paillasse lors de missions de terrain, complétées par une majorité d'échanges à distance
-                        (questionnaires quanti/quali, entretiens réguliers, et ateliers continus avec l'équipe clinique
-                        interne et des expert·es externes).</li>
-                      <li><strong>Friction intentionnelle et garde-fous :</strong> Contrairement aux applications grand
-                        public où l'on élimine toute friction, la conception clinique impose des étapes de contrôle
-                        délibérées sur les décisions critiques pour empêcher les validations automatiques aveugles, tout
-                        en
-                        allégeant les interactions sur les routines répétitives.</li>
-                      <li><strong>Dualité de versionnage en interne (IVDD & IVDR) :</strong> Pilotage de l'architecture
-                        pour
-                        faire évoluer en continu l'application IVDD actuellement déployée auprès des utilisateur·rices,
-                        tout
-                        en intégrant des refontes majeures pour la future version IVDR (en cours de certification), en
-                        veillant à ce que les évolutions de l'une ne déstabilisent pas l'autre.</li>
-                      <li><strong>Transition de Design System & nouvelle esthétique :</strong> Direction de la refonte
-                        globale du système de composants aux côtés d'une UI designer : migration de Material 2 vers
-                        Material
-                        3, évolution de l'esthétique avec une nouvelle typographie, de nouvelles couleurs principales et
-                        un
-                        élargissement de la palette fonctionnelle.</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Full Width: The Outcome -->
-                <div class="case-section">
-                  <h3 lang="en">The Outcome</h3>
-                  <h3 lang="fr">Le Résultat</h3>
-                  <div class="highlight-box">
-                    <h4 lang="en">Missions & Impact</h4>
-                    <h4 lang="fr">Missions & Impact</h4>
-                    <p lang="en">A robust, certified medical tool deployed daily across demanding laboratory
-                      environments
-                      worldwide, empowering practitioners to obtain reliable diagnostics independently of any remote
-                      server.</p>
-                    <p lang="fr">Un outil médical robuste et certifié, utilisé au quotidien dans des laboratoires aux
-                      contextes exigeants à travers le monde, qui permet aux praticien·nes d'obtenir des diagnostics
-                      fiables sans dépendre d'un serveur distant.</p>
-                  </div>
-                </div>
-
-                <!-- Full Width: Interactive UX Widget -->
-                <div class="case-interactive-panel">
-                  <div class="panel-header">
-                    <span class="panel-title" lang="en">UX Decision Matrix: Risk & Friction</span>
-                    <span class="panel-title" lang="fr">Matrice de décision UX : Risque & Friction</span>
-                  </div>
-
-                  <div class="quadrant-container" role="region" aria-label="Risk vs Frequency Matrix">
-                    <div class="quadrant-matrix-wrapper">
-                      <!-- Axis Endpoint Top (High Risk) -->
-                      <div class="quadrant-axis-endpoint quadrant-axis-endpoint--top" aria-hidden="true">
-                        <span class="axis-endpoint-label" lang="en">▲ High Risk</span>
-                        <span class="axis-endpoint-label" lang="fr">▲ Risque élevé</span>
-                      </div>
-
-                      <!-- Central Quadrant Stage with 2x2 Grid and Central Cross Axes -->
-                      <div class="quadrant-matrix-stage">
-                        <!-- Central Cross Axes (Vertical & Horizontal) -->
-                        <div class="quadrant-axis-line quadrant-axis-line--vertical" aria-hidden="true"></div>
-                        <div class="quadrant-axis-line quadrant-axis-line--horizontal" aria-hidden="true"></div>
-                        <div class="quadrant-axis-center-dot" aria-hidden="true"></div>
-
-                        <!-- Horizontal Axis Endpoints (Rare / Frequent) -->
-                        <div class="quadrant-axis-endpoint quadrant-axis-endpoint--left" aria-hidden="true">
-                          <span class="axis-endpoint-label" lang="en">◀ Rare</span>
-                          <span class="axis-endpoint-label" lang="fr">◀ Rare</span>
-                        </div>
-
-                        <div class="quadrant-axis-endpoint quadrant-axis-endpoint--right" aria-hidden="true">
-                          <span class="axis-endpoint-label" lang="en">Frequent ▶</span>
-                          <span class="axis-endpoint-label" lang="fr">Fréquent ▶</span>
-                        </div>
-
-                        <div class="quadrant-grid">
-                          <!-- Top-Left: High Risk / Rare -->
-                          <button class="quadrant-cell active" data-zone="1" type="button" aria-pressed="true">
-                            <span class="cell-name" lang="en">Rare Phenotype Detection</span>
-                            <span class="cell-name" lang="fr">Détection d'un phénotype rare</span>
-                            <span class="cell-sub" lang="en">High risk • Rare event</span>
-                            <span class="cell-sub" lang="fr">Risque élevé • Événement rare</span>
-                            <span class="cell-friction-tag" lang="en">Friction: Hard Interrupt</span>
-                            <span class="cell-friction-tag" lang="fr">Friction : Alerte bloquante</span>
-                          </button>
-                          <!-- Top-Right: High Risk / Frequent -->
-                          <button class="quadrant-cell" data-zone="2" type="button" aria-pressed="false">
-                            <span class="cell-name" lang="en">Antibiotic Validation</span>
-                            <span class="cell-name" lang="fr">Validation des antibiotiques</span>
-                            <span class="cell-sub" lang="en">High risk • Daily</span>
-                            <span class="cell-sub" lang="fr">Risque élevé • Quotidien</span>
-                            <span class="cell-friction-tag" lang="en">Friction: Step Confirmation</span>
-                            <span class="cell-friction-tag" lang="fr">Friction : Validation pas-à-pas</span>
-                          </button>
-                          <!-- Bottom-Left: Low Risk / Rare -->
-                          <button class="quadrant-cell" data-zone="3" type="button" aria-pressed="false">
-                            <span class="cell-name" lang="en">Patient & Sample Metadata</span>
-                            <span class="cell-name" lang="fr">Métadonnées du patient et de l'échantillon</span>
-                            <span class="cell-sub" lang="en">Low risk • Punctual</span>
-                            <span class="cell-sub" lang="fr">Risque faible • Ponctuel</span>
-                            <span class="cell-friction-tag" lang="en">Friction: Flexible & Optional</span>
-                            <span class="cell-friction-tag" lang="fr">Friction : Saisie fluide optionnelle</span>
-                          </button>
-                          <!-- Bottom-Right: Low Risk / Frequent -->
-                          <button class="quadrant-cell" data-zone="4" type="button" aria-pressed="false">
-                            <span class="cell-name" lang="en">Quality Control (QC)</span>
-                            <span class="cell-name" lang="fr">Contrôle Qualité (CQ)</span>
-                            <span class="cell-sub" lang="en">Low risk • Routine</span>
-                            <span class="cell-sub" lang="fr">Risque faible • Routine fréquente</span>
-                            <span class="cell-friction-tag" lang="en">Friction: Streamlined Flow</span>
-                            <span class="cell-friction-tag" lang="fr">Friction : Processus allégé</span>
-                          </button>
-                        </div>
-                      </div>
-
-                      <!-- Axis Endpoint Bottom (Low Risk) -->
-                      <div class="quadrant-axis-endpoint quadrant-axis-endpoint--bottom" aria-hidden="true">
-                        <span class="axis-endpoint-label" lang="en">▼ Low Risk</span>
-                        <span class="axis-endpoint-label" lang="fr">▼ Risque faible</span>
-                      </div>
-                    </div>
-
-                    <div class="panel-footer">
-                      <div class="panel-desc-box" id="step-description-box" aria-live="polite" aria-atomic="true">
-                        <strong id="step-title">Détection d'un phénotype rare</strong>
-                        <span id="step-text">Risque critique & événement rare : Déclenchement d'une alerte visuelle
-                          bloquante avec confirmation explicite requise et rappel pédagogique pour prévenir toute erreur
-                          de
-                          diagnostic vital.</span>
-                        <div class="case-media-row" id="step-images"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Full Width: Handoff & Technical Alignment -->
-                <div class="case-section">
-                  <h3 lang="en">Handoff & Technical Alignment</h3>
-                  <h3 lang="fr">Handoff & alignement technique</h3>
-
-                  <div class="case-card">
-                    <div class="case-media-scroll" tabindex="0" role="region" aria-label="End-to-end flow overview" lang="en">
-                      <img src="assets/antibiogo/annotations - global.png"
-                        alt="Comprehensive Antibiogo flow overview in Figma showing all screen steps and technical interaction annotations."
-                        loading="lazy">
-                    </div>
-                    <div class="case-media-scroll" tabindex="0" role="region" aria-label="Vue d'ensemble du flux" lang="fr">
-                      <img src="assets/antibiogo/annotations - global.png"
-                        alt="Vue d'ensemble du flux Antibiogo complet documenté dans Figma avec l'ensemble des écrans et leurs annotations techniques."
-                        loading="lazy">
-                    </div>
-
-                    <div class="case-media-center">
-                      <img src="assets/antibiogo/annotations - detail.png"
-                        alt="Detailed Android interaction and development specifications: blue notes detailing keyboard focus management and bottom sheet transitions; green notes defining layout stability, developer constraints, and native back-button handling."
-                        lang="en"
-                        class="case-img case-img--detail"
-                        loading="lazy">
-                      <img src="assets/antibiogo/annotations - detail.png"
-                        alt="Spécifications détaillées d'interaction et de développement Android : pastilles bleues pour la gestion du focus clavier et les transitions de bottom sheet ; pastilles vertes pour les contraintes de développement, la stabilité du layout et la gestion du retour natif."
-                        lang="fr"
-                        class="case-img case-img--detail"
-                        loading="lazy">
-                    </div>
-
-                    <div class="case-card-caption">
-                      <p lang="en"><strong>Technical Interaction Specs:</strong> Detailed handoff rules for Android engineering — keyboard focus management, layout stability, simultaneous state transitions, and native back-behavior handling.</p>
-                      <p lang="fr"><strong>Spécifications techniques d'interaction :</strong> Définition précise des règles de développement pour l'équipe Android — gestion dynamique du clavier virtuel, transitions simultanées d'interface, positionnement des notifications et respect des comportements natifs de l'OS.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Bottom collapse button for Antibiogo -->
-                <div class="case-bottom-collapse">
-                  <button class="btn btn-secondary btn-small btn-toggle-case btn-toggle-case--bottom" type="button"
-                    aria-controls="case-content-antibiogo">
-                    <span lang="en">Collapse Case Study</span>
-                    <span lang="fr">Replier l'étude de cas</span>
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
+              </a>
             </div>
           </article>
 
@@ -916,7 +653,321 @@
       </div>
     </section>
 
-  </main>
+      </div> <!-- /#home-view -->
+
+    <!-- Dedicated Case Study 01: Antibiogo View -->
+    <div id="project-view-antibiogo" class="case-study-view" hidden>
+      <!-- Top Navigation Bar -->
+      <div class="case-study-topbar">
+        <div class="container case-study-topbar-inner">
+          <a href="#work" class="btn btn-secondary btn-small case-back-link" data-route-back>
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
+              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            <span lang="en">Back to projects</span>
+            <span lang="fr">Retour aux projets</span>
+          </a>
+          <div class="case-topbar-badge">
+            <span class="badge-dot"></span>
+            <span lang="en">Case Study 01</span>
+            <span lang="fr">Étude de cas 01</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="case-header">
+          <div class="case-brand-row">
+            <div class="logo-group">
+              <img src="assets/antibiogo_logo.svg" alt="Antibiogo Logo" class="case-logo logo-antibiogo">
+              <span class="logo-separator">/</span>
+              <img src="assets/msf_logo.svg" alt="La Fondation MSF Logo" class="case-logo logo-msf">
+            </div>
+            <span class="case-duration" lang="en">2022 — Present</span>
+            <span class="case-duration" lang="fr">2022 — Présent</span>
+          </div>
+          <span class="case-tag" lang="en">01 — Global Health & Field Diagnostics</span>
+          <span class="case-tag" lang="fr">01 — Santé globale & diagnostic terrain</span>
+          <h2 lang="en">Antibiogo — Android Mobile Medical Device</h2>
+          <h2 lang="fr">Antibiogo — Dispositif médical mobile sous Android</h2>
+          <div class="case-meta-grid">
+            <div class="case-meta-item">
+              <h4 lang="en">Role</h4>
+              <h4 lang="fr">Rôle</h4>
+              <p lang="en">Lead UX & Product Designer</p>
+              <p lang="fr">Lead UX & Product Designer</p>
+            </div>
+            <div class="case-meta-item">
+              <h4 lang="en">Impact</h4>
+              <h4 lang="fr">Impact</h4>
+              <p lang="en">IVDD-Certified App / In-Flight IVDR Transition (EUCAST & CLSI)</p>
+              <p lang="fr">Application certifiée IVDD / Transition réglementaire IVDR (EUCAST & CLSI)</p>
+            </div>
+          </div>
+          <p class="case-teaser-pitch plain-language" lang="en"><em>In simpler terms: a free smartphone app helping laboratory technicians in low-resource settings determine which antibiotics are effective against bacterial infections.</em></p>
+          <p class="case-teaser-pitch plain-language" lang="fr"><em>En termes simples : une application mobile gratuite qui aide les technicien·nes de laboratoire dans les pays à ressources limitées à identifier les antibiotiques efficaces contre les infections bactériennes.</em></p>
+        </div>
+
+        <div class="case-study-content" style="margin-top: 3rem;">
+          <!-- 2 Columns: The Challenge & Methodology -->
+                <div class="case-split-grid">
+                  <div class="case-section">
+                    <h3 lang="en">The Challenge</h3>
+                    <h3 lang="fr">Le Défi</h3>
+                    <p lang="en">
+                      For over 3 years, I led the user experience and product design of Antibiogo, an offline Android
+                      medical device certified under IVDD (with IVDR certification in progress), developed by the MSF
+                      Foundation to combat antimicrobial resistance. The primary challenge was bridging international
+                      clinical microbiology standards (EUCAST and CLSI guidelines) with the frontline realities of
+                      resource-limited laboratories: diverse training and ingrained bad practices to address
+                      constructively,
+                      full standalone autonomy without any remote server, and zero-tolerance clinical safety
+                      requirements.
+                    </p>
+                    <p lang="fr">
+                      Pendant plus de 3 ans, j'ai piloté l'expérience utilisateur et la conception produit d'Antibiogo,
+                      une
+                      application médicale Android certifiée IVDD (et en cours de certification IVDR), développée par La
+                      Fondation MSF pour lutter contre l'antibiorésistance. Le défi central : concilier l'état de l'art
+                      de
+                      la microbiologie clinique (normes internationales EUCAST et CLSI) avec les réalités de terrain
+                      dans
+                      les laboratoires de pays à ressources limitées : niveaux de compétence hétérogènes et mauvaises
+                      pratiques courantes à corriger avec pédagogie, fonctionnement 100 % autonome sans serveur distant
+                      et
+                      sécurité clinique absolue.
+                    </p>
+                    <p class="plain-language" lang="en"><em>In simpler terms: a free smartphone app helping laboratory
+                        technicians in low-resource settings determine which antibiotics are effective against bacterial
+                        infections.</em></p>
+                    <p class="plain-language" lang="fr"><em>En termes simples : une application mobile gratuite qui aide
+                        les
+                        technicien·nes de laboratoire dans les pays à ressources limitées à identifier les antibiotiques
+                        efficaces contre les infections bactériennes.</em></p>
+                    <div class="highlight-box">
+                      <h4 lang="en">Safety-Critical Balance</h4>
+                      <h4 lang="fr">Équilibre de sécurité vitale</h4>
+                      <p lang="en">Ensuring compliance with strict medical device regulations (IVDD/IVDR) and clinical
+                        accuracy, while respecting the diverse frontline skills of local operators.</p>
+                      <p lang="fr">Garantir la conformité aux exigences strictes de certification médicale (IVDD/IVDR)
+                        et
+                        l'exactitude clinique, tout en respectant l'hétérogénéité des compétences sur le terrain.</p>
+                    </div>
+                  </div>
+
+                  <div class="case-section">
+                    <h3 lang="en">Methodology & Action</h3>
+                    <h3 lang="fr">Méthodologie & Actions</h3>
+                    <ul lang="en">
+                      <li><strong>Mixed-Method Research & Clinical Co-Design:</strong> Direct benchtop observations
+                        during
+                        field missions, paired with extensive ongoing remote engagements (regular surveys, in-depth
+                        interviews, and continuous workshops with the internal clinical team and external domain
+                        experts).
+                      </li>
+                      <li><strong>Intentional Friction & Safety Gates:</strong> Unlike consumer products where all
+                        friction
+                        is eliminated, clinical UX introduces deliberate checkpoints on critical decisions to prevent
+                        automatic rubber-stamping, while streamlining interactions during repetitive routine tasks.</li>
+                      <li><strong>Dual-Track Internal Architecture (IVDD & IVDR):</strong> Steered information
+                        architecture
+                        to iterate continuously on the deployed IVDD release while designing major structural updates
+                        for
+                        the upcoming IVDR certified version, ensuring updates to one track never disrupted the other.
+                      </li>
+                      <li><strong>Design System Transition & Visual Refresh:</strong> Directed the comprehensive
+                        component
+                        overhaul alongside a dedicated UI designer: migration from Material 2 to Material 3, updated
+                        aesthetics with new typography, refreshed brand colors, and an expanded functional palette.</li>
+                    </ul>
+                    <ul lang="fr">
+                      <li><strong>Recherche utilisateur·rices & cadrage médical :</strong> Observations directes de
+                        paillasse lors de missions de terrain, complétées par une majorité d'échanges à distance
+                        (questionnaires quanti/quali, entretiens réguliers, et ateliers continus avec l'équipe clinique
+                        interne et des expert·es externes).</li>
+                      <li><strong>Friction intentionnelle et garde-fous :</strong> Contrairement aux applications grand
+                        public où l'on élimine toute friction, la conception clinique impose des étapes de contrôle
+                        délibérées sur les décisions critiques pour empêcher les validations automatiques aveugles, tout
+                        en
+                        allégeant les interactions sur les routines répétitives.</li>
+                      <li><strong>Dualité de versionnage en interne (IVDD & IVDR) :</strong> Pilotage de l'architecture
+                        pour
+                        faire évoluer en continu l'application IVDD actuellement déployée auprès des utilisateur·rices,
+                        tout
+                        en intégrant des refontes majeures pour la future version IVDR (en cours de certification), en
+                        veillant à ce que les évolutions de l'une ne déstabilisent pas l'autre.</li>
+                      <li><strong>Transition de Design System & nouvelle esthétique :</strong> Direction de la refonte
+                        globale du système de composants aux côtés d'une UI designer : migration de Material 2 vers
+                        Material
+                        3, évolution de l'esthétique avec une nouvelle typographie, de nouvelles couleurs principales et
+                        un
+                        élargissement de la palette fonctionnelle.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Full Width: The Outcome -->
+                <div class="case-section">
+                  <h3 lang="en">The Outcome</h3>
+                  <h3 lang="fr">Le Résultat</h3>
+                  <div class="highlight-box">
+                    <h4 lang="en">Missions & Impact</h4>
+                    <h4 lang="fr">Missions & Impact</h4>
+                    <p lang="en">A robust, certified medical tool deployed daily across demanding laboratory
+                      environments
+                      worldwide, empowering practitioners to obtain reliable diagnostics independently of any remote
+                      server.</p>
+                    <p lang="fr">Un outil médical robuste et certifié, utilisé au quotidien dans des laboratoires aux
+                      contextes exigeants à travers le monde, qui permet aux praticien·nes d'obtenir des diagnostics
+                      fiables sans dépendre d'un serveur distant.</p>
+                  </div>
+                </div>
+
+                <!-- Full Width: Interactive UX Widget -->
+                <div class="case-interactive-panel">
+                  <div class="panel-header">
+                    <span class="panel-title" lang="en">UX Decision Matrix: Risk & Friction</span>
+                    <span class="panel-title" lang="fr">Matrice de décision UX : Risque & Friction</span>
+                  </div>
+
+                  <div class="quadrant-container" role="region" aria-label="Risk vs Frequency Matrix">
+                    <div class="quadrant-matrix-wrapper">
+                      <!-- Axis Endpoint Top (High Risk) -->
+                      <div class="quadrant-axis-endpoint quadrant-axis-endpoint--top" aria-hidden="true">
+                        <span class="axis-endpoint-label" lang="en">▲ High Risk</span>
+                        <span class="axis-endpoint-label" lang="fr">▲ Risque élevé</span>
+                      </div>
+
+                      <!-- Central Quadrant Stage with 2x2 Grid and Central Cross Axes -->
+                      <div class="quadrant-matrix-stage">
+                        <!-- Central Cross Axes (Vertical & Horizontal) -->
+                        <div class="quadrant-axis-line quadrant-axis-line--vertical" aria-hidden="true"></div>
+                        <div class="quadrant-axis-line quadrant-axis-line--horizontal" aria-hidden="true"></div>
+                        <div class="quadrant-axis-center-dot" aria-hidden="true"></div>
+
+                        <!-- Horizontal Axis Endpoints (Rare / Frequent) -->
+                        <div class="quadrant-axis-endpoint quadrant-axis-endpoint--left" aria-hidden="true">
+                          <span class="axis-endpoint-label" lang="en">◀ Rare</span>
+                          <span class="axis-endpoint-label" lang="fr">◀ Rare</span>
+                        </div>
+
+                        <div class="quadrant-axis-endpoint quadrant-axis-endpoint--right" aria-hidden="true">
+                          <span class="axis-endpoint-label" lang="en">Frequent ▶</span>
+                          <span class="axis-endpoint-label" lang="fr">Fréquent ▶</span>
+                        </div>
+
+                        <div class="quadrant-grid">
+                          <!-- Top-Left: High Risk / Rare -->
+                          <button class="quadrant-cell active" data-zone="1" type="button" aria-pressed="true">
+                            <span class="cell-name" lang="en">Rare Phenotype Detection</span>
+                            <span class="cell-name" lang="fr">Détection d'un phénotype rare</span>
+                            <span class="cell-sub" lang="en">High risk • Rare event</span>
+                            <span class="cell-sub" lang="fr">Risque élevé • Événement rare</span>
+                            <span class="cell-friction-tag" lang="en">Friction: Hard Interrupt</span>
+                            <span class="cell-friction-tag" lang="fr">Friction : Alerte bloquante</span>
+                          </button>
+                          <!-- Top-Right: High Risk / Frequent -->
+                          <button class="quadrant-cell" data-zone="2" type="button" aria-pressed="false">
+                            <span class="cell-name" lang="en">Antibiotic Validation</span>
+                            <span class="cell-name" lang="fr">Validation des antibiotiques</span>
+                            <span class="cell-sub" lang="en">High risk • Daily</span>
+                            <span class="cell-sub" lang="fr">Risque élevé • Quotidien</span>
+                            <span class="cell-friction-tag" lang="en">Friction: Step Confirmation</span>
+                            <span class="cell-friction-tag" lang="fr">Friction : Validation pas-à-pas</span>
+                          </button>
+                          <!-- Bottom-Left: Low Risk / Rare -->
+                          <button class="quadrant-cell" data-zone="3" type="button" aria-pressed="false">
+                            <span class="cell-name" lang="en">Patient & Sample Metadata</span>
+                            <span class="cell-name" lang="fr">Métadonnées du patient et de l'échantillon</span>
+                            <span class="cell-sub" lang="en">Low risk • Punctual</span>
+                            <span class="cell-sub" lang="fr">Risque faible • Ponctuel</span>
+                            <span class="cell-friction-tag" lang="en">Friction: Flexible & Optional</span>
+                            <span class="cell-friction-tag" lang="fr">Friction : Saisie fluide optionnelle</span>
+                          </button>
+                          <!-- Bottom-Right: Low Risk / Frequent -->
+                          <button class="quadrant-cell" data-zone="4" type="button" aria-pressed="false">
+                            <span class="cell-name" lang="en">Quality Control (QC)</span>
+                            <span class="cell-name" lang="fr">Contrôle Qualité (CQ)</span>
+                            <span class="cell-sub" lang="en">Low risk • Routine</span>
+                            <span class="cell-sub" lang="fr">Risque faible • Routine fréquente</span>
+                            <span class="cell-friction-tag" lang="en">Friction: Streamlined Flow</span>
+                            <span class="cell-friction-tag" lang="fr">Friction : Processus allégé</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Axis Endpoint Bottom (Low Risk) -->
+                      <div class="quadrant-axis-endpoint quadrant-axis-endpoint--bottom" aria-hidden="true">
+                        <span class="axis-endpoint-label" lang="en">▼ Low Risk</span>
+                        <span class="axis-endpoint-label" lang="fr">▼ Risque faible</span>
+                      </div>
+                    </div>
+
+                    <div class="panel-footer">
+                      <div class="panel-desc-box" id="step-description-box" aria-live="polite" aria-atomic="true">
+                        <strong id="step-title">Détection d'un phénotype rare</strong>
+                        <span id="step-text">Risque critique & événement rare : Déclenchement d'une alerte visuelle
+                          bloquante avec confirmation explicite requise et rappel pédagogique pour prévenir toute erreur
+                          de
+                          diagnostic vital.</span>
+                        <div class="case-media-row" id="step-images"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Full Width: Handoff & Technical Alignment -->
+                <div class="case-section">
+                  <h3 lang="en">Handoff & Technical Alignment</h3>
+                  <h3 lang="fr">Handoff & alignement technique</h3>
+
+                  <div class="case-card">
+                    <div class="case-media-scroll" tabindex="0" role="region" aria-label="End-to-end flow overview" lang="en">
+                      <img src="assets/antibiogo/annotations - global.png"
+                        alt="Comprehensive Antibiogo flow overview in Figma showing all screen steps and technical interaction annotations."
+                        loading="lazy">
+                    </div>
+                    <div class="case-media-scroll" tabindex="0" role="region" aria-label="Vue d'ensemble du flux" lang="fr">
+                      <img src="assets/antibiogo/annotations - global.png"
+                        alt="Vue d'ensemble du flux Antibiogo complet documenté dans Figma avec l'ensemble des écrans et leurs annotations techniques."
+                        loading="lazy">
+                    </div>
+
+                    <div class="case-media-center">
+                      <img src="assets/antibiogo/annotations - detail.png"
+                        alt="Detailed Android interaction and development specifications: blue notes detailing keyboard focus management and bottom sheet transitions; green notes defining layout stability, developer constraints, and native back-button handling."
+                        lang="en"
+                        class="case-img case-img--detail"
+                        loading="lazy">
+                      <img src="assets/antibiogo/annotations - detail.png"
+                        alt="Spécifications détaillées d'interaction et de développement Android : pastilles bleues pour la gestion du focus clavier et les transitions de bottom sheet ; pastilles vertes pour les contraintes de développement, la stabilité du layout et la gestion du retour natif."
+                        lang="fr"
+                        class="case-img case-img--detail"
+                        loading="lazy">
+                    </div>
+
+                    <div class="case-card-caption">
+                      <p lang="en"><strong>Technical Interaction Specs:</strong> Detailed handoff rules for Android engineering — keyboard focus management, layout stability, simultaneous state transitions, and native back-behavior handling.</p>
+                      <p lang="fr"><strong>Spécifications techniques d'interaction :</strong> Définition précise des règles de développement pour l'équipe Android — gestion dynamique du clavier virtuel, transitions simultanées d'interface, positionnement des notifications et respect des comportements natifs de l'OS.</p>
+                    </div>
+                  </div>
+                </div>
+        </div>
+
+        <!-- Bottom Navigation Bar -->
+        <div class="case-bottom-nav">
+          <a href="#work" class="btn btn-secondary btn-small case-back-link" data-route-back>
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
+              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            <span lang="en">Back to projects</span>
+            <span lang="fr">Retour aux projets</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+</main>
 
   <!-- Footer -->
   <footer class="footer">
