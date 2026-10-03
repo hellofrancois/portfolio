@@ -266,143 +266,13 @@
             </div>
 
             <div class="case-toggle-bar">
-              <button class="btn btn-secondary btn-small btn-toggle-case" aria-expanded="false" aria-controls="case-content-origami" type="button">
-                <span class="btn-label-expand" lang="en">View Case Study</span>
-                <span class="btn-label-expand" lang="fr">Voir l'étude de cas</span>
-                <span class="btn-label-collapse" lang="en">Collapse Case Study</span>
-                <span class="btn-label-collapse" lang="fr">Replier l'étude de cas</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+              <a href="#origami" class="btn btn-secondary btn-small btn-toggle-case">
+                <span lang="en">Read Case Study</span>
+                <span lang="fr">Lire l'étude complète</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="case-arrow-right">
+                  <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-              </button>
-            </div>
-
-            <!-- Collapsible deep dive content -->
-            <div class="case-study-collapsible" id="case-content-origami" hidden>
-              <div class="case-study-content">
-                <!-- 2 Columns: 4 Rollout Steps -->
-                <div class="case-split-grid">
-                  <!-- Step 01 -->
-                  <div class="case-section">
-                    <span class="step-badge" lang="en">Step 01 / Lobbying</span>
-                    <span class="step-badge" lang="fr">Étape 01 / Lobbying</span>
-                    <h3 lang="en">Convincing Stakeholders</h3>
-                    <h3 lang="fr">Convaincre les parties prenantes</h3>
-                    <p lang="en">
-                      Being the first to introduce a design system to the organization, I researched and compiled case
-                      studies demonstrating development cost savings (ROI) alongside the benefits of visual consistency.
-                      This lobbying was vital to secure initial funding and engineering resources.
-                    </p>
-                    <p lang="fr">
-                      Étant le premier à introduire un design system dans l'organisation, j'ai recherché et compilé des
-                      études de cas démontrant les économies de coûts de développement (ROI) ainsi que les avantages de
-                      la cohérence visuelle. Ce lobbying a été vital pour obtenir le financement initial et les
-                      ressources d'ingénierie.
-                    </p>
-                  </div>
-
-                  <!-- Step 02 -->
-                  <div class="case-section">
-                    <span class="step-badge" lang="en">Step 02 / Figma UI Kit</span>
-                    <span class="step-badge" lang="fr">Étape 02 / Kit UI Figma</span>
-                    <h3 lang="en">Component Architecture</h3>
-                    <h3 lang="fr">Architecture des composants</h3>
-                    <p lang="en">
-                      Simultaneously, I initiated a Figma UI Kit that scaled over years, adapting to evolving brand
-                      guidelines. It grew into a library of over 50 responsive components with diverse interactive
-                      states, ensuring seamless design handoffs.
-                    </p>
-                    <p lang="fr">
-                      Simultanément, j'ai initié un kit UI Figma qui a évolué au fil des ans, s'adaptant aux directives
-                      de marque. Il s'est développé pour devenir une bibliothèque de plus de 50 composants réactifs avec
-                      divers états interactifs, garantissant des handoffs fluides.
-                    </p>
-                  </div>
-
-                  <!-- Step 03 -->
-                  <div class="case-section">
-                    <span class="step-badge" lang="en">Step 03 / Documentation</span>
-                    <span class="step-badge" lang="fr">Étape 03 / Documentation</span>
-                    <h3 lang="en">Single Source of Truth</h3>
-                    <h3 lang="fr">Source unique de vérité</h3>
-                    <p lang="en">
-                      We established comprehensive documentation in Zeroheight. This optimized designer onboarding,
-                      unified brand standards, and reduced repetitive communication cycles with developer teams
-                      regarding element usage and micro-interactions.
-                    </p>
-                    <p lang="fr">
-                      Nous avons établi une documentation complète dans Zeroheight. Cela a optimisé l'onboarding des
-                      designers, unifié les standards de marque et réduit les cycles de communication répétitifs avec
-                      les équipes de développement concernant l'utilisation des éléments et les micro-interactions.
-                    </p>
-                  </div>
-
-                  <!-- Step 04 -->
-                  <div class="case-section">
-                    <span class="step-badge" lang="en">Step 04 / Implementation</span>
-                    <span class="step-badge" lang="fr">Étape 04 / Intégration</span>
-                    <h3 lang="en">Angular Library Rollout</h3>
-                    <h3 lang="fr">Déploiement de la bibliothèque Angular</h3>
-                    <p lang="en">
-                      Co-led a Scrum setup with front-end engineers and tech leads to build the foundation of an Angular
-                      library in an 8-week sprint. Development is now decentralized across feature teams under design
-                      oversight.
-                    </p>
-                    <p lang="fr">
-                      Co-pilotage d'une organisation Scrum avec les ingénieurs front-end et les tech leads pour
-                      construire les bases d'une bibliothèque Angular dans un sprint de 8 semaines. Le développement est
-                      désormais décentralisé dans les équipes produit sous supervision du design.
-                    </p>
-                  </div>
-                </div>
-
-                <!-- Full Width: Project Retrospective -->
-                <div class="case-section">
-                  <h3 lang="en">Retrospective Analysis</h3>
-                  <h3 lang="fr">Analyse rétrospective</h3>
-                  <p lang="en">Reflecting on the rollout of the Origami Design System over its lifecycle.</p>
-                  <p lang="fr">Retour sur le déploiement du Design System Origami tout au long de son cycle de vie.</p>
-                  <div class="retro-grid">
-                    <div class="retro-box">
-                      <h4 lang="en">What worked well</h4>
-                      <h4 lang="fr">Ce qui a fonctionné</h4>
-                      <ul lang="en">
-                        <li>Starting with small, highly-reusable core tokens.</li>
-                        <li>Progressively adding complex layouts as teams matured.</li>
-                      </ul>
-                      <ul lang="fr">
-                        <li>Commencer avec de petits tokens de base hautement réutilisables.</li>
-                        <li>Ajouter progressivement des mises en page complexes à mesure que les équipes gagnaient en
-                          maturité.</li>
-                      </ul>
-                    </div>
-                    <div class="retro-box">
-                      <h4 lang="en">Areas of improvement</h4>
-                      <h4 lang="fr">Axes d'amélioration</h4>
-                      <ul lang="en">
-                        <li>Exchanging guidelines with brand guardians much earlier.</li>
-                        <li>Creating a more open contribution model for other teams.</li>
-                      </ul>
-                      <ul lang="fr">
-                        <li>Partager les directives avec les gardiens de la marque beaucoup plus tôt.</li>
-                        <li>Créer un modèle de contribution plus ouvert pour les autres équipes.</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Bottom collapse button for Origami -->
-                <div class="case-bottom-collapse">
-                  <button class="btn btn-secondary btn-small btn-toggle-case btn-toggle-case--bottom" type="button"
-                    aria-controls="case-content-origami">
-                    <span lang="en">Collapse Case Study</span>
-                    <span lang="fr">Replier l'étude de cas</span>
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
+              </a>
             </div>
           </article>
         </div>
@@ -967,7 +837,181 @@
       </div>
     </div>
 
-</main>
+    <!-- Dedicated Case Study 02: Origami View -->
+    <div id="project-view-origami" class="case-study-view" hidden>
+      <!-- Top Navigation Bar -->
+      <div class="case-study-topbar">
+        <div class="container case-study-topbar-inner">
+          <a href="#work" class="btn btn-secondary btn-small case-back-link" data-route-back>
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
+              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            <span lang="en">Back to projects</span>
+            <span lang="fr">Retour aux projets</span>
+          </a>
+          <div class="case-topbar-badge">
+            <span class="badge-dot"></span>
+            <span lang="en">Case Study 02</span>
+            <span lang="fr">Étude de cas 02</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="case-header">
+          <div class="case-brand-row">
+            <img src="assets/ag2r_logo.png" alt="AG2R La Mondiale Logo" class="case-logo logo-ag2r">
+            <span class="case-duration">2019 — 2022</span>
+          </div>
+          <span class="case-tag" lang="en">02 — Design Ops & Tooling</span>
+          <span class="case-tag" lang="fr">02 — Outillage & culture design</span>
+          <h2 lang="en">Origami — Scaling the Design System</h2>
+          <h2 lang="fr">Origami — Industrialisation du design system</h2>
+          <div class="case-meta-grid">
+            <div class="case-meta-item">
+              <h4 lang="en">Role</h4>
+              <h4 lang="fr">Rôle</h4>
+              <p lang="en">Design System Lead / Co-Product Owner</p>
+              <p lang="fr">Lead Design System / Co-Product Owner</p>
+            </div>
+            <div class="case-meta-item">
+              <h4 lang="en">Organization</h4>
+              <h4 lang="fr">Organisation</h4>
+              <p lang="en">AG2R LA MONDIALE (15M+ Clients)</p>
+              <p lang="fr">AG2R LA MONDIALE (15M+ de clients)</p>
+            </div>
+          </div>
+          <p class="case-teaser-pitch plain-language" lang="en"><em>In simpler terms: a shared UI and technical baseline between design and engineering to align the group’s web portals serving millions of policyholders.</em></p>
+          <p class="case-teaser-pitch plain-language" lang="fr"><em>En termes simples : un socle UI et technique mutualisé entre design et code pour harmoniser les espaces clients web du groupe au service de millions d'assuré·es.</em></p>
+        </div>
+
+        <div class="case-study-content" style="margin-top: 3rem;">
+          <!-- 2 Columns: 4 Rollout Steps -->
+                <div class="case-split-grid">
+                  <!-- Step 01 -->
+                  <div class="case-section">
+                    <span class="step-badge" lang="en">Step 01 / Lobbying</span>
+                    <span class="step-badge" lang="fr">Étape 01 / Lobbying</span>
+                    <h3 lang="en">Convincing Stakeholders</h3>
+                    <h3 lang="fr">Convaincre les parties prenantes</h3>
+                    <p lang="en">
+                      Being the first to introduce a design system to the organization, I researched and compiled case
+                      studies demonstrating development cost savings (ROI) alongside the benefits of visual consistency.
+                      This lobbying was vital to secure initial funding and engineering resources.
+                    </p>
+                    <p lang="fr">
+                      Étant le premier à introduire un design system dans l'organisation, j'ai recherché et compilé des
+                      études de cas démontrant les économies de coûts de développement (ROI) ainsi que les avantages de
+                      la cohérence visuelle. Ce lobbying a été vital pour obtenir le financement initial et les
+                      ressources d'ingénierie.
+                    </p>
+                  </div>
+
+                  <!-- Step 02 -->
+                  <div class="case-section">
+                    <span class="step-badge" lang="en">Step 02 / Figma UI Kit</span>
+                    <span class="step-badge" lang="fr">Étape 02 / Kit UI Figma</span>
+                    <h3 lang="en">Component Architecture</h3>
+                    <h3 lang="fr">Architecture des composants</h3>
+                    <p lang="en">
+                      Simultaneously, I initiated a Figma UI Kit that scaled over years, adapting to evolving brand
+                      guidelines. It grew into a library of over 50 responsive components with diverse interactive
+                      states, ensuring seamless design handoffs.
+                    </p>
+                    <p lang="fr">
+                      Simultanément, j'ai initié un kit UI Figma qui a évolué au fil des ans, s'adaptant aux directives
+                      de marque. Il s'est développé pour devenir une bibliothèque de plus de 50 composants réactifs avec
+                      divers états interactifs, garantissant des handoffs fluides.
+                    </p>
+                  </div>
+
+                  <!-- Step 03 -->
+                  <div class="case-section">
+                    <span class="step-badge" lang="en">Step 03 / Documentation</span>
+                    <span class="step-badge" lang="fr">Étape 03 / Documentation</span>
+                    <h3 lang="en">Single Source of Truth</h3>
+                    <h3 lang="fr">Source unique de vérité</h3>
+                    <p lang="en">
+                      We established comprehensive documentation in Zeroheight. This optimized designer onboarding,
+                      unified brand standards, and reduced repetitive communication cycles with developer teams
+                      regarding element usage and micro-interactions.
+                    </p>
+                    <p lang="fr">
+                      Nous avons établi une documentation complète dans Zeroheight. Cela a optimisé l'onboarding des
+                      designers, unifié les standards de marque et réduit les cycles de communication répétitifs avec
+                      les équipes de développement concernant l'utilisation des éléments et les micro-interactions.
+                    </p>
+                  </div>
+
+                  <!-- Step 04 -->
+                  <div class="case-section">
+                    <span class="step-badge" lang="en">Step 04 / Implementation</span>
+                    <span class="step-badge" lang="fr">Étape 04 / Intégration</span>
+                    <h3 lang="en">Angular Library Rollout</h3>
+                    <h3 lang="fr">Déploiement de la bibliothèque Angular</h3>
+                    <p lang="en">
+                      Co-led a Scrum setup with front-end engineers and tech leads to build the foundation of an Angular
+                      library in an 8-week sprint. Development is now decentralized across feature teams under design
+                      oversight.
+                    </p>
+                    <p lang="fr">
+                      Co-pilotage d'une organisation Scrum avec les ingénieurs front-end et les tech leads pour
+                      construire les bases d'une bibliothèque Angular dans un sprint de 8 semaines. Le développement est
+                      désormais décentralisé dans les équipes produit sous supervision du design.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Full Width: Project Retrospective -->
+                <div class="case-section">
+                  <h3 lang="en">Retrospective Analysis</h3>
+                  <h3 lang="fr">Analyse rétrospective</h3>
+                  <p lang="en">Reflecting on the rollout of the Origami Design System over its lifecycle.</p>
+                  <p lang="fr">Retour sur le déploiement du Design System Origami tout au long de son cycle de vie.</p>
+                  <div class="retro-grid">
+                    <div class="retro-box">
+                      <h4 lang="en">What worked well</h4>
+                      <h4 lang="fr">Ce qui a fonctionné</h4>
+                      <ul lang="en">
+                        <li>Starting with small, highly-reusable core tokens.</li>
+                        <li>Progressively adding complex layouts as teams matured.</li>
+                      </ul>
+                      <ul lang="fr">
+                        <li>Commencer avec de petits tokens de base hautement réutilisables.</li>
+                        <li>Ajouter progressivement des mises en page complexes à mesure que les équipes gagnaient en
+                          maturité.</li>
+                      </ul>
+                    </div>
+                    <div class="retro-box">
+                      <h4 lang="en">Areas of improvement</h4>
+                      <h4 lang="fr">Axes d'amélioration</h4>
+                      <ul lang="en">
+                        <li>Exchanging guidelines with brand guardians much earlier.</li>
+                        <li>Creating a more open contribution model for other teams.</li>
+                      </ul>
+                      <ul lang="fr">
+                        <li>Partager les directives avec les gardiens de la marque beaucoup plus tôt.</li>
+                        <li>Créer un modèle de contribution plus ouvert pour les autres équipes.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+        </div>
+
+        <!-- Bottom Navigation Bar -->
+        <div class="case-bottom-nav">
+          <a href="#work" class="btn btn-secondary btn-small case-back-link" data-route-back>
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
+              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            <span lang="en">Back to projects</span>
+            <span lang="fr">Retour aux projets</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
