@@ -1033,15 +1033,83 @@ ul {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.panel-desc-img:hover {
+/* .panel-desc-img:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
-}
+} */
 
 @media (max-width: 600px) {
   .panel-desc-images {
     justify-content: center;
   }
+}
+
+/* Antibiogo Handoff & Technical Alignment */
+.case-handoff-section {
+  margin-top: 1rem;
+}
+
+.handoff-card {
+  background-color: var(--bg-alt);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.handoff-overview {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--border-color);
+  background-color: var(--color-white);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  -webkit-overflow-scrolling: touch;
+}
+
+.handoff-img-global {
+  display: block;
+  width: 100%;
+  min-width: 680px;
+  height: auto;
+  object-fit: contain;
+}
+
+.handoff-detail-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.handoff-img-detail {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  background-color: var(--color-white);
+  display: block;
+}
+
+.handoff-caption {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+  font-size: var(--font-size-sm);
+  color: var(--muted-color);
+  line-height: 1.6;
+}
+
+.handoff-caption p {
+  margin: 0;
+}
+
+.handoff-caption strong {
+  color: var(--fg-color);
 }
 
 .step-badge {
