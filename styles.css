@@ -83,45 +83,45 @@
   --scrollbar-thumb: hsl(240, 5.9%, 80%);
   --scrollbar-track: hsl(30, 20%, 98%);
 
-  color-scheme: light;
+  color-scheme: light dark;
 }
 
-/* Dark Theme Overrides */
-html[data-theme="dark"] {
-  --bg-color-h: 240;
-  --bg-color-s: 10%;
-  --bg-color-l: 3.9%;
-  /* #09090b */
-  --bg-color: hsl(var(--bg-color-h), var(--bg-color-s), var(--bg-color-l));
+/* Dark Theme Overrides (System Preference) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color-h: 240;
+    --bg-color-s: 10%;
+    --bg-color-l: 3.9%;
+    /* #09090b */
+    --bg-color: hsl(var(--bg-color-h), var(--bg-color-s), var(--bg-color-l));
 
-  --fg-color-h: 0;
-  --fg-color-s: 0%;
-  --fg-color-l: 98%;
-  /* #f8f8f8 */
-  --fg-color: hsl(var(--fg-color-h), var(--fg-color-s), var(--fg-color-l));
+    --fg-color-h: 0;
+    --fg-color-s: 0%;
+    --fg-color-l: 98%;
+    /* #f8f8f8 */
+    --fg-color: hsl(var(--fg-color-h), var(--fg-color-s), var(--fg-color-l));
 
-  --muted-color: hsl(240, 5%, 65%);
-  --subtle-color: hsl(240, 5%, 30%);
-  --border-color: hsl(240, 5.9%, 15%);
-  --card-bg: hsl(240, 10%, 6%);
-  --hover-bg: hsl(240, 5.9%, 10%);
-  --bg-alt: hsl(240, 10%, 6%);
-  /* Subtle alternate section background */
+    --muted-color: hsl(240, 5%, 65%);
+    --subtle-color: hsl(240, 5%, 30%);
+    --border-color: hsl(240, 5.9%, 15%);
+    --card-bg: hsl(240, 10%, 6%);
+    --hover-bg: hsl(240, 5.9%, 10%);
+    --bg-alt: hsl(240, 10%, 6%);
+    /* Subtle alternate section background */
 
-  --accent-primary-l: 48%;
-  /* Cobalt Blue */
-  --accent-primary: hsl(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l));
-  --accent-primary-muted: hsla(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l), 0.15);
+    --accent-primary-l: 48%;
+    /* Cobalt Blue */
+    --accent-primary: hsl(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l));
+    --accent-primary-muted: hsla(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l), 0.15);
 
-  --accent-secondary-l: 50%;
-  /* Warm Amber */
-  --accent-secondary: hsl(var(--accent-secondary-h), var(--accent-secondary-s), var(--accent-secondary-l));
-  --accent-secondary-muted: hsla(var(--accent-secondary-h), var(--accent-secondary-s), var(--accent-secondary-l), 0.15);
+    --accent-secondary-l: 50%;
+    /* Warm Amber */
+    --accent-secondary: hsl(var(--accent-secondary-h), var(--accent-secondary-s), var(--accent-secondary-l));
+    --accent-secondary-muted: hsla(var(--accent-secondary-h), var(--accent-secondary-s), var(--accent-secondary-l), 0.15);
 
-  --scrollbar-thumb: hsl(240, 5.9%, 20%);
-  --scrollbar-track: hsl(240, 10%, 3.9%);
-
-  color-scheme: dark;
+    --scrollbar-thumb: hsl(240, 5.9%, 20%);
+    --scrollbar-track: hsl(240, 10%, 3.9%);
+  }
 }
 
 /* Base Styles */
@@ -330,47 +330,6 @@ ul {
   transform-origin: left;
 }
 
-/* Theme Toggle Button */
-.theme-toggle {
-  background: none;
-  border: 1px solid var(--border-color);
-  color: var(--fg-color);
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--border-radius-pill);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition-smooth);
-}
-
-.theme-toggle:hover {
-  background-color: var(--hover-bg);
-  border-color: var(--accent-primary);
-  color: var(--accent-primary);
-}
-
-/* Active Dark Mode toggle state styling */
-html[data-theme="dark"] .theme-toggle {
-  background-color: var(--accent-primary);
-  border-color: var(--accent-primary);
-  color: #ffffff;
-  /* White icon on blue background */
-  box-shadow: 0 0 12px hsla(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l), 0.4);
-}
-
-html[data-theme="dark"] .theme-toggle:hover {
-  background-color: hsl(var(--accent-primary-h), var(--accent-primary-s), calc(var(--accent-primary-l) + 8%));
-  border-color: hsl(var(--accent-primary-h), var(--accent-primary-s), calc(var(--accent-primary-l) + 8%));
-}
-
-.theme-toggle svg {
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
 
 /* Hero Section */
 .hero {
@@ -637,8 +596,10 @@ html[data-theme="dark"] .theme-toggle:hover {
 }
 
 /* Dark Theme overrides - unified monochromatic silhouettes */
-html[data-theme="dark"] .case-logo {
-  filter: brightness(0) invert(1);
+@media (prefers-color-scheme: dark) {
+  .case-logo {
+    filter: brightness(0) invert(1);
+  }
 }
 
 .case-duration {
@@ -1378,7 +1339,7 @@ html[lang="fr"] [lang="en"] {
   transform: translateY(0);
 }
 
-/* Navigation Actions Group (lang switch, theme toggle, hamburger) */
+/* Navigation Actions Group (lang switch, hamburger) */
 .nav-actions {
   display: flex;
   align-items: center;

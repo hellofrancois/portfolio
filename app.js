@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize all interactive modules
-  initThemeToggle();
   initLangToggle();
   initActiveNavLinkOnScroll();
   initScrollReveals();
@@ -10,26 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initHamburgerMenu();
   initResumeDownloadLinks();
 });
-
-/**
- * Theme Toggle Functionality
- * Persists user preference in localStorage and handles OS settings changes
- */
-function initThemeToggle() {
-  const toggleBtn = document.getElementById("theme-toggle-btn");
-  const htmlEl = document.documentElement;
-
-  if (!toggleBtn) return;
-
-  // Toggle theme on button click
-  toggleBtn.addEventListener("click", () => {
-    const currentTheme = htmlEl.getAttribute("data-theme") || "light";
-    const newTheme = currentTheme === "light" ? "dark" : "light";
-
-    htmlEl.setAttribute("data-theme", newTheme);
-    localStorage.setItem("color-scheme", newTheme);
-  });
-}
 
 /**
  * Language Toggle Functionality
