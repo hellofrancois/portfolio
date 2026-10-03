@@ -249,7 +249,7 @@ function initAstWorkflow() {
           const img = document.createElement("img");
           img.src = imgData.src;
           img.alt = (imgData.alt && imgData.alt[lang]) ? imgData.alt[lang] : "";
-          img.className = "panel-desc-img";
+          img.className = "case-img case-img--phone";
           img.loading = "lazy";
           stepImages.appendChild(img);
         });

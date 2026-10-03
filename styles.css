@@ -465,11 +465,15 @@ ul {
   margin-top: 3rem;
 }
 
-.approach-card {
+.approach-card,
+.case-study-card {
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-md);
   padding: 2.5rem;
+}
+
+.approach-card {
   position: relative;
   overflow: hidden;
 }
@@ -515,13 +519,6 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-}
-
-.case-study-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-md);
-  padding: 2.5rem;
 }
 
 .case-teaser-pitch {
@@ -736,25 +733,41 @@ ul {
   color: var(--accent-primary);
 }
 
-.highlight-box {
+/* Universal Callout Boxes (Key Notes, Challenges, Impacts & Retrospectives) */
+.callout-box,
+.highlight-box,
+.retro-box {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 0.25rem 0 0.25rem 1.25rem;
+  padding: 0.35rem 0 0.35rem 1.25rem;
   margin: 1.5rem 0;
-  border-left: 3px solid var(--box-accent);
-  --box-accent: var(--accent-primary);
+  border-left: 3px solid var(--callout-accent, var(--accent-primary));
+  --callout-accent: var(--accent-primary);
 }
 
-.highlight-box.challenge {
-  --box-accent: var(--accent-secondary);
+/* Modificateurs sémantiques */
+.callout-box.challenge,
+.highlight-box.challenge,
+.callout-box.improve,
+.retro-box.improve {
+  --callout-accent: var(--accent-secondary);
 }
 
+.callout-box.impact,
 .highlight-box.impact {
-  --box-accent: var(--accent-primary);
+  --callout-accent: var(--accent-primary);
 }
 
-.highlight-box h4 {
+.callout-box.redo,
+.retro-box.redo,
+.callout-box.success {
+  --callout-accent: var(--color-success);
+}
+
+.callout-box h4,
+.highlight-box h4,
+.retro-box h4 {
   font-size: var(--font-size-sm);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -762,14 +775,40 @@ ul {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--box-accent);
+  color: var(--callout-accent);
   margin-bottom: 0.25rem;
 }
 
-.highlight-box p {
+.callout-box p,
+.highlight-box p,
+.retro-box p {
   margin-bottom: 0;
   font-size: var(--font-size-sm);
   line-height: 1.6;
+}
+
+.callout-box ul,
+.retro-box ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.callout-box li,
+.retro-box li {
+  font-size: var(--font-size-sm);
+  color: var(--muted-color);
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.callout-box li::before,
+.retro-box li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--callout-accent);
 }
 
 /* Interactive UX Decision Matrix Panel */
@@ -989,66 +1028,12 @@ ul {
   font-size: var(--font-size-sm);
 }
 
-.panel-desc-box {
-  background-color: var(--hover-bg);
-  border-radius: var(--border-radius-sm);
-  padding: 1rem;
-  color: var(--muted-color);
-  border-left: 4px solid var(--accent-primary);
-}
+/* ==========================================================================
+   CASE STUDY COMPONENTS: REUSABLE SUB-CARDS, MEDIA & IMAGES
+   ========================================================================== */
 
-.panel-desc-box strong {
-  color: var(--fg-color);
-  display: block;
-  margin-bottom: 0.25rem;
-}
-
-.panel-desc-box #step-text {
-  display: block;
-  line-height: 1.5;
-}
-
-.panel-desc-images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  margin-top: 1rem;
-  align-items: flex-start;
-}
-
-.panel-desc-images:empty {
-  display: none;
-  margin: 0;
-}
-
-.panel-desc-img {
-  max-width: 240px;
-  width: 100%;
-  height: auto;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-sm);
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
-  background-color: var(--color-white);
-  display: block;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* .panel-desc-img:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
-} */
-
-@media (max-width: 600px) {
-  .panel-desc-images {
-    justify-content: center;
-  }
-}
-
-/* Antibiogo Handoff & Technical Alignment */
-.case-handoff-section {
-  margin-top: 1rem;
-}
-
+/* 1. Universal Case Study Sub-cards (Panels & Enclosures) */
+.case-card,
 .handoff-card {
   background-color: var(--bg-alt);
   border: 1px solid var(--border-color);
@@ -1057,9 +1042,109 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  margin-top: 0.5rem;
 }
 
+.case-card--accent,
+.panel-desc-box {
+  background-color: var(--hover-bg);
+  border-radius: var(--border-radius-sm);
+  padding: 1rem;
+  color: var(--muted-color);
+  border-left: 4px solid var(--accent-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.case-card--accent strong,
+.panel-desc-box strong {
+  color: var(--fg-color);
+  display: block;
+}
+
+.case-card--accent #step-text,
+.panel-desc-box #step-text {
+  display: block;
+  line-height: 1.5;
+}
+
+/* Sub-card caption / legend */
+.case-card-caption,
+.handoff-caption {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+  font-size: var(--font-size-sm);
+  color: var(--muted-color);
+  line-height: 1.6;
+}
+
+.case-card-caption p,
+.handoff-caption p {
+  margin: 0;
+}
+
+.case-card-caption strong,
+.handoff-caption strong {
+  color: var(--fg-color);
+}
+
+/* 2. Universal Case Study Images */
+.case-img,
+.panel-desc-img,
+.handoff-img-detail {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  background-color: var(--color-white);
+}
+
+/* Size modifiers */
+.case-img--phone,
+.panel-desc-img {
+  max-width: 240px;
+}
+
+.case-img--detail,
+.handoff-img-detail {
+  max-width: 420px;
+}
+
+/* 3. Media Layout Containers */
+.case-media-center,
+.handoff-detail-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.case-media-row,
+.panel-desc-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 1rem;
+  align-items: flex-start;
+}
+
+.case-media-row:empty,
+.panel-desc-images:empty {
+  display: none;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .case-media-row,
+  .panel-desc-images {
+    justify-content: center;
+  }
+}
+
+/* Horizontal scrollable frame for wide panoramic flows & diagrams */
+.case-media-scroll,
 .handoff-overview {
   width: 100%;
   overflow-x: auto;
@@ -1070,7 +1155,8 @@ ul {
   -webkit-overflow-scrolling: touch;
 }
 
-.handoff-img-global {
+.case-media-scroll img,
+.handoff-overview img {
   display: block;
   width: 100%;
   min-width: 680px;
@@ -1078,40 +1164,7 @@ ul {
   object-fit: contain;
 }
 
-.handoff-detail-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.handoff-img-detail {
-  max-width: 420px;
-  width: 100%;
-  height: auto;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-sm);
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
-  background-color: var(--color-white);
-  display: block;
-}
-
-.handoff-caption {
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--border-color);
-  font-size: var(--font-size-sm);
-  color: var(--muted-color);
-  line-height: 1.6;
-}
-
-.handoff-caption p {
-  margin: 0;
-}
-
-.handoff-caption strong {
-  color: var(--fg-color);
-}
-
+/* Step badges & Retrospective Grids */
 .step-badge {
   font-family: var(--font-heading);
   font-size: var(--font-size-xs);
@@ -1123,7 +1176,6 @@ ul {
   margin-bottom: 0.35rem;
 }
 
-/* Retrospectives */
 .retro-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1135,49 +1187,6 @@ ul {
   .retro-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-
-.retro-box {
-  padding: 0.5rem 0 0.5rem 1.25rem;
-  border-left: 3px solid var(--retro-accent);
-  --retro-accent: var(--accent-primary);
-}
-
-.retro-box.redo {
-  --retro-accent: var(--color-success);
-}
-
-.retro-box.improve {
-  --retro-accent: var(--accent-secondary);
-}
-
-.retro-box h4 {
-  font-size: var(--font-size-sm);
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 700;
-  color: var(--retro-accent);
-}
-
-.retro-box ul {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.retro-box li {
-  font-size: var(--font-size-sm);
-  color: var(--muted-color);
-  position: relative;
-  padding-left: 1.25rem;
-}
-
-.retro-box li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: var(--retro-accent);
 }
 
 /* Experience Timeline */
