@@ -9,40 +9,38 @@
   --font-heading: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  /* Theme Tokens - Default Light Mode (HSL) */
-  --bg-color-h: 30;
-  --bg-color-s: 20%;
-  --bg-color-l: 98%;
-  /* Warm Off-white #faf9f6 */
-  --bg-color: hsl(var(--bg-color-h), var(--bg-color-s), var(--bg-color-l));
+  /* Theme Tokens - Default Light Mode (Cold Slate & Action Blue) */
+  --bg-color: #ffffff;
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --fg-color: #0f172a;
+  /* Gris foncé froid (#0F172A) pour textes et titres */
 
-  --fg-color-h: 240;
-  --fg-color-s: 10%;
-  --fg-color-l: 3.9%;
-  --fg-color: hsl(var(--fg-color-h), var(--fg-color-s), var(--fg-color-l));
+  --muted-color: #475569;
+  /* Slate 600 pour les textes secondaires */
+  --subtle-color: #94a3b8;
+  /* Slate 400 */
+  --border-color: #e2e8f0;
+  /* Slate 200 */
+  --card-bg: #f1f5f9;
+  /* Gris-bleu très pâle (#F1F5F9) pour cartes et citations */
+  --hover-bg: #e2e8f0;
+  /* Slate 200 */
+  --bg-alt: #f8fafc;
+  /* Slate 50 */
 
-  --muted-color: hsl(240, 5%, 35%);
-  --subtle-color: hsl(240, 5%, 80%);
-  --border-color: hsl(240, 5.9%, 90%);
-  --card-bg: hsl(30, 10%, 94%);
-  --hover-bg: hsl(30, 10%, 91%);
-  --bg-alt: hsl(30, 10%, 94%);
-  /* Subtle alternate section background */
-
-  /* Accent Colors (Easy to edit/customize) */
+  /* Accent Colors */
   --accent-primary-h: 224;
   --accent-primary-s: 76%;
   --accent-primary-l: 55%;
-  /* Slightly darker cobalt for light theme contrast */
+  /* Bleu principal : réservé à l'action (boutons, liens, tags actifs) */
   --accent-primary: hsl(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l));
   --accent-primary-muted: hsla(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l), 0.1);
 
-  --accent-secondary-h: 38;
-  --accent-secondary-s: 92%;
-  --accent-secondary-l: 45%;
-  /* Slightly darker amber for light theme contrast */
-  --accent-secondary: hsl(var(--accent-secondary-h), var(--accent-secondary-s), var(--accent-secondary-l));
-  --accent-secondary-muted: hsla(var(--accent-secondary-h), var(--accent-secondary-s), var(--accent-secondary-l), 0.1);
+  --accent-secondary-h: 215;
+  --accent-secondary-s: 25%;
+  --accent-secondary-l: 27%;
+  --accent-secondary: #0f172a;
+  --accent-secondary-muted: rgba(15, 23, 42, 0.08);
 
   /* Semantic Status & Neutral Colors */
   --color-success: #10b981;
@@ -80,49 +78,38 @@
   --transition-snappy: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Scrollbars & selection */
-  --scrollbar-thumb: hsl(240, 5.9%, 80%);
-  --scrollbar-track: hsl(30, 20%, 98%);
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-track: #f1f5f9;
 
-  color-scheme: light dark;
+  color-scheme: light;
 }
 
-/* Dark Theme Overrides (System Preference) */
+/* Dark Theme Overrides (System Preference) - Temporairement désactivé
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color-h: 240;
-    --bg-color-s: 10%;
-    --bg-color-l: 3.9%;
-    /* #09090b */
-    --bg-color: hsl(var(--bg-color-h), var(--bg-color-s), var(--bg-color-l));
+    --bg-color: #09090b;
+    --header-bg: rgba(9, 9, 11, 0.85);
+    --fg-color: #f8fafc;
 
-    --fg-color-h: 0;
-    --fg-color-s: 0%;
-    --fg-color-l: 98%;
-    /* #f8f8f8 */
-    --fg-color: hsl(var(--fg-color-h), var(--fg-color-s), var(--fg-color-l));
+    --muted-color: #94a3b8;
+    --subtle-color: #475569;
+    --border-color: #1e293b;
+    --card-bg: #0f172a;
+    --hover-bg: #1e293b;
+    --bg-alt: #0f172a;
 
-    --muted-color: hsl(240, 5%, 65%);
-    --subtle-color: hsl(240, 5%, 30%);
-    --border-color: hsl(240, 5.9%, 15%);
-    --card-bg: hsl(240, 10%, 6%);
-    --hover-bg: hsl(240, 5.9%, 10%);
-    --bg-alt: hsl(240, 10%, 6%);
-    /* Subtle alternate section background */
-
-    --accent-primary-l: 48%;
-    /* Cobalt Blue */
+    --accent-primary-l: 55%;
     --accent-primary: hsl(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l));
     --accent-primary-muted: hsla(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l), 0.15);
 
-    --accent-secondary-l: 50%;
-    /* Warm Amber */
-    --accent-secondary: hsl(var(--accent-secondary-h), var(--accent-secondary-s), var(--accent-secondary-l));
-    --accent-secondary-muted: hsla(var(--accent-secondary-h), var(--accent-secondary-s), var(--accent-secondary-l), 0.15);
+    --accent-secondary: #f8fafc;
+    --accent-secondary-muted: rgba(248, 250, 252, 0.15);
 
-    --scrollbar-thumb: hsl(240, 5.9%, 20%);
-    --scrollbar-track: hsl(240, 10%, 3.9%);
+    --scrollbar-thumb: #334155;
+    --scrollbar-track: #09090b;
   }
 }
+*/
 
 /* Base Styles */
 *,
@@ -197,6 +184,7 @@ h4 {
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
+  color: var(--fg-color);
 }
 
 h1 {
@@ -219,6 +207,17 @@ p {
   font-weight: 400;
   max-width: 65ch;
   margin-bottom: 1.5rem;
+}
+
+blockquote,
+.quote-block {
+  background-color: var(--card-bg);
+  border-left: 3px solid var(--accent-primary);
+  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--fg-color);
 }
 
 a {
@@ -262,7 +261,7 @@ ul {
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--border-color);
-  background-color: hsla(var(--bg-color-h), var(--bg-color-s), var(--bg-color-l), 0.7);
+  background-color: var(--header-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -392,7 +391,7 @@ ul {
 
 .hero h1 span.accent-text,
 .hero h1 span.gradient-text {
-  color: var(--accent-secondary);
+  color: inherit;
 }
 
 .hero-description {
@@ -413,11 +412,21 @@ ul {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  font-family: inherit;
   font-size: 0.95rem;
   font-weight: 600;
   padding: 0.8rem 1.8rem;
   border-radius: var(--border-radius-pill);
+  cursor: pointer;
   transition: var(--transition-smooth);
+}
+
+/* Button Size Modifiers */
+.btn-small,
+.btn.small {
+  font-size: var(--font-size-sm);
+  padding: 0.45rem 1.15rem;
+  gap: 0.4rem;
 }
 
 .btn-primary {
@@ -433,15 +442,16 @@ ul {
 }
 
 .btn-secondary {
-  border: 1px solid var(--border-color);
-  color: var(--fg-color);
+  border: 1.5px solid var(--accent-primary);
+  color: var(--accent-primary);
   background-color: transparent;
 }
 
 .btn-secondary:hover {
   border-color: var(--accent-primary);
-  background-color: var(--accent-primary-muted);
-  color: var(--fg-color);
+  background-color: var(--accent-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px hsla(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l), 0.15);
 }
 
 /* approach Section */
@@ -466,7 +476,7 @@ ul {
   font-size: 2.25rem;
   font-weight: 800;
   line-height: 1;
-  color: var(--accent-primary);
+  color: var(--subtle-color);
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -478,7 +488,7 @@ ul {
   display: block;
   width: 40px;
   height: 2px;
-  background-color: var(--accent-primary-muted);
+  background-color: var(--border-color);
 }
 
 .approach-card h3 {
@@ -594,12 +604,13 @@ ul {
   height: 20px;
 }
 
-/* Dark Theme overrides - unified monochromatic silhouettes */
+/* Dark Theme overrides - unified monochromatic silhouettes - Temporairement désactivé
 @media (prefers-color-scheme: dark) {
   .case-logo {
     filter: brightness(0) invert(1);
   }
 }
+*/
 
 .case-duration {
   font-family: var(--font-body);
@@ -1158,43 +1169,11 @@ ul {
   left: -2rem;
 }
 
-/* Shared Subtle Pill Button Primitive */
-.btn-toggle-older,
-.btn-toggle-case,
-.social-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-body);
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  border-radius: var(--border-radius-pill);
-  cursor: pointer;
-  transition: var(--transition-smooth);
-  background-color: var(--accent-primary-muted);
-  border: 1px solid var(--accent-primary-muted);
-  color: var(--accent-primary);
-}
-
-.btn-toggle-older:hover,
-.btn-toggle-case:hover,
-.social-link:hover {
-  border-color: var(--accent-primary);
-  background-color: var(--accent-primary);
-  color: var(--color-white);
-  box-shadow: 0 4px 12px hsla(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l), 0.15);
-}
-
-.btn-toggle-older {
-  padding: 0.4rem 1rem;
+#toggle-older-btn {
   margin-top: 1rem;
 }
 
-.btn-toggle-case {
-  padding: 0.45rem 1.1rem;
-}
-
-.btn-toggle-older svg,
+#toggle-older-btn svg,
 .btn-toggle-case svg {
   width: 10px;
   height: 10px;
@@ -1202,7 +1181,8 @@ ul {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.btn-toggle-older.expanded svg,
+#toggle-older-btn.expanded svg,
+#toggle-older-btn[aria-expanded="true"] svg,
 .btn-toggle-case[aria-expanded="true"] svg {
   transform: rotate(180deg);
 }
@@ -1297,12 +1277,9 @@ html[lang="fr"] [lang="en"] {
 
 .social-links {
   display: flex;
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.social-link {
-  padding: 0.6rem 1.4rem;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .social-icon {
@@ -1505,7 +1482,7 @@ html[lang="fr"] [lang="en"] {
     gap: 0.75rem;
   }
 
-  .social-link {
+  .social-links .btn {
     justify-content: center;
   }
 
