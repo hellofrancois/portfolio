@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initActiveNavLinkOnScroll();
   initScrollReveals();
   AppRouter.init();
-  initCaseStudyExpanders();
   initAstWorkflow();
   initOlderTimelineToggle();
   initHamburgerMenu();
@@ -356,44 +355,7 @@ function initResumeDownloadLinks() {
   });
 }
 
-/**
- * Expandable Case Study Cards
- * Handles independent progressive disclosure for featured project cards
- */
-function initCaseStudyExpanders() {
-  const cards = document.querySelectorAll('.case-study-card');
-  if (cards.length === 0) return;
 
-  cards.forEach((card) => {
-    const mainToggleBtn = card.querySelector('.case-toggle-bar .btn-toggle-case');
-    const collapsible = card.querySelector('.case-study-collapsible');
-    const bottomToggleBtn = card.querySelector('.case-bottom-collapse .btn-toggle-case');
-
-    if (!mainToggleBtn || !collapsible) return;
-
-    function setExpanded(expand) {
-      mainToggleBtn.setAttribute('aria-expanded', String(expand));
-      if (expand) {
-        collapsible.removeAttribute('hidden');
-      } else {
-        collapsible.setAttribute('hidden', '');
-      }
-    }
-
-    mainToggleBtn.addEventListener('click', () => {
-      const isCurrentlyExpanded = mainToggleBtn.getAttribute('aria-expanded') === 'true';
-      setExpanded(!isCurrentlyExpanded);
-    });
-
-    if (bottomToggleBtn) {
-      bottomToggleBtn.addEventListener('click', () => {
-        setExpanded(false);
-        // Smoothly scroll back to the card header with comfortable offset
-        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    }
-  });
-}
 
 /**
  * Lightweight Vanilla JS Hash Router

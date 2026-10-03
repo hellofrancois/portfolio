@@ -606,17 +606,6 @@ ul {
   border-top: 1px solid var(--border-color);
 }
 
-.case-study-collapsible {
-  margin-top: 2.5rem;
-  padding-top: 2.5rem;
-  border-top: 1px solid var(--border-color);
-  animation: fadeInCase 0.35s ease;
-}
-
-.case-study-collapsible[hidden] {
-  display: none !important;
-}
-
 @keyframes fadeInCase {
   from {
     opacity: 0;
@@ -627,14 +616,6 @@ ul {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.case-bottom-collapse {
-  margin-top: 3rem;
-  display: flex;
-  justify-content: center;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border-color);
 }
 
 .case-brand-row {
@@ -1351,20 +1332,7 @@ ul {
 }
 
 #toggle-older-btn.expanded svg,
-#toggle-older-btn[aria-expanded="true"] svg,
-.btn-toggle-case[aria-expanded="true"] svg {
-  transform: rotate(180deg);
-}
-
-.btn-toggle-case[aria-expanded="false"] .btn-label-collapse {
-  display: none !important;
-}
-
-.btn-toggle-case[aria-expanded="true"] .btn-label-expand {
-  display: none !important;
-}
-
-.btn-toggle-case--bottom svg {
+#toggle-older-btn[aria-expanded="true"] svg {
   transform: rotate(180deg);
 }
 
@@ -1595,11 +1563,6 @@ html[lang="fr"] [lang="en"] {
   .hero-cta .btn {
     text-align: center;
     justify-content: center;
-  }
-
-  .case-study-collapsible {
-    margin-top: 1.75rem;
-    padding-top: 1.75rem;
   }
 
   /* Case Study Meta — Single Column */
