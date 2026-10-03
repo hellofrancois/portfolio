@@ -1003,6 +1003,47 @@ ul {
   margin-bottom: 0.25rem;
 }
 
+.panel-desc-box #step-text {
+  display: block;
+  line-height: 1.5;
+}
+
+.panel-desc-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 1rem;
+  align-items: flex-start;
+}
+
+.panel-desc-images:empty {
+  display: none;
+  margin: 0;
+}
+
+.panel-desc-img {
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  background-color: var(--color-white);
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.panel-desc-img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
+}
+
+@media (max-width: 600px) {
+  .panel-desc-images {
+    justify-content: center;
+  }
+}
+
 .step-badge {
   font-family: var(--font-heading);
   font-size: var(--font-size-xs);

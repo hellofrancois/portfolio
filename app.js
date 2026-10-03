@@ -140,8 +140,47 @@ function initAstWorkflow() {
   const cells = document.querySelectorAll(".quadrant-cell");
   const stepTitle = document.getElementById("step-title");
   const stepText = document.getElementById("step-text");
+  const stepImages = document.getElementById("step-images");
 
   if (cells.length === 0 || !stepTitle || !stepText) return;
+
+  const quadrantImages = {
+    1: [
+      {
+        src: "assets/antibiogo/matrix 1 - synergy.jpg",
+        alt: {
+          en: "Antibiogo app interface showing rare phenotype synergy detection alert",
+          fr: "Interface Antibiogo affichant l'alerte de détection de synergie pour un phénotype rare"
+        }
+      }
+    ],
+    2: [
+      {
+        src: "assets/antibiogo/matrix 2a - antibiotic confirm.jpg",
+        alt: {
+          en: "Antibiogo app interface with antibiotic confirmation dialog",
+          fr: "Interface Antibiogo avec dialogue de confirmation de l'antibiotique"
+        }
+      },
+      {
+        src: "assets/antibiogo/matrix 2b - IZD confirm.jpg",
+        alt: {
+          en: "Antibiogo app interface confirming inhibition zone diameter",
+          fr: "Interface Antibiogo confirmant la mesure du diamètre de zone d'inhibition"
+        }
+      }
+    ],
+    3: [
+      {
+        src: "assets/antibiogo/matrix 3 - metadata.jpg",
+        alt: {
+          en: "Antibiogo app interface for patient and sample metadata input",
+          fr: "Interface Antibiogo pour la saisie des métadonnées du patient et de l'échantillon"
+        }
+      }
+    ],
+    4: []
+  };
 
   const quadrantData = {
     en: {
@@ -165,7 +204,7 @@ function initAstWorkflow() {
     fr: {
       1: {
         title: "Détection d'un phénotype rare",
-        text: "Risque critique & événement rare : déclenchement d'une alerte visuelle bloquante avec confirmation explicite requise et rappel pédagogique pour prévenir toute erreur de diagnostic vital."
+        text: "Risque critique & événement rare : déclenchement d'une alerte visuelle bloquante avec confirmation explicite requise et rappel pédagogique pour prévenir toute erreur critique de diagnostic face à une antibiorésistance majeure."
       },
       2: {
         title: "Validation des antibiotiques",
@@ -192,6 +231,24 @@ function initAstWorkflow() {
     if (quadrantData[lang] && quadrantData[lang][zoneIndex]) {
       stepTitle.textContent = quadrantData[lang][zoneIndex].title;
       stepText.textContent = quadrantData[lang][zoneIndex].text;
+    }
+
+    if (stepImages) {
+      stepImages.innerHTML = "";
+      const images = quadrantImages[zoneIndex] || [];
+      if (images.length > 0) {
+        stepImages.style.display = "flex";
+        images.forEach((imgData) => {
+          const img = document.createElement("img");
+          img.src = imgData.src;
+          img.alt = (imgData.alt && imgData.alt[lang]) ? imgData.alt[lang] : "";
+          img.className = "panel-desc-img";
+          img.loading = "lazy";
+          stepImages.appendChild(img);
+        });
+      } else {
+        stepImages.style.display = "none";
+      }
     }
   }
 
