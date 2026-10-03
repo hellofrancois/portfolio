@@ -152,6 +152,13 @@ function initAstWorkflow() {
           en: "Antibiogo app interface showing rare phenotype synergy detection alert",
           fr: "Interface Antibiogo affichant l'alerte de détection de synergie pour un phénotype rare"
         }
+      },
+      {
+        src: "assets/antibiogo/matrix 1b.jpg",
+        alt: {
+          en: "Antibiogo app interface showing rare phenotype synergy detection alert",
+          fr: "Interface Antibiogo affichant l'alerte de détection de synergie pour un phénotype rare"
+        }
       }
     ],
     2: [
@@ -194,11 +201,11 @@ function initAstWorkflow() {
       },
       3: {
         title: "Patient & Sample Metadata",
-        text: "Low clinical risk & punctual entry: Flexible, non-blocking input for optional fields (Sample ID, Date & Time of collection, Ward, Age, Sex), ensuring routine workflow is never stalled during emergencies."
+        text: "Flexible, non-blocking input for optional fields (age, ward, sample ID), streamlining the workflow by eliminating unnecessary administrative friction."
       },
       4: {
         title: "Quality Control (QC)",
-        text: "Low clinical risk & frequent routine (daily/weekly): Streamlined interaction steps on repetitive calibration tasks to prevent cognitive fatigue while preserving mandatory regulatory traceability."
+        text: "Streamlined interaction steps on repetitive validation tasks to prevent cognitive fatigue while preserving mandatory regulatory traceability."
       }
     },
     fr: {
@@ -212,11 +219,11 @@ function initAstWorkflow() {
       },
       3: {
         title: "Métadonnées du patient et de l'échantillon",
-        text: "Risque faible & saisie ponctuelle : saisie fluide et non contraignante pour les informations optionnelles (identifiant de l'échantillon, date/heure de prélèvement, service d'hospitalisation, âge et sexe du patient), évitant tout blocage du flux lors des urgences."
+        text: "Saisie fluide et non bloquante des informations optionnelles (âge, service, identifiant), permettant de se concentrer sur l'analyse sans imposer d'étapes superflues."
       },
       4: {
         title: "Contrôle Qualité (CQ)",
-        text: "Risque faible & routine fréquente (quotidienne ou hebdo) : allègement mesuré des interactions sur une tâche récurrente de calibrage pour réduire la fatigue cognitive tout en garantissant la traçabilité."
+        text: "Allègement mesuré des interactions sur une tâche récurrente de validation pour réduire la fatigue cognitive tout en garantissant la traçabilité."
       }
     }
   };
