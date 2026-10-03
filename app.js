@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initLangToggle();
   initActiveNavLinkOnScroll();
   initScrollReveals();
+  AppRouter.init();
   initCaseStudyExpanders();
   initAstWorkflow();
   initOlderTimelineToggle();
@@ -393,4 +394,95 @@ function initCaseStudyExpanders() {
     }
   });
 }
+
+/**
+ * Lightweight Vanilla JS Hash Router
+ * Handles 1-level drill-down navigation (#antibiogo, #origami) and returns to #home-view (#work)
+ * Supports browser Back/Forward natively with history scroll restoration
+ */
+const AppRouter = {
+  previousScrollY: 0,
+  routes: {
+    '#antibiogo': 'project-view-antibiogo',
+    '#origami': 'project-view-origami'
+  },
+
+  init() {
+    window.addEventListener('hashchange', () => this.handleRoute());
+
+    document.addEventListener('click', (e) => {
+      const backTrigger = e.target.closest('[data-route-back]');
+      if (backTrigger) {
+        e.preventDefault();
+        this.navigateBack();
+      }
+    });
+
+    this.handleRoute(true);
+  },
+
+  navigateBack() {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.hash = '#work';
+    }
+  },
+
+  handleRoute(isInitial = false) {
+    const rawHash = (window.location.hash || '').toLowerCase();
+    const homeView = document.getElementById('home-view');
+    const projectViews = document.querySelectorAll('.case-study-view');
+
+    if (!homeView) return;
+
+    const targetProjectViewId = this.routes[rawHash];
+
+    if (targetProjectViewId) {
+      const targetView = document.getElementById(targetProjectViewId);
+      if (!targetView) return;
+
+      // Save scroll position only if coming from the visible home view
+      if (!homeView.hasAttribute('hidden')) {
+        this.previousScrollY = window.scrollY;
+      }
+
+      homeView.setAttribute('hidden', '');
+      projectViews.forEach((v) => {
+        if (v === targetView) {
+          v.removeAttribute('hidden');
+        } else {
+          v.setAttribute('hidden', '');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: isInitial ? 'instant' : 'smooth' });
+    } else {
+      const wasInsideCase = Array.from(projectViews).some((v) => !v.hasAttribute('hidden'));
+
+      projectViews.forEach((v) => v.setAttribute('hidden', ''));
+      homeView.removeAttribute('hidden');
+
+      if (wasInsideCase) {
+        if (rawHash === '#work' || rawHash === '') {
+          if (this.previousScrollY > 0) {
+            window.scrollTo({ top: this.previousScrollY, behavior: 'instant' });
+          } else {
+            const workSec = document.getElementById('work');
+            if (workSec) workSec.scrollIntoView({ behavior: 'instant' });
+          }
+        }
+      }
+
+      // If user clicked an anchor like #approach, #experience, #contact from the nav while on a case study
+      if (rawHash && rawHash !== '#work' && !this.routes[rawHash]) {
+        const targetElement = document.querySelector(rawHash);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  }
+};
+
 

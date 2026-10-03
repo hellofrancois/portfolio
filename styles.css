@@ -526,10 +526,84 @@ ul {
   margin-bottom: 0;
 }
 
-.case-toggle-bar {
-  margin-top: 1.75rem;
+/* Dedicated Full-Width Case Study Views & Router Infrastructure */
+.case-study-view {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  padding: 2rem 0 6rem;
+  animation: fadeInCase 0.3s ease;
+}
+
+.case-study-view[hidden],
+#home-view[hidden] {
+  display: none !important;
+}
+
+.case-study-topbar {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.case-study-topbar-inner {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.case-topbar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: var(--badge-font-size);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted-color);
+  background-color: var(--hover-bg);
+  border: 1px solid var(--border-color);
+  padding: var(--badge-padding);
+  border-radius: var(--badge-radius);
+}
+
+.case-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.case-back-arrow {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  transition: transform var(--transition-snappy);
+}
+
+.case-back-link:hover .case-back-arrow {
+  transform: translateX(-3px);
+}
+
+.case-arrow-right {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+  transition: transform var(--transition-snappy);
+}
+
+.btn-toggle-case:hover .case-arrow-right {
+  transform: translateX(3px);
+}
+
+.case-bottom-nav {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border-color);
 }
 
 .case-study-collapsible {
