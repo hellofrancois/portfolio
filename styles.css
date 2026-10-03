@@ -36,11 +36,12 @@
   --accent-primary: hsl(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l));
   --accent-primary-muted: hsla(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l), 0.1);
 
-  --accent-secondary-h: 215;
-  --accent-secondary-s: 25%;
-  --accent-secondary-l: 27%;
-  --accent-secondary: #0f172a;
-  --accent-secondary-muted: rgba(15, 23, 42, 0.08);
+  --accent-secondary-h: 28;
+  --accent-secondary-s: 90%;
+  --accent-secondary-l: 37%;
+  /* Accent secondaire (#B45309) : strictement réservé aux éléments de repérage */
+  --accent-secondary: #B45309;
+  --accent-secondary-muted: rgba(180, 83, 9, 0.12);
 
   /* Semantic Status & Neutral Colors */
   --color-success: #10b981;
@@ -210,9 +211,11 @@ p {
 }
 
 blockquote,
-.quote-block {
+.quote-block,
+.field-quote,
+.user-quote {
   background-color: var(--card-bg);
-  border-left: 3px solid var(--accent-primary);
+  border-left: 3px solid var(--accent-secondary);
   border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
   padding: 1.25rem 1.5rem;
   margin: 1.5rem 0;
@@ -634,7 +637,7 @@ ul {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--accent-primary);
+  color: var(--accent-secondary);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -644,7 +647,7 @@ ul {
   content: '';
   width: 12px;
   height: 1px;
-  background-color: var(--accent-primary);
+  background-color: var(--accent-secondary);
 }
 
 .case-meta-grid {
@@ -979,6 +982,25 @@ ul {
   background-color: var(--accent-primary);
   color: var(--color-white);
   border-color: var(--accent-primary);
+}
+
+/* Diagram highlight / Mise en exergue de repérage dans un diagramme */
+.diagram-highlight,
+.quadrant-cell[data-zone="1"] .cell-friction-tag {
+  background-color: var(--accent-secondary-muted);
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
+}
+
+.quadrant-cell[data-zone="1"].active .cell-friction-tag {
+  background-color: var(--accent-secondary);
+  border-color: var(--accent-secondary);
+  color: var(--color-white);
+}
+
+.quadrant-cell[data-zone="1"].active {
+  border-color: var(--accent-secondary);
+  box-shadow: 0 0 0 1px var(--accent-secondary);
 }
 
 .panel-footer {
