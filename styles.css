@@ -984,25 +984,6 @@ ul {
   border-color: var(--accent-primary);
 }
 
-/* Diagram highlight / Mise en exergue de repérage dans un diagramme */
-.diagram-highlight,
-.quadrant-cell[data-zone="1"] .cell-friction-tag {
-  background-color: var(--accent-secondary-muted);
-  border-color: var(--accent-secondary);
-  color: var(--accent-secondary);
-}
-
-.quadrant-cell[data-zone="1"].active .cell-friction-tag {
-  background-color: var(--accent-secondary);
-  border-color: var(--accent-secondary);
-  color: var(--color-white);
-}
-
-.quadrant-cell[data-zone="1"].active {
-  border-color: var(--accent-secondary);
-  box-shadow: 0 0 0 1px var(--accent-secondary);
-}
-
 .panel-footer {
   padding-top: 1rem;
   font-size: var(--font-size-sm);
