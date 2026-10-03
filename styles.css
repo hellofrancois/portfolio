@@ -390,10 +390,9 @@ ul {
   font-weight: 800;
 }
 
+.hero h1 span.accent-text,
 .hero h1 span.gradient-text {
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--accent-secondary);
 }
 
 .hero-description {
