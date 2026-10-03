@@ -740,8 +740,7 @@ ul {
   color: var(--accent-secondary);
 }
 
-/* Universal Callout Boxes (Key Notes, Challenges, Impacts & Retrospectives) */
-.callout-box,
+/* Highlight & Retrospective Boxes */
 .highlight-box,
 .retro-box {
   display: flex;
@@ -749,30 +748,9 @@ ul {
   gap: 0.5rem;
   padding: 0.35rem 0 0.35rem 1.25rem;
   margin: 1.5rem 0;
-  border-left: 3px solid var(--callout-accent, var(--accent-primary));
-  --callout-accent: var(--accent-primary);
+  border-left: 3px solid var(--accent-secondary);
 }
 
-/* Modificateurs sémantiques */
-.callout-box.challenge,
-.highlight-box.challenge,
-.callout-box.improve,
-.retro-box.improve {
-  --callout-accent: var(--accent-secondary);
-}
-
-.callout-box.impact,
-.highlight-box.impact {
-  --callout-accent: var(--accent-primary);
-}
-
-.callout-box.redo,
-.retro-box.redo,
-.callout-box.success {
-  --callout-accent: var(--color-success);
-}
-
-.callout-box h4,
 .highlight-box h4,
 .retro-box h4 {
   font-size: var(--font-size-sm);
@@ -782,11 +760,10 @@ ul {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--callout-accent);
+  color: var(--accent-secondary);
   margin-bottom: 0.25rem;
 }
 
-.callout-box p,
 .highlight-box p,
 .retro-box p {
   margin-bottom: 0;
@@ -794,7 +771,7 @@ ul {
   line-height: 1.6;
 }
 
-.callout-box ul,
+.highlight-box ul,
 .retro-box ul {
   display: flex;
   flex-direction: column;
@@ -802,7 +779,7 @@ ul {
   margin: 0;
 }
 
-.callout-box li,
+.highlight-box li,
 .retro-box li {
   font-size: var(--font-size-sm);
   color: var(--muted-color);
@@ -810,12 +787,12 @@ ul {
   padding-left: 1.25rem;
 }
 
-.callout-box li::before,
+.highlight-box li::before,
 .retro-box li::before {
   content: '•';
   position: absolute;
   left: 0;
-  color: var(--callout-accent);
+  color: var(--accent-secondary);
 }
 
 /* Interactive UX Decision Matrix Panel */
