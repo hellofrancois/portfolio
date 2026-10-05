@@ -399,6 +399,7 @@ const AppRouter = {
     if (!homeView) return;
 
     const targetProjectViewId = this.routes[rawHash];
+    document.body.classList.toggle('is-project-view', Boolean(targetProjectViewId));
 
     if (targetProjectViewId) {
       const targetView = document.getElementById(targetProjectViewId);

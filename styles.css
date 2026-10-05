@@ -526,11 +526,21 @@ ul {
   margin-bottom: 0;
 }
 
+.case-toggle-bar {
+  margin-top: 1.75rem;
+  display: flex;
+  align-items: center;
+}
+
 /* Dedicated Full-Width Case Study Views & Router Infrastructure */
+body.is-project-view .header {
+  display: none !important;
+}
+
 .case-study-view {
   min-height: 100vh;
   background-color: var(--bg-color);
-  padding: 2rem 0 6rem;
+  padding: 0 0 6rem;
   animation: fadeInCase 0.3s ease;
 }
 
@@ -540,8 +550,14 @@ ul {
 }
 
 .case-study-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--header-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 1.5rem;
+  padding: 1rem 0;
   margin-bottom: 3rem;
 }
 
@@ -553,20 +569,11 @@ ul {
   gap: 1rem;
 }
 
-.case-topbar-badge {
-  display: inline-flex;
+.case-topbar-right {
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-body);
-  font-size: var(--badge-font-size);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted-color);
-  background-color: var(--hover-bg);
-  border: 1px solid var(--border-color);
-  padding: var(--badge-padding);
-  border-radius: var(--badge-radius);
+  gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
 .case-back-link {
