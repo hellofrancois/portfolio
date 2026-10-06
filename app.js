@@ -327,42 +327,46 @@ function initAstWorkflow() {
 }
 
 /**
- * Case Study Deep Dives Tab Navigation
- * Supports 3 tabs, accordion toggle behavior (clicking active tab closes it, starts closed by default),
- * and keyboard navigation across tab buttons.
+ * Case Study Deep Dives Disclosure Navigation
+ * Supports exclusive accordion behavior (clicking active card closes it, starts closed by default)
  */
 function initCaseTabs() {
-  const tabButtons = document.querySelectorAll(".case-teaser-card, .case-tab-btn");
+  const disclosureButtons = document.querySelectorAll(".teaser-btn, .case-teaser-card, .case-tab-btn");
   const tabPanels = document.querySelectorAll(".case-tab-panel");
 
-  if (tabButtons.length === 0 || tabPanels.length === 0) return;
+  if (disclosureButtons.length === 0 || tabPanels.length === 0) return;
 
-  tabButtons.forEach((btn, index) => {
+  disclosureButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const targetPanelId = btn.getAttribute("aria-controls");
       const targetPanel = document.getElementById(targetPanelId);
-      const isCurrentlyActive = btn.getAttribute("aria-selected") === "true";
+      const card = btn.closest(".case-teaser-card");
+      const isCurrentlyExpanded = btn.getAttribute("aria-expanded") === "true";
 
-      if (isCurrentlyActive) {
+      if (isCurrentlyExpanded) {
         // Toggle OFF: collapse the panel
-        btn.setAttribute("aria-selected", "false");
+        btn.setAttribute("aria-expanded", "false");
         btn.classList.remove("active");
+        if (card) card.classList.remove("is-active", "active");
         if (targetPanel) {
           targetPanel.setAttribute("hidden", "");
         }
       } else {
-        // Switch / Open: close any other open tabs
-        tabButtons.forEach((b) => {
-          b.setAttribute("aria-selected", "false");
+        // Switch / Open: close any other open disclosures
+        disclosureButtons.forEach((b) => {
+          b.setAttribute("aria-expanded", "false");
           b.classList.remove("active");
+          const c = b.closest(".case-teaser-card");
+          if (c) c.classList.remove("is-active", "active");
         });
         tabPanels.forEach((p) => {
           p.setAttribute("hidden", "");
         });
 
-        // Activate clicked tab
-        btn.setAttribute("aria-selected", "true");
+        // Activate clicked disclosure
+        btn.setAttribute("aria-expanded", "true");
         btn.classList.add("active");
+        if (card) card.classList.add("is-active", "active");
         if (targetPanel) {
           targetPanel.removeAttribute("hidden");
           const rect = targetPanel.getBoundingClientRect();
@@ -371,21 +375,6 @@ function initCaseTabs() {
             targetPanel.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "nearest" });
           }
         }
-      }
-    });
-
-    // Keyboard navigation (Arrow keys)
-    btn.addEventListener("keydown", (e) => {
-      let nextIndex = null;
-      if (e.key === "ArrowRight") {
-        nextIndex = (index + 1) % tabButtons.length;
-      } else if (e.key === "ArrowLeft") {
-        nextIndex = (index - 1 + tabButtons.length) % tabButtons.length;
-      }
-
-      if (nextIndex !== null) {
-        e.preventDefault();
-        tabButtons[nextIndex].focus();
       }
     });
   });

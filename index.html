@@ -736,69 +736,78 @@
             </div>
 
             <!-- Deep Dives Teaser Cards Grid Navigation -->
-            <div class="case-teaser-grid" role="tablist" aria-label="Antibiogo Deep Dives">
-              <button class="case-teaser-card" role="tab" aria-selected="false" aria-controls="tab-research"
-                id="tab-btn-research" type="button">
+            <div class="case-teaser-grid" aria-label="Antibiogo Deep Dives">
+              <div class="case-teaser-card" id="teaser-card-research">
                 <div class="teaser-card-top">
                   <span class="teaser-index">01</span>
                   <span class="teaser-tag" lang="en">Field Lab</span>
                   <span class="teaser-tag" lang="fr">Labo terrain</span>
                 </div>
-                <h4 class="teaser-title" lang="en">Field Research & Lab Realities</h4>
-                <h4 class="teaser-title" lang="fr">Recherche terrain & réalités de paillasse</h4>
-                <p class="teaser-desc" lang="en">Direct observations in MSF frontline labs under low-connectivity and diverse equipment.</p>
-                <p class="teaser-desc" lang="fr">Observations directes en paillasse MSF : 100 % hors-ligne et contraintes d'éclairage réel.</p>
+                <h4 class="teaser-title">
+                  <button class="teaser-btn" type="button" aria-expanded="false" aria-controls="tab-research" id="tab-btn-research" aria-describedby="desc-research-en desc-research-fr">
+                    <span lang="en">Field Research & Lab Realities</span>
+                    <span lang="fr">Recherche terrain & réalités de paillasse</span>
+                  </button>
+                </h4>
+                <p class="teaser-desc" id="desc-research-en" lang="en">Direct observations in MSF frontline labs under low-connectivity and diverse equipment.</p>
+                <p class="teaser-desc" id="desc-research-fr" lang="fr">Observations directes en paillasse MSF : 100 % hors-ligne et contraintes d'éclairage réel.</p>
                 <div class="teaser-cta" aria-hidden="true">
                   <span class="teaser-cta-label teaser-cta-open" lang="en">Explore <span class="teaser-arrow">↓</span></span>
                   <span class="teaser-cta-label teaser-cta-open" lang="fr">Explorer <span class="teaser-arrow">↓</span></span>
                   <span class="teaser-cta-label teaser-cta-close" lang="en">Close <span class="teaser-arrow">↑</span></span>
                   <span class="teaser-cta-label teaser-cta-close" lang="fr">Fermer <span class="teaser-arrow">↑</span></span>
                 </div>
-              </button>
+              </div>
 
-              <button class="case-teaser-card" role="tab" aria-selected="false" aria-controls="tab-matrix"
-                id="tab-btn-matrix" type="button">
+              <div class="case-teaser-card" id="teaser-card-matrix">
                 <div class="teaser-card-top">
                   <span class="teaser-index">02</span>
                   <span class="teaser-tag" lang="en">Interactive Tool</span>
                   <span class="teaser-tag" lang="fr">Outil interactif</span>
                 </div>
-                <h4 class="teaser-title" lang="en">Risk & Friction Decision Matrix</h4>
-                <h4 class="teaser-title" lang="fr">Matrice de décision Risque & Friction</h4>
-                <p class="teaser-desc" lang="en">Calibrating intentional friction vs cognitive load across 4 critical clinical scenarios.</p>
-                <p class="teaser-desc" lang="fr">Dosage précis de la friction intentionnelle selon la criticité des 4 scénarios cliniques.</p>
+                <h4 class="teaser-title">
+                  <button class="teaser-btn" type="button" aria-expanded="false" aria-controls="tab-matrix" id="tab-btn-matrix" aria-describedby="desc-matrix-en desc-matrix-fr">
+                    <span lang="en">Risk & Friction Decision Matrix</span>
+                    <span lang="fr">Matrice de décision Risque & Friction</span>
+                  </button>
+                </h4>
+                <p class="teaser-desc" id="desc-matrix-en" lang="en">Calibrating intentional friction vs cognitive load across 4 critical clinical scenarios.</p>
+                <p class="teaser-desc" id="desc-matrix-fr" lang="fr">Dosage précis de la friction intentionnelle selon la criticité des 4 scénarios cliniques.</p>
                 <div class="teaser-cta" aria-hidden="true">
                   <span class="teaser-cta-label teaser-cta-open" lang="en">Explore <span class="teaser-arrow">↓</span></span>
                   <span class="teaser-cta-label teaser-cta-open" lang="fr">Explorer <span class="teaser-arrow">↓</span></span>
                   <span class="teaser-cta-label teaser-cta-close" lang="en">Close <span class="teaser-arrow">↑</span></span>
                   <span class="teaser-cta-label teaser-cta-close" lang="fr">Fermer <span class="teaser-arrow">↑</span></span>
                 </div>
-              </button>
+              </div>
 
-              <button class="case-teaser-card" role="tab" aria-selected="false" aria-controls="tab-handoff"
-                id="tab-btn-handoff" type="button">
+              <div class="case-teaser-card" id="teaser-card-handoff">
                 <div class="teaser-card-top">
                   <span class="teaser-index">03</span>
                   <span class="teaser-tag" lang="en">Engineering Specs</span>
                   <span class="teaser-tag" lang="fr">Handoff technique</span>
                 </div>
-                <h4 class="teaser-title" lang="en">Technical Interaction Specs</h4>
-                <h4 class="teaser-title" lang="fr">Spécifications d'interaction Android</h4>
-                <p class="teaser-desc" lang="en">Handoff rules for virtual keyboards, layout stability, and bottom sheet state transitions.</p>
-                <p class="teaser-desc" lang="fr">Règles d'intégration : gestion du clavier virtuel, stabilité du layout et bottom sheets.</p>
+                <h4 class="teaser-title">
+                  <button class="teaser-btn" type="button" aria-expanded="false" aria-controls="tab-handoff" id="tab-btn-handoff" aria-describedby="desc-handoff-en desc-handoff-fr">
+                    <span lang="en">Technical Interaction Specs</span>
+                    <span lang="fr">Spécifications d'interaction Android</span>
+                  </button>
+                </h4>
+                <p class="teaser-desc" id="desc-handoff-en" lang="en">Handoff rules for virtual keyboards, layout stability, and bottom sheet state transitions.</p>
+                <p class="teaser-desc" id="desc-handoff-fr" lang="fr">Règles d'intégration : gestion du clavier virtuel, stabilité du layout et bottom sheets.</p>
                 <div class="teaser-cta" aria-hidden="true">
                   <span class="teaser-cta-label teaser-cta-open" lang="en">Explore <span class="teaser-arrow">↓</span></span>
                   <span class="teaser-cta-label teaser-cta-open" lang="fr">Explorer <span class="teaser-arrow">↓</span></span>
                   <span class="teaser-cta-label teaser-cta-close" lang="en">Close <span class="teaser-arrow">↑</span></span>
                   <span class="teaser-cta-label teaser-cta-close" lang="fr">Fermer <span class="teaser-arrow">↑</span></span>
                 </div>
-              </button>
+              </div>
             </div>
 
             <!-- Tab Panels Container (Collapsed by default) -->
             <div class="case-tab-panels">
               <!-- Panel 1: Field Research -->
-              <div class="case-tab-panel" id="tab-research" role="tabpanel" aria-labelledby="tab-btn-research" hidden>
+              <div class="case-tab-panel" id="tab-research" hidden>
                 <div class="case-card">
                   <div class="case-card-header-text">
                     <p lang="en">Direct benchtop observations and ongoing feedback cycles with MSF field labs to anchor
@@ -826,7 +835,7 @@
               </div>
 
               <!-- Panel 2: Interactive Matrix -->
-              <div class="case-tab-panel" id="tab-matrix" role="tabpanel" aria-labelledby="tab-btn-matrix" hidden>
+              <div class="case-tab-panel" id="tab-matrix" hidden>
                 <div class="case-card">
                   <div class="panel-header">
                     <span class="panel-title" lang="en">UX Decision Matrix: Risk & Friction</span>
@@ -921,7 +930,7 @@
               </div>
 
               <!-- Panel 3: Technical Handoff (Text first) -->
-              <div class="case-tab-panel" id="tab-handoff" role="tabpanel" aria-labelledby="tab-btn-handoff" hidden>
+              <div class="case-tab-panel" id="tab-handoff" hidden>
                 <div class="case-card">
                   <div class="case-card-header-text">
                     <p lang="en"><strong>Technical Interaction Specs:</strong> Detailed handoff rules for Android
