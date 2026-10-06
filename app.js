@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollReveals();
   AppRouter.init();
   initAstWorkflow();
+  initCaseTabs();
   initOlderTimelineToggle();
   initHamburgerMenu();
   initResumeDownloadLinks();
@@ -282,6 +283,70 @@ function initAstWorkflow() {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
         selectCell();
+      }
+    });
+  });
+}
+
+/**
+ * Case Study Deep Dives Tab Navigation
+ * Supports 3 tabs, accordion toggle behavior (clicking active tab closes it, starts closed by default),
+ * and keyboard navigation across tab buttons.
+ */
+function initCaseTabs() {
+  const tabButtons = document.querySelectorAll(".case-teaser-card, .case-tab-btn");
+  const tabPanels = document.querySelectorAll(".case-tab-panel");
+
+  if (tabButtons.length === 0 || tabPanels.length === 0) return;
+
+  tabButtons.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      const targetPanelId = btn.getAttribute("aria-controls");
+      const targetPanel = document.getElementById(targetPanelId);
+      const isCurrentlyActive = btn.getAttribute("aria-selected") === "true";
+
+      if (isCurrentlyActive) {
+        // Toggle OFF: collapse the panel
+        btn.setAttribute("aria-selected", "false");
+        btn.classList.remove("active");
+        if (targetPanel) {
+          targetPanel.setAttribute("hidden", "");
+        }
+      } else {
+        // Switch / Open: close any other open tabs
+        tabButtons.forEach((b) => {
+          b.setAttribute("aria-selected", "false");
+          b.classList.remove("active");
+        });
+        tabPanels.forEach((p) => {
+          p.setAttribute("hidden", "");
+        });
+
+        // Activate clicked tab
+        btn.setAttribute("aria-selected", "true");
+        btn.classList.add("active");
+        if (targetPanel) {
+          targetPanel.removeAttribute("hidden");
+          const rect = targetPanel.getBoundingClientRect();
+          if (rect.top > window.innerHeight * 0.75) {
+            targetPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }
+        }
+      }
+    });
+
+    // Keyboard navigation (Arrow keys)
+    btn.addEventListener("keydown", (e) => {
+      let nextIndex = null;
+      if (e.key === "ArrowRight") {
+        nextIndex = (index + 1) % tabButtons.length;
+      } else if (e.key === "ArrowLeft") {
+        nextIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+      }
+
+      if (nextIndex !== null) {
+        e.preventDefault();
+        tabButtons[nextIndex].focus();
       }
     });
   });

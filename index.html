@@ -701,145 +701,244 @@
           <div class="case-section">
             <h3 lang="en">The Outcome</h3>
             <h3 lang="fr">Le Résultat</h3>
-            <div class="highlight-box">
+            <!-- <div class="highlight-box">
               <h4 lang="en">Missions & Impact</h4>
-              <h4 lang="fr">Missions & Impact</h4>
-              <p lang="en">A robust, certified medical tool deployed daily across demanding laboratory
-                environments
-                worldwide, empowering practitioners to obtain reliable diagnostics independently of any remote
-                server.</p>
-              <p lang="fr">Un outil médical robuste et certifié, utilisé au quotidien dans des laboratoires aux
-                contextes exigeants à travers le monde, qui permet aux praticien·nes d'obtenir des diagnostics
-                fiables sans dépendre d'un serveur distant.</p>
-            </div>
+              <h4 lang="fr">Missions & Impact</h4> -->
+            <p lang="en">A robust, certified medical tool deployed daily across demanding laboratory
+              environments
+              worldwide, empowering practitioners to obtain reliable diagnostics independently of any remote
+              server.</p>
+            <p lang="fr">Un outil médical robuste et certifié, utilisé au quotidien dans des laboratoires aux
+              contextes exigeants à travers le monde, qui permet aux praticien·nes d'obtenir des diagnostics
+              fiables sans dépendre d'un serveur distant.</p>
+            <!-- </div> -->
           </div>
 
-          <!-- Full Width: Interactive UX Widget -->
-          <div class="case-interactive-panel">
-            <div class="panel-header">
-              <span class="panel-title" lang="en">UX Decision Matrix: Risk & Friction</span>
-              <span class="panel-title" lang="fr">Matrice de décision UX : Risque & Friction</span>
+          <!-- Deep Dives & Process Tabs Section -->
+          <div class="case-section case-deep-dives-section">
+            <div class="deep-dives-header">
+              <!-- <span class="case-tag" lang="en">Deep Dives & Process</span>
+              <span class="case-tag" lang="fr">Explorations détaillées & Process</span> -->
+              <h3 lang="en">Behind the Design Decisions</h3>
+              <h3 lang="fr">Au cœur des choix de conception</h3>
             </div>
 
-            <div class="quadrant-container" role="region" aria-label="Risk vs Frequency Matrix">
-              <div class="quadrant-matrix-wrapper">
-                <!-- Axis Endpoint Top (High Risk) -->
-                <div class="quadrant-axis-endpoint quadrant-axis-endpoint--top" aria-hidden="true">
-                  <span class="axis-endpoint-label" lang="en">▲ High Risk</span>
-                  <span class="axis-endpoint-label" lang="fr">▲ Risque élevé</span>
+            <!-- Deep Dives Teaser Cards Grid Navigation -->
+            <div class="case-teaser-grid" role="tablist" aria-label="Antibiogo Deep Dives">
+              <button class="case-teaser-card" role="tab" aria-selected="false" aria-controls="tab-research"
+                id="tab-btn-research" type="button">
+                <div class="teaser-card-top">
+                  <span class="teaser-index">01</span>
+                  <span class="teaser-tag" lang="en">Field Lab</span>
+                  <span class="teaser-tag" lang="fr">Labo terrain</span>
                 </div>
-
-                <!-- Central Quadrant Stage with 2x2 Grid and Central Cross Axes -->
-                <div class="quadrant-matrix-stage">
-                  <!-- Central Cross Axes (Vertical & Horizontal) -->
-                  <div class="quadrant-axis-line quadrant-axis-line--vertical" aria-hidden="true"></div>
-                  <div class="quadrant-axis-line quadrant-axis-line--horizontal" aria-hidden="true"></div>
-                  <div class="quadrant-axis-center-dot" aria-hidden="true"></div>
-
-                  <!-- Horizontal Axis Endpoints (Rare / Frequent) -->
-                  <div class="quadrant-axis-endpoint quadrant-axis-endpoint--left" aria-hidden="true">
-                    <span class="axis-endpoint-label" lang="en">◀ Rare</span>
-                    <span class="axis-endpoint-label" lang="fr">◀ Rare</span>
-                  </div>
-
-                  <div class="quadrant-axis-endpoint quadrant-axis-endpoint--right" aria-hidden="true">
-                    <span class="axis-endpoint-label" lang="en">Frequent ▶</span>
-                    <span class="axis-endpoint-label" lang="fr">Fréquent ▶</span>
-                  </div>
-
-                  <div class="quadrant-grid">
-                    <!-- Top-Left: High Risk / Rare -->
-                    <button class="quadrant-cell active" data-zone="1" type="button" aria-pressed="true">
-                      <span class="cell-name" lang="en">Rare Phenotype Detection</span>
-                      <span class="cell-name" lang="fr">Détection d'un phénotype rare</span>
-                      <span class="cell-sub" lang="en">High risk • Rare event</span>
-                      <span class="cell-sub" lang="fr">Risque élevé • Événement rare</span>
-                      <span class="cell-friction-tag" lang="en">Friction: Hard Interrupt</span>
-                      <span class="cell-friction-tag" lang="fr">Friction : Alerte bloquante</span>
-                    </button>
-                    <!-- Top-Right: High Risk / Frequent -->
-                    <button class="quadrant-cell" data-zone="2" type="button" aria-pressed="false">
-                      <span class="cell-name" lang="en">Antibiotic Validation</span>
-                      <span class="cell-name" lang="fr">Validation des antibiotiques</span>
-                      <span class="cell-sub" lang="en">High risk • Daily</span>
-                      <span class="cell-sub" lang="fr">Risque élevé • Quotidien</span>
-                      <span class="cell-friction-tag" lang="en">Friction: Step Confirmation</span>
-                      <span class="cell-friction-tag" lang="fr">Friction : Validation pas-à-pas</span>
-                    </button>
-                    <!-- Bottom-Left: Low Risk / Rare -->
-                    <button class="quadrant-cell" data-zone="3" type="button" aria-pressed="false">
-                      <span class="cell-name" lang="en">Patient & Sample Metadata</span>
-                      <span class="cell-name" lang="fr">Métadonnées du patient et de l'échantillon</span>
-                      <span class="cell-sub" lang="en">Low risk • Punctual</span>
-                      <span class="cell-sub" lang="fr">Risque faible • Ponctuel</span>
-                      <span class="cell-friction-tag" lang="en">Friction: Flexible & Optional</span>
-                      <span class="cell-friction-tag" lang="fr">Friction : Saisie fluide optionnelle</span>
-                    </button>
-                    <!-- Bottom-Right: Low Risk / Frequent -->
-                    <button class="quadrant-cell" data-zone="4" type="button" aria-pressed="false">
-                      <span class="cell-name" lang="en">Quality Control (QC)</span>
-                      <span class="cell-name" lang="fr">Contrôle Qualité (CQ)</span>
-                      <span class="cell-sub" lang="en">Low risk • Routine</span>
-                      <span class="cell-sub" lang="fr">Risque faible • Routine fréquente</span>
-                      <span class="cell-friction-tag" lang="en">Friction: Streamlined Flow</span>
-                      <span class="cell-friction-tag" lang="fr">Friction : Processus allégé</span>
-                    </button>
-                  </div>
+                <h4 class="teaser-title" lang="en">Field Research & Lab Realities</h4>
+                <h4 class="teaser-title" lang="fr">Recherche terrain & réalités de paillasse</h4>
+                <p class="teaser-desc" lang="en">Direct observations in MSF frontline labs under low-connectivity and diverse equipment.</p>
+                <p class="teaser-desc" lang="fr">Observations directes en paillasse MSF : 100 % hors-ligne et contraintes d'éclairage réel.</p>
+                <div class="teaser-cta" aria-hidden="true">
+                  <span class="teaser-cta-label teaser-cta-open" lang="en">Explore <span class="teaser-arrow">↓</span></span>
+                  <span class="teaser-cta-label teaser-cta-open" lang="fr">Explorer <span class="teaser-arrow">↓</span></span>
+                  <span class="teaser-cta-label teaser-cta-close" lang="en">Close <span class="teaser-arrow">↑</span></span>
+                  <span class="teaser-cta-label teaser-cta-close" lang="fr">Fermer <span class="teaser-arrow">↑</span></span>
                 </div>
+              </button>
 
-                <!-- Axis Endpoint Bottom (Low Risk) -->
-                <div class="quadrant-axis-endpoint quadrant-axis-endpoint--bottom" aria-hidden="true">
-                  <span class="axis-endpoint-label" lang="en">▼ Low Risk</span>
-                  <span class="axis-endpoint-label" lang="fr">▼ Risque faible</span>
+              <button class="case-teaser-card" role="tab" aria-selected="false" aria-controls="tab-matrix"
+                id="tab-btn-matrix" type="button">
+                <div class="teaser-card-top">
+                  <span class="teaser-index">02</span>
+                  <span class="teaser-tag" lang="en">Interactive Tool</span>
+                  <span class="teaser-tag" lang="fr">Outil interactif</span>
                 </div>
-              </div>
+                <h4 class="teaser-title" lang="en">Risk & Friction Decision Matrix</h4>
+                <h4 class="teaser-title" lang="fr">Matrice de décision Risque & Friction</h4>
+                <p class="teaser-desc" lang="en">Calibrating intentional friction vs cognitive load across 4 critical clinical scenarios.</p>
+                <p class="teaser-desc" lang="fr">Dosage précis de la friction intentionnelle selon la criticité des 4 scénarios cliniques.</p>
+                <div class="teaser-cta" aria-hidden="true">
+                  <span class="teaser-cta-label teaser-cta-open" lang="en">Explore <span class="teaser-arrow">↓</span></span>
+                  <span class="teaser-cta-label teaser-cta-open" lang="fr">Explorer <span class="teaser-arrow">↓</span></span>
+                  <span class="teaser-cta-label teaser-cta-close" lang="en">Close <span class="teaser-arrow">↑</span></span>
+                  <span class="teaser-cta-label teaser-cta-close" lang="fr">Fermer <span class="teaser-arrow">↑</span></span>
+                </div>
+              </button>
 
-              <div class="panel-footer">
-                <div class="panel-desc-box" id="step-description-box" aria-live="polite" aria-atomic="true">
-                  <strong id="step-title">Détection d'un phénotype rare</strong>
-                  <span id="step-text">Risque critique & événement rare : Déclenchement d'une alerte visuelle
-                    bloquante avec confirmation explicite requise et rappel pédagogique pour prévenir toute erreur
-                    de
-                    diagnostic vital.</span>
-                  <div class="case-media-row" id="step-images"></div>
+              <button class="case-teaser-card" role="tab" aria-selected="false" aria-controls="tab-handoff"
+                id="tab-btn-handoff" type="button">
+                <div class="teaser-card-top">
+                  <span class="teaser-index">03</span>
+                  <span class="teaser-tag" lang="en">Engineering Specs</span>
+                  <span class="teaser-tag" lang="fr">Handoff technique</span>
                 </div>
-              </div>
+                <h4 class="teaser-title" lang="en">Technical Interaction Specs</h4>
+                <h4 class="teaser-title" lang="fr">Spécifications d'interaction Android</h4>
+                <p class="teaser-desc" lang="en">Handoff rules for virtual keyboards, layout stability, and bottom sheet state transitions.</p>
+                <p class="teaser-desc" lang="fr">Règles d'intégration : gestion du clavier virtuel, stabilité du layout et bottom sheets.</p>
+                <div class="teaser-cta" aria-hidden="true">
+                  <span class="teaser-cta-label teaser-cta-open" lang="en">Explore <span class="teaser-arrow">↓</span></span>
+                  <span class="teaser-cta-label teaser-cta-open" lang="fr">Explorer <span class="teaser-arrow">↓</span></span>
+                  <span class="teaser-cta-label teaser-cta-close" lang="en">Close <span class="teaser-arrow">↑</span></span>
+                  <span class="teaser-cta-label teaser-cta-close" lang="fr">Fermer <span class="teaser-arrow">↑</span></span>
+                </div>
+              </button>
             </div>
-          </div>
 
-          <!-- Full Width: Handoff & Technical Alignment -->
-          <div class="case-section">
-            <h3 lang="en">Handoff & Technical Alignment</h3>
-            <h3 lang="fr">Handoff & alignement technique</h3>
-
-            <div class="case-card">
-              <div class="case-media-scroll" tabindex="0" role="region" aria-label="End-to-end flow overview" lang="en">
-                <img src="assets/antibiogo/annotations - global.png"
-                  alt="Comprehensive Antibiogo flow overview in Figma showing all screen steps and technical interaction annotations."
-                  loading="lazy">
-              </div>
-              <div class="case-media-scroll" tabindex="0" role="region" aria-label="Vue d'ensemble du flux" lang="fr">
-                <img src="assets/antibiogo/annotations - global.png"
-                  alt="Vue d'ensemble du flux Antibiogo complet documenté dans Figma avec l'ensemble des écrans et leurs annotations techniques."
-                  loading="lazy">
-              </div>
-
-              <div class="case-media-center">
-                <img src="assets/antibiogo/annotations - detail.png"
-                  alt="Detailed Android interaction and development specifications: blue notes detailing keyboard focus management and bottom sheet transitions; green notes defining layout stability, developer constraints, and native back-button handling."
-                  lang="en" class="case-img case-img--detail" loading="lazy">
-                <img src="assets/antibiogo/annotations - detail.png"
-                  alt="Spécifications détaillées d'interaction et de développement Android : pastilles bleues pour la gestion du focus clavier et les transitions de bottom sheet ; pastilles vertes pour les contraintes de développement, la stabilité du layout et la gestion du retour natif."
-                  lang="fr" class="case-img case-img--detail" loading="lazy">
+            <!-- Tab Panels Container (Collapsed by default) -->
+            <div class="case-tab-panels">
+              <!-- Panel 1: Field Research -->
+              <div class="case-tab-panel" id="tab-research" role="tabpanel" aria-labelledby="tab-btn-research" hidden>
+                <div class="case-card">
+                  <div class="case-card-header-text">
+                    <p lang="en">Direct benchtop observations and ongoing feedback cycles with MSF field labs to anchor
+                      the interface in frontline realities: low-connectivity, varied lab equipment, and zero room for
+                      diagnostic ambiguity.</p>
+                    <p lang="fr">Observations directes de paillasse et ateliers réguliers avec les équipes cliniques MSF
+                      pour ancrer le design dans les réalités de terrain : fonctionnement 100 % hors-ligne, éclairages
+                      hétérogènes et tolérance zéro à l'ambiguïté diagnostique.</p>
+                  </div>
+                  <div class="case-media-row case-gallery-field">
+                    <img src="assets/antibiogo/bench.webp"
+                      alt="Paillasse de microbiologie avec boîtes de Petri et microscope en laboratoire"
+                      class="case-img case-img--gallery" loading="lazy">
+                    <img src="assets/antibiogo/lab.jpg"
+                      alt="Environnement de laboratoire médical sur le terrain avec équipement d'analyse"
+                      class="case-img case-img--gallery" loading="lazy">
+                  </div>
+                </div>
               </div>
 
-              <div class="case-card-caption">
-                <p lang="en"><strong>Technical Interaction Specs:</strong> Detailed handoff rules for Android
-                  engineering — keyboard focus management, layout stability, simultaneous state transitions, and native
-                  back-behavior handling.</p>
-                <p lang="fr"><strong>Spécifications techniques d'interaction :</strong> Définition précise des règles de
-                  développement pour l'équipe Android — gestion dynamique du clavier virtuel, transitions simultanées
-                  d'interface, positionnement des notifications et respect des comportements natifs de l'OS.</p>
+              <!-- Panel 2: Interactive Matrix -->
+              <div class="case-tab-panel" id="tab-matrix" role="tabpanel" aria-labelledby="tab-btn-matrix" hidden>
+                <div class="case-card">
+                  <div class="panel-header">
+                    <span class="panel-title" lang="en">UX Decision Matrix: Risk & Friction</span>
+                    <span class="panel-title" lang="fr">Matrice de décision UX : Risque & Friction</span>
+                  </div>
+
+                  <div class="quadrant-container" role="region" aria-label="Risk vs Frequency Matrix">
+                    <div class="quadrant-matrix-wrapper">
+                      <!-- Axis Endpoint Top (High Risk) -->
+                      <div class="quadrant-axis-endpoint quadrant-axis-endpoint--top" aria-hidden="true">
+                        <span class="axis-endpoint-label" lang="en">▲ High Risk</span>
+                        <span class="axis-endpoint-label" lang="fr">▲ Risque élevé</span>
+                      </div>
+
+                      <!-- Central Quadrant Stage with 2x2 Grid and Central Cross Axes -->
+                      <div class="quadrant-matrix-stage">
+                        <!-- Central Cross Axes (Vertical & Horizontal) -->
+                        <div class="quadrant-axis-line quadrant-axis-line--vertical" aria-hidden="true"></div>
+                        <div class="quadrant-axis-line quadrant-axis-line--horizontal" aria-hidden="true"></div>
+                        <div class="quadrant-axis-center-dot" aria-hidden="true"></div>
+
+                        <!-- Horizontal Axis Endpoints (Rare / Frequent) -->
+                        <div class="quadrant-axis-endpoint quadrant-axis-endpoint--left" aria-hidden="true">
+                          <span class="axis-endpoint-label" lang="en">◀ Rare</span>
+                          <span class="axis-endpoint-label" lang="fr">◀ Rare</span>
+                        </div>
+
+                        <div class="quadrant-axis-endpoint quadrant-axis-endpoint--right" aria-hidden="true">
+                          <span class="axis-endpoint-label" lang="en">Frequent ▶</span>
+                          <span class="axis-endpoint-label" lang="fr">Fréquent ▶</span>
+                        </div>
+
+                        <div class="quadrant-grid">
+                          <!-- Top-Left: High Risk / Rare -->
+                          <button class="quadrant-cell active" data-zone="1" type="button" aria-pressed="true">
+                            <span class="cell-name" lang="en">Rare Phenotype Detection</span>
+                            <span class="cell-name" lang="fr">Détection d'un phénotype rare</span>
+                            <span class="cell-sub" lang="en">High risk • Rare event</span>
+                            <span class="cell-sub" lang="fr">Risque élevé • Événement rare</span>
+                            <span class="cell-friction-tag" lang="en">Friction: Hard Interrupt</span>
+                            <span class="cell-friction-tag" lang="fr">Friction : Alerte bloquante</span>
+                          </button>
+                          <!-- Top-Right: High Risk / Frequent -->
+                          <button class="quadrant-cell" data-zone="2" type="button" aria-pressed="false">
+                            <span class="cell-name" lang="en">Antibiotic Validation</span>
+                            <span class="cell-name" lang="fr">Validation des antibiotiques</span>
+                            <span class="cell-sub" lang="en">High risk • Daily</span>
+                            <span class="cell-sub" lang="fr">Risque élevé • Quotidien</span>
+                            <span class="cell-friction-tag" lang="en">Friction: Step Confirmation</span>
+                            <span class="cell-friction-tag" lang="fr">Friction : Validation pas-à-pas</span>
+                          </button>
+                          <!-- Bottom-Left: Low Risk / Rare -->
+                          <button class="quadrant-cell" data-zone="3" type="button" aria-pressed="false">
+                            <span class="cell-name" lang="en">Patient & Sample Metadata</span>
+                            <span class="cell-name" lang="fr">Métadonnées du patient et de l'échantillon</span>
+                            <span class="cell-sub" lang="en">Low risk • Punctual</span>
+                            <span class="cell-sub" lang="fr">Risque faible • Ponctuel</span>
+                            <span class="cell-friction-tag" lang="en">Friction: Flexible & Optional</span>
+                            <span class="cell-friction-tag" lang="fr">Friction : Saisie fluide optionnelle</span>
+                          </button>
+                          <!-- Bottom-Right: Low Risk / Frequent -->
+                          <button class="quadrant-cell" data-zone="4" type="button" aria-pressed="false">
+                            <span class="cell-name" lang="en">Quality Control (QC)</span>
+                            <span class="cell-name" lang="fr">Contrôle Qualité (CQ)</span>
+                            <span class="cell-sub" lang="en">Low risk • Routine</span>
+                            <span class="cell-sub" lang="fr">Risque faible • Routine fréquente</span>
+                            <span class="cell-friction-tag" lang="en">Friction: Streamlined Flow</span>
+                            <span class="cell-friction-tag" lang="fr">Friction : Processus allégé</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Axis Endpoint Bottom (Low Risk) -->
+                      <div class="quadrant-axis-endpoint quadrant-axis-endpoint--bottom" aria-hidden="true">
+                        <span class="axis-endpoint-label" lang="en">▼ Low Risk</span>
+                        <span class="axis-endpoint-label" lang="fr">▼ Risque faible</span>
+                      </div>
+                    </div>
+
+                    <div class="panel-footer">
+                      <div class="panel-desc-box" id="step-description-box" aria-live="polite" aria-atomic="true">
+                        <strong id="step-title">Détection d'un phénotype rare</strong>
+                        <span id="step-text">Risque critique & événement rare : Déclenchement d'une alerte visuelle
+                          bloquante avec confirmation explicite requise et rappel pédagogique pour prévenir toute erreur
+                          de
+                          diagnostic vital.</span>
+                        <div class="case-media-row" id="step-images"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel 3: Technical Handoff (Text first) -->
+              <div class="case-tab-panel" id="tab-handoff" role="tabpanel" aria-labelledby="tab-btn-handoff" hidden>
+                <div class="case-card">
+                  <div class="case-card-header-text">
+                    <p lang="en"><strong>Technical Interaction Specs:</strong> Detailed handoff rules for Android
+                      engineering — keyboard focus management, layout stability, simultaneous state transitions, and
+                      native
+                      back-behavior handling.</p>
+                    <p lang="fr"><strong>Spécifications techniques d'interaction :</strong> Définition précise des
+                      règles de
+                      développement pour l'équipe Android — gestion dynamique du clavier virtuel, transitions
+                      simultanées
+                      d'interface, positionnement des notifications et respect des comportements natifs de l'OS.</p>
+                  </div>
+
+                  <div class="case-media-center">
+                    <img src="assets/antibiogo/annotations - detail.png"
+                      alt="Detailed Android interaction and development specifications: blue notes detailing keyboard focus management and bottom sheet transitions; green notes defining layout stability, developer constraints, and native back-button handling."
+                      lang="en" class="case-img case-img--detail" loading="lazy">
+                    <img src="assets/antibiogo/annotations - detail.png"
+                      alt="Spécifications détaillées d'interaction et de développement Android : pastilles bleues pour la gestion du focus clavier et les transitions de bottom sheet ; pastilles vertes pour les contraintes de développement, la stabilité du layout et la gestion du retour natif."
+                      lang="fr" class="case-img case-img--detail" loading="lazy">
+                  </div>
+
+                  <div class="case-media-scroll" tabindex="0" role="region" aria-label="End-to-end flow overview"
+                    lang="en">
+                    <img src="assets/antibiogo/annotations - global.png"
+                      alt="Comprehensive Antibiogo flow overview in Figma showing all screen steps and technical interaction annotations."
+                      loading="lazy">
+                  </div>
+                  <div class="case-media-scroll" tabindex="0" role="region" aria-label="Vue d'ensemble du flux"
+                    lang="fr">
+                    <img src="assets/antibiogo/annotations - global.png"
+                      alt="Vue d'ensemble du flux Antibiogo complet documenté dans Figma avec l'ensemble des écrans et leurs annotations techniques."
+                      loading="lazy">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
