@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize all interactive modules
+  initSkipLink();
   initLangToggle();
   initActiveNavLinkOnScroll();
   initScrollReveals();
@@ -12,6 +13,55 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
+ * Skip Link Keyboard Navigation
+ * Moves focus and scrolls to the main content landmark without triggering hash routing
+ */
+function initSkipLink() {
+  const skipLink = document.querySelector(".skip-link");
+  const mainEl = document.getElementById("main-content");
+  if (!skipLink || !mainEl) return;
+
+  skipLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    mainEl.focus();
+    mainEl.scrollIntoView({ behavior: "smooth" });
+  });
+}
+
+/**
+ * Centralized Document Title & SEO Manager
+ * Synchronizes title and meta description based on both language and active route view
+ */
+function updateDocumentTitleAndSeo(lang, routeHash) {
+  const currentLang = lang || document.documentElement.getAttribute("lang") || "en";
+  const rawHash = (routeHash !== undefined ? routeHash : (window.location.hash || "")).toLowerCase();
+  const metaDescription = document.querySelector('meta[name="description"]');
+
+  if (rawHash === "#antibiogo") {
+    document.title = currentLang === "fr"
+      ? "Antibiogo — François Ohl"
+      : "Antibiogo — François Ohl";
+  } else if (rawHash === "#origami") {
+    document.title = currentLang === "fr"
+      ? "Origami Design System — François Ohl"
+      : "Origami Design System — François Ohl";
+  } else {
+    document.title = currentLang === "fr"
+      ? "François Ohl — Senior UX & Product Designer"
+      : "François Ohl — Senior UX & Product Designer";
+  }
+
+  if (metaDescription) {
+    metaDescription.setAttribute(
+      "content",
+      currentLang === "fr"
+        ? "Portfolio de François Ohl, Senior UX/Product Designer spécialisé dans l'architecture de l'information et le design system."
+        : "Portfolio of François Ohl, Senior UX/Product Designer focusing on information architecture, complex systems, and design system scaling."
+    );
+  }
+}
+
+/**
  * Language Toggle Functionality
  * Manages 'en' vs 'fr' state, updates SEO metadata, and notifies dynamic components
  */
@@ -21,7 +71,7 @@ function initLangToggle() {
 
   if (langButtons.length === 0) return;
 
-  const storedLang = document.documentElement.getAttribute('lang') || 'en';
+  const storedLang = document.documentElement.getAttribute("lang") || "en";
   setLanguage(storedLang);
 
   langButtons.forEach((btn) => {
@@ -49,25 +99,10 @@ function initLangToggle() {
     });
 
     // Update SEO meta descriptions and page title
-    updateSeoMeta(lang);
+    updateDocumentTitleAndSeo(lang, window.location.hash);
 
     // Trigger update of dynamic content (like AST text)
-    document.dispatchEvent(new CustomEvent('lang-changed', { detail: { lang } }));
-  }
-
-  function updateSeoMeta(lang) {
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (lang === "fr") {
-      document.title = "François Ohl — Senior UX & Product Designer";
-      if (metaDescription) {
-        metaDescription.setAttribute("content", "Portfolio de François Ohl, Senior UX/Product Designer spécialisé dans l'architecture de l'information et le design system.");
-      }
-    } else {
-      document.title = "François Ohl — Senior UX & Product Designer";
-      if (metaDescription) {
-        metaDescription.setAttribute("content", "Portfolio of François Ohl, Senior UX/Product Designer focusing on information architecture, complex systems, and design system scaling.");
-      }
-    }
+    document.dispatchEvent(new CustomEvent("lang-changed", { detail: { lang } }));
   }
 }
 
@@ -384,13 +419,19 @@ function initOlderTimelineToggle() {
 
 /**
  * Hamburger Menu
- * Toggles the mobile navigation menu open/close state
+ * Toggles the mobile navigation menu open/close state with Escape key support
  */
 function initHamburgerMenu() {
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const navMenu = document.getElementById('nav-menu');
 
   if (!hamburgerBtn || !navMenu) return;
+
+  function closeMenu() {
+    navMenu.classList.remove('is-open');
+    hamburgerBtn.classList.remove('is-open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+  }
 
   hamburgerBtn.addEventListener('click', () => {
     const isOpen = navMenu.classList.toggle('is-open');
@@ -400,11 +441,15 @@ function initHamburgerMenu() {
 
   // Close menu when a nav link is clicked
   navMenu.querySelectorAll('.nav-link').forEach((link) => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('is-open');
-      hamburgerBtn.classList.remove('is-open');
-      hamburgerBtn.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on Escape key and restore focus
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('is-open')) {
+      closeMenu();
+      hamburgerBtn.focus();
+    }
   });
 }
 
@@ -424,15 +469,15 @@ function initResumeDownloadLinks() {
   });
 }
 
-
-
 /**
  * Lightweight Vanilla JS Hash Router
  * Handles 1-level drill-down navigation (#antibiogo, #origami) and returns to #home-view (#work)
- * Supports browser Back/Forward natively with history scroll restoration
+ * Supports browser Back/Forward natively with history scroll restoration and accessible focus management
  */
 const AppRouter = {
   previousScrollY: 0,
+  hasInternalNavigation: false,
+  lastActiveLink: null,
   routes: {
     '#antibiogo': 'project-view-antibiogo',
     '#origami': 'project-view-origami'
@@ -446,6 +491,14 @@ const AppRouter = {
       if (backTrigger) {
         e.preventDefault();
         this.navigateBack();
+        return;
+      }
+
+      // Check if user clicked a link navigating to an internal case study
+      const caseLink = e.target.closest('a[href="#antibiogo"], a[href="#origami"]');
+      if (caseLink) {
+        this.hasInternalNavigation = true;
+        this.lastActiveLink = caseLink;
       }
     });
 
@@ -453,10 +506,15 @@ const AppRouter = {
   },
 
   navigateBack() {
-    if (window.history.length > 1) {
+    if (this.hasInternalNavigation && window.history.length > 1) {
       window.history.back();
     } else {
-      window.location.hash = '#work';
+      if (window.history.replaceState) {
+        window.history.replaceState(null, '', '#work');
+        this.handleRoute();
+      } else {
+        window.location.hash = '#work';
+      }
     }
   },
 
@@ -467,12 +525,16 @@ const AppRouter = {
 
     if (!homeView) return;
 
+    const currentLang = document.documentElement.getAttribute('lang') || 'en';
     const targetProjectViewId = this.routes[rawHash];
     document.body.classList.toggle('is-project-view', Boolean(targetProjectViewId));
 
     if (targetProjectViewId) {
       const targetView = document.getElementById(targetProjectViewId);
       if (!targetView) return;
+
+      // Update document title for project view
+      updateDocumentTitleAndSeo(currentLang, rawHash);
 
       // Save scroll position only if coming from the visible home view
       if (!homeView.hasAttribute('hidden')) {
@@ -489,7 +551,17 @@ const AppRouter = {
       });
 
       window.scrollTo({ top: 0, behavior: isInitial ? 'instant' : 'smooth' });
+
+      // Move accessible focus to the case study h1
+      const heading = targetView.querySelector('.case-header h1, h1');
+      if (heading) {
+        if (!heading.hasAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
+        heading.focus();
+      }
     } else {
+      // Restore home view title
+      updateDocumentTitleAndSeo(currentLang, '');
+
       const wasInsideCase = Array.from(projectViews).some((v) => !v.hasAttribute('hidden'));
 
       projectViews.forEach((v) => v.setAttribute('hidden', ''));
@@ -503,6 +575,12 @@ const AppRouter = {
             const workSec = document.getElementById('work');
             if (workSec) workSec.scrollIntoView({ behavior: 'instant' });
           }
+        }
+
+        // Restore focus to the link that triggered the case study view
+        if (this.lastActiveLink && typeof this.lastActiveLink.focus === 'function') {
+          this.lastActiveLink.focus();
+          this.lastActiveLink = null;
         }
       }
 
