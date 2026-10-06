@@ -33,7 +33,11 @@ function initLangToggle() {
 
   function setLanguage(lang) {
     htmlEl.setAttribute("lang", lang);
-    localStorage.setItem("portfolio-lang", lang);
+    try {
+      localStorage.setItem("portfolio-lang", lang);
+    } catch (e) {
+      // LocalStorage non disponible ou restreint
+    }
 
     // Update active class state on toggle buttons
     langButtons.forEach((b) => {

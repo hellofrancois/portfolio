@@ -35,15 +35,21 @@
   <link rel="alternate" hreflang="fr" href="">
   <link rel="alternate" hreflang="x-default" href="">
 
-  <!-- Prevent Flash of Unstyled Content (FOUC) by checking language settings immediately -->
+  <!-- Prevent Flash of Unstyled Content (FOUC) by checking language settings immediately & flag JS capability -->
   <script>
     (function () {
+      document.documentElement.classList.add("js");
       let defaultLang = "en";
       const browserLang = navigator.language || navigator.userLanguage;
       if (browserLang && browserLang.startsWith("fr")) {
         defaultLang = "fr";
       }
-      const storedLang = localStorage.getItem("portfolio-lang") || defaultLang;
+      let storedLang = defaultLang;
+      try {
+        storedLang = localStorage.getItem("portfolio-lang") || defaultLang;
+      } catch (e) {
+        // LocalStorage non disponible ou restreint
+      }
       document.documentElement.setAttribute("lang", storedLang);
     })();
   </script>
