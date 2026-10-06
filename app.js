@@ -24,7 +24,8 @@ function initSkipLink() {
   skipLink.addEventListener("click", (e) => {
     e.preventDefault();
     mainEl.focus();
-    mainEl.scrollIntoView({ behavior: "smooth" });
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    mainEl.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
   });
 }
 
@@ -89,13 +90,11 @@ function initLangToggle() {
       // LocalStorage non disponible ou restreint
     }
 
-    // Update active class state on toggle buttons
+    // Update active class state and aria-pressed on toggle buttons
     langButtons.forEach((b) => {
-      if (b.getAttribute("data-lang") === lang) {
-        b.classList.add("active");
-      } else {
-        b.classList.remove("active");
-      }
+      const isActive = b.getAttribute("data-lang") === lang;
+      b.classList.toggle("active", isActive);
+      b.setAttribute("aria-pressed", String(isActive));
     });
 
     // Update SEO meta descriptions and page title
@@ -367,8 +366,9 @@ function initCaseTabs() {
         if (targetPanel) {
           targetPanel.removeAttribute("hidden");
           const rect = targetPanel.getBoundingClientRect();
+          const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
           if (rect.top > window.innerHeight * 0.75) {
-            targetPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            targetPanel.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "nearest" });
           }
         }
       }
@@ -550,7 +550,8 @@ const AppRouter = {
         }
       });
 
-      window.scrollTo({ top: 0, behavior: isInitial ? 'instant' : 'smooth' });
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: (isInitial || prefersReducedMotion) ? 'instant' : 'smooth' });
 
       // Move accessible focus to the case study h1
       const heading = targetView.querySelector('.case-header h1, h1');
@@ -584,11 +585,11 @@ const AppRouter = {
         }
       }
 
-      // If user clicked an anchor like #approach, #experience, #contact from the nav while on a case study
       if (rawHash && rawHash !== '#work' && !this.routes[rawHash]) {
         const targetElement = document.querySelector(rawHash);
         if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
+          const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          targetElement.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
         }
       }
     }

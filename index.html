@@ -84,10 +84,10 @@
         <a href="#contact" class="nav-link" lang="fr">Contact</a>
       </nav>
       <div class="nav-actions">
-        <div class="lang-switch">
-          <button class="lang-btn" data-lang="en" aria-label="Switch to English">EN</button>
-          <span class="lang-divider">/</span>
-          <button class="lang-btn" data-lang="fr" aria-label="Passer au Français">FR</button>
+        <div class="lang-switch" role="group" aria-label="Language selection / Choix de langue">
+          <button class="lang-btn" data-lang="en" lang="en" aria-pressed="true" aria-label="English">EN</button>
+          <span class="lang-divider" aria-hidden="true">/</span>
+          <button class="lang-btn" data-lang="fr" lang="fr" aria-pressed="false" aria-label="Français">FR</button>
         </div>
         <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
           <span class="hamburger-line"></span>
@@ -201,9 +201,9 @@
               <div class="case-header">
                 <div class="case-brand-row">
                   <div class="logo-group">
-                    <img src="assets/antibiogo_logo.svg" alt="Antibiogo Logo" class="case-logo logo-antibiogo">
-                    <span class="logo-separator">/</span>
-                    <img src="assets/msf_logo.svg" alt="La Fondation MSF Logo" class="case-logo logo-msf">
+                    <img src="assets/antibiogo_logo.svg" alt="Antibiogo" class="case-logo logo-antibiogo">
+                    <span class="logo-separator" aria-hidden="true">/</span>
+                    <img src="assets/msf_logo.svg" alt="La Fondation MSF" class="case-logo logo-msf">
                   </div>
                   <span class="case-duration" lang="en">2022 — Present</span>
                   <span class="case-duration" lang="fr">2022 — Présent</span>
@@ -236,8 +236,8 @@
 
               <div class="case-toggle-bar">
                 <a href="#antibiogo" class="btn btn-secondary btn-small btn-toggle-case">
-                  <span lang="en">Read Case Study</span>
-                  <span lang="fr">Lire l'étude complète</span>
+                  <span lang="en">Read Case Study <span class="sr-only">: Antibiogo</span></span>
+                  <span lang="fr">Lire l'étude complète <span class="sr-only"> : Antibiogo</span></span>
                   <svg viewBox="0 0 24 24" aria-hidden="true" class="case-arrow-right">
                     <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"
                       stroke-linecap="round" stroke-linejoin="round" />
@@ -250,7 +250,7 @@
             <article class="case-study-card" id="case-study-origami">
               <div class="case-header">
                 <div class="case-brand-row">
-                  <img src="assets/ag2r_logo.png" alt="AG2R La Mondiale Logo" class="case-logo logo-ag2r">
+                  <img src="assets/ag2r_logo.png" alt="AG2R La Mondiale" class="case-logo logo-ag2r">
                   <span class="case-duration">2019 — 2022</span>
                 </div>
                 <span class="case-tag" lang="en">02 — Design Ops & Tooling</span>
@@ -281,8 +281,8 @@
 
               <div class="case-toggle-bar">
                 <a href="#origami" class="btn btn-secondary btn-small btn-toggle-case">
-                  <span lang="en">Read Case Study</span>
-                  <span lang="fr">Lire l'étude complète</span>
+                  <span lang="en">Read Case Study <span class="sr-only">: Origami Design System</span></span>
+                  <span lang="fr">Lire l'étude complète <span class="sr-only"> : Design System Origami</span></span>
                   <svg viewBox="0 0 24 24" aria-hidden="true" class="case-arrow-right">
                     <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"
                       stroke-linecap="round" stroke-linejoin="round" />
@@ -565,10 +565,10 @@
           <div class="case-topbar-right">
             <span class="case-tag" lang="en">01 — Global Health & Field Diagnostics</span>
             <span class="case-tag" lang="fr">01 — Santé globale & diagnostic terrain</span>
-            <div class="lang-switch">
-              <button class="lang-btn" data-lang="en" aria-label="Switch to English">EN</button>
-              <span class="lang-divider">/</span>
-              <button class="lang-btn" data-lang="fr" aria-label="Passer au Français">FR</button>
+            <div class="lang-switch" role="group" aria-label="Language selection / Choix de langue">
+              <button class="lang-btn" data-lang="en" lang="en" aria-pressed="true" aria-label="English">EN</button>
+              <span class="lang-divider" aria-hidden="true">/</span>
+              <button class="lang-btn" data-lang="fr" lang="fr" aria-pressed="false" aria-label="Français">FR</button>
             </div>
           </div>
         </div>
@@ -578,9 +578,9 @@
         <div class="case-header">
           <div class="case-brand-row">
             <div class="logo-group">
-              <img src="assets/antibiogo_logo.svg" alt="Antibiogo Logo" class="case-logo logo-antibiogo">
-              <span class="logo-separator">/</span>
-              <img src="assets/msf_logo.svg" alt="La Fondation MSF Logo" class="case-logo logo-msf">
+              <img src="assets/antibiogo_logo.svg" alt="Antibiogo" class="case-logo logo-antibiogo">
+              <span class="logo-separator" aria-hidden="true">/</span>
+              <img src="assets/msf_logo.svg" alt="La Fondation MSF" class="case-logo logo-msf">
             </div>
             <span class="case-duration" lang="en">2022 — Present</span>
             <span class="case-duration" lang="fr">2022 — Présent</span>
@@ -810,11 +810,17 @@
                   </div>
                   <div class="case-media-row case-gallery-field">
                     <img src="assets/antibiogo/bench.webp"
+                      alt="Microbiology bench with Petri dishes and microscope in field laboratory"
+                      lang="en" class="case-img case-img--gallery" loading="lazy">
+                    <img src="assets/antibiogo/bench.webp"
                       alt="Paillasse de microbiologie avec boîtes de Petri et microscope en laboratoire"
-                      class="case-img case-img--gallery" loading="lazy">
+                      lang="fr" class="case-img case-img--gallery" loading="lazy">
+                    <img src="assets/antibiogo/lab.jpg"
+                      alt="Frontline medical laboratory environment with diagnostic analysis equipment"
+                      lang="en" class="case-img case-img--gallery" loading="lazy">
                     <img src="assets/antibiogo/lab.jpg"
                       alt="Environnement de laboratoire médical sur le terrain avec équipement d'analyse"
-                      class="case-img case-img--gallery" loading="lazy">
+                      lang="fr" class="case-img case-img--gallery" loading="lazy">
                   </div>
                 </div>
               </div>
@@ -984,10 +990,10 @@
           <div class="case-topbar-right">
             <span class="case-tag" lang="en">02 — Design Ops & Tooling</span>
             <span class="case-tag" lang="fr">02 — Outillage & culture design</span>
-            <div class="lang-switch">
-              <button class="lang-btn" data-lang="en" aria-label="Switch to English">EN</button>
-              <span class="lang-divider">/</span>
-              <button class="lang-btn" data-lang="fr" aria-label="Passer au Français">FR</button>
+            <div class="lang-switch" role="group" aria-label="Language selection / Choix de langue">
+              <button class="lang-btn" data-lang="en" lang="en" aria-pressed="true" aria-label="English">EN</button>
+              <span class="lang-divider" aria-hidden="true">/</span>
+              <button class="lang-btn" data-lang="fr" lang="fr" aria-pressed="false" aria-label="Français">FR</button>
             </div>
           </div>
         </div>
@@ -996,7 +1002,7 @@
       <div class="container">
         <div class="case-header">
           <div class="case-brand-row">
-            <img src="assets/ag2r_logo.png" alt="AG2R La Mondiale Logo" class="case-logo logo-ag2r">
+            <img src="assets/ag2r_logo.png" alt="AG2R La Mondiale" class="case-logo logo-ag2r">
             <span class="case-duration">2019 — 2022</span>
           </div>
           <span class="case-tag" lang="en">02 — Design Ops & Tooling</span>

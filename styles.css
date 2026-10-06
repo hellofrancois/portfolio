@@ -17,8 +17,8 @@
 
   --muted-color: #475569;
   /* Slate 600 pour les textes secondaires */
-  --subtle-color: #94a3b8;
-  /* Slate 400 */
+  --subtle-color: #64748b;
+  /* Slate 500 (conforme WCAG AA contrast ratio > 4.5:1 sur blanc) */
   --border-color: #e2e8f0;
   /* Slate 200 */
   --card-bg: #f1f5f9;
@@ -35,6 +35,8 @@
   /* Bleu principal : réservé à l'action (boutons, liens, tags actifs) */
   --accent-primary: hsl(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l));
   --accent-primary-muted: hsla(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l), 0.1);
+  --accent-primary-strong: hsl(var(--accent-primary-h), var(--accent-primary-s), 50%);
+  /* Bleu foncé calibré pour texte micro/labels sur fond teinté (contraste > 5.2:1) */
 
   --accent-secondary-h: 28;
   --accent-secondary-s: 90%;
@@ -161,6 +163,31 @@ button:focus:not(:focus-visible),
 a:focus:not(:focus-visible),
 [tabindex]:focus:not(:focus-visible) {
   outline: none;
+}
+
+/* Screen Reader Only Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Global Prefers Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 body {
@@ -1014,7 +1041,7 @@ body.is-project-view .header {
 .teaser-cta-label {
   font-size: var(--font-size-xs);
   font-weight: 600;
-  color: var(--accent-primary);
+  color: var(--accent-primary-strong);
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -1038,7 +1065,7 @@ body.is-project-view .header {
 .case-teaser-card[aria-selected="true"] .teaser-cta-close,
 .case-teaser-card.active .teaser-cta-close {
   display: inline-flex;
-  color: var(--accent-primary);
+  color: var(--accent-primary-strong);
   font-weight: 700;
 }
 
@@ -1591,11 +1618,11 @@ body.is-project-view .header {
 }
 
 /* Language Visibility Rules */
-html[lang="en"] [lang="fr"] {
+html[lang="en"] [lang="fr"]:not(.lang-btn) {
   display: none !important;
 }
 
-html[lang="fr"] [lang="en"] {
+html[lang="fr"] [lang="en"]:not(.lang-btn) {
   display: none !important;
 }
 
