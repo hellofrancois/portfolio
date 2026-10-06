@@ -262,10 +262,7 @@ p {
   margin-bottom: 1.5rem;
 }
 
-blockquote,
-.quote-block,
-.field-quote,
-.user-quote {
+blockquote {
   background-color: var(--card-bg);
   border-left: 3px solid var(--accent-secondary);
   border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
@@ -444,8 +441,7 @@ ul {
   font-weight: 800;
 }
 
-.hero h1 span.accent-text,
-.hero h1 span.gradient-text {
+.hero h1 span.accent-text {
   color: inherit;
 }
 
@@ -477,8 +473,7 @@ ul {
 }
 
 /* Button Size Modifiers */
-.btn-small,
-.btn.small {
+.btn-small {
   font-size: var(--font-size-sm);
   padding: 0.45rem 1.15rem;
   gap: 0.4rem;
@@ -1335,8 +1330,7 @@ body.is-project-view .header {
    ========================================================================== */
 
 /* 1. Universal Case Study Sub-cards (Panels & Enclosures) */
-.case-card,
-.handoff-card {
+.case-card {
   background-color: var(--bg-alt);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-sm);
@@ -1346,7 +1340,6 @@ body.is-project-view .header {
   gap: 1.25rem;
 }
 
-.case-card--accent,
 .panel-desc-box {
   background-color: var(--hover-bg);
   border-radius: var(--border-radius-sm);
@@ -1358,36 +1351,14 @@ body.is-project-view .header {
   gap: 0.25rem;
 }
 
-.case-card--accent strong,
 .panel-desc-box strong {
   color: var(--fg-color);
   display: block;
 }
 
-.case-card--accent #step-text,
 .panel-desc-box #step-text {
   display: block;
   line-height: 1.5;
-}
-
-/* Sub-card caption / legend */
-.case-card-caption,
-.handoff-caption {
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--border-color);
-  font-size: var(--font-size-sm);
-  color: var(--muted-color);
-  line-height: 1.6;
-}
-
-.case-card-caption p,
-.handoff-caption p {
-  margin: 0;
-}
-
-.case-card-caption strong,
-.handoff-caption strong {
-  color: var(--fg-color);
 }
 
 .case-card-header-text {
@@ -1405,9 +1376,7 @@ body.is-project-view .header {
 }
 
 /* 2. Universal Case Study Images */
-.case-img,
-.panel-desc-img,
-.handoff-img-detail {
+.case-img {
   display: block;
   width: 100%;
   height: auto;
@@ -1418,13 +1387,11 @@ body.is-project-view .header {
 }
 
 /* Size modifiers */
-.case-img--phone,
-.panel-desc-img {
+.case-img--phone {
   max-width: 240px;
 }
 
-.case-img--detail,
-.handoff-img-detail {
+.case-img--detail {
   max-width: 420px;
 }
 
@@ -1443,16 +1410,14 @@ body.is-project-view .header {
 }
 
 /* 3. Media Layout Containers */
-.case-media-center,
-.handoff-detail-wrapper {
+.case-media-center {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 
-.case-media-row,
-.panel-desc-images {
+.case-media-row {
   display: flex;
   flex-wrap: wrap;
   gap: 1.25rem;
@@ -1460,23 +1425,20 @@ body.is-project-view .header {
   align-items: flex-start;
 }
 
-.case-media-row:empty,
-.panel-desc-images:empty {
+.case-media-row:empty {
   display: none;
   margin: 0;
 }
 
 @media (max-width: 600px) {
 
-  .case-media-row,
-  .panel-desc-images {
+  .case-media-row {
     justify-content: center;
   }
 }
 
 /* Horizontal scrollable frame for wide panoramic flows & diagrams */
-.case-media-scroll,
-.handoff-overview {
+.case-media-scroll {
   width: 100%;
   overflow-x: auto;
   border-radius: var(--border-radius-sm);
@@ -1486,8 +1448,7 @@ body.is-project-view .header {
   -webkit-overflow-scrolling: touch;
 }
 
-.case-media-scroll img,
-.handoff-overview img {
+.case-media-scroll img {
   display: block;
   width: 100%;
   min-width: 680px;
