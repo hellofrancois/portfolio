@@ -1841,6 +1841,20 @@ body.is-project-view .header {
   margin-top: 1rem;
 }
 
+#toggle-older-btn .toggle-text-close {
+  display: none;
+}
+
+#toggle-older-btn.expanded .toggle-text-open,
+#toggle-older-btn[aria-expanded="true"] .toggle-text-open {
+  display: none;
+}
+
+#toggle-older-btn.expanded .toggle-text-close,
+#toggle-older-btn[aria-expanded="true"] .toggle-text-close {
+  display: inline;
+}
+
 #toggle-older-btn svg,
 .btn-toggle-case svg {
   width: 10px;
