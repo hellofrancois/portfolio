@@ -2026,6 +2026,16 @@ body.is-project-view .header {
     padding: var(--section-space) 0;
   }
 
+  /* Hero Mobile — Start from top under header, allow natural downward growth */
+  .hero.section {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: calc(var(--header-height) + 1.5rem);
+  }
+
   /* Mobile Navigation */
   .hamburger-btn {
     display: flex;
