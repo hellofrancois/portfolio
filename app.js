@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize all interactive modules
   initSkipLink();
-  initLangToggle();
   initActiveNavLinkOnScroll();
   initScrollReveals();
   AppRouter.init();
@@ -35,7 +34,7 @@ function initSkipLink() {
  * Synchronizes title and meta description based on both language and active route view
  */
 function updateDocumentTitleAndSeo(lang, routeHash) {
-  const currentLang = lang || document.documentElement.getAttribute("lang") || "en";
+  const currentLang = lang || document.documentElement.getAttribute("lang") || "fr";
   const rawHash = (routeHash !== undefined ? routeHash : (window.location.hash || "")).toLowerCase();
   const metaDescription = document.querySelector('meta[name="description"]');
 
@@ -63,48 +62,7 @@ function updateDocumentTitleAndSeo(lang, routeHash) {
   }
 }
 
-/**
- * Language Toggle Functionality
- * Manages 'en' vs 'fr' state, updates SEO metadata, and notifies dynamic components
- */
-function initLangToggle() {
-  const langButtons = document.querySelectorAll(".lang-btn");
-  const htmlEl = document.documentElement;
 
-  if (langButtons.length === 0) return;
-
-  const storedLang = document.documentElement.getAttribute("lang") || "en";
-  setLanguage(storedLang);
-
-  langButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const selectedLang = btn.getAttribute("data-lang");
-      setLanguage(selectedLang);
-    });
-  });
-
-  function setLanguage(lang) {
-    htmlEl.setAttribute("lang", lang);
-    try {
-      localStorage.setItem("portfolio-lang", lang);
-    } catch (e) {
-      // LocalStorage non disponible ou restreint
-    }
-
-    // Update active class state and aria-pressed on toggle buttons
-    langButtons.forEach((b) => {
-      const isActive = b.getAttribute("data-lang") === lang;
-      b.classList.toggle("active", isActive);
-      b.setAttribute("aria-pressed", String(isActive));
-    });
-
-    // Update SEO meta descriptions and page title
-    updateDocumentTitleAndSeo(lang, window.location.hash);
-
-    // Trigger update of dynamic content (like AST text)
-    document.dispatchEvent(new CustomEvent("lang-changed", { detail: { lang } }));
-  }
-}
 
 /**
  * Active Navigation Link Highlighter
@@ -427,7 +385,7 @@ const AppRouter = {
 
     if (!homeView) return;
 
-    const currentLang = document.documentElement.getAttribute('lang') || 'en';
+    const currentLang = document.documentElement.getAttribute('lang') || 'fr';
     const targetProjectViewId = this.routes[rawHash];
     document.body.classList.toggle('is-project-view', Boolean(targetProjectViewId));
 

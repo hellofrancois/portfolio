@@ -1878,16 +1878,7 @@ body.is-project-view .header {
   color: var(--accent-primary);
 }
 
-/* Language Visibility Rules */
-html[lang="en"] [lang="fr"]:not(.lang-btn) {
-  display: none !important;
-}
-
-html[lang="fr"] [lang="en"]:not(.lang-btn) {
-  display: none !important;
-}
-
-/* Language Switcher Button Group */
+/* Language Switcher */
 .lang-switch {
   display: flex;
   align-items: center;
@@ -1905,6 +1896,7 @@ html[lang="fr"] [lang="en"]:not(.lang-btn) {
   background: none;
   border: none;
   color: var(--muted-color);
+  text-decoration: none;
   cursor: pointer;
   padding: 0.35rem 0.65rem;
   font-size: var(--font-size-xs);

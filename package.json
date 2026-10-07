@@ -1,0 +1,12 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio de François Ohl",
+  "scripts": {
+    "build": "node scripts/build-i18n.js"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0"
+  }
+}
