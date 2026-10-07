@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initOlderTimelineToggle();
   initHamburgerMenu();
   initResumeDownloadLinks();
+  initMediaScrollHints();
 });
 
 /**
@@ -612,4 +613,108 @@ const AppRouter = {
   }
 };
 
+/**
+ * Horizontal Media Scroll Affordance
+ * Provides dynamic edge fades (via .can-scroll-left / .can-scroll-right), a one-shot
+ * peek animation on reveal, and click-and-drag scrolling for .case-media-scroll frames.
+ */
+function initMediaScrollHints() {
+  const frames = document.querySelectorAll(".case-media-scroll");
+  if (frames.length === 0) return;
 
+  const EDGE_THRESHOLD = 12; // px of scroll before an edge is considered "reached"
+  const PEEK_DISTANCE = 45; // px scrolled during the reveal nudge
+  const PEEK_VISIBILITY = 0.6; // share of the frame that must be on screen to trigger the nudge
+  const DRAG_SPEED = 1.4;
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  const updateEdges = (el) => {
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    el.classList.toggle("can-scroll-left", el.scrollLeft > EDGE_THRESHOLD);
+    el.classList.toggle("can-scroll-right", el.scrollLeft < maxScroll - EDGE_THRESHOLD);
+  };
+
+  // Recompute whenever a frame is resized or revealed (hidden language/route views have no size)
+  const resizeObserver = new ResizeObserver((entries) => {
+    entries.forEach((entry) => updateEdges(entry.target));
+  });
+
+  const peek = (el) => {
+    el.scrollTo({ left: PEEK_DISTANCE, behavior: "smooth" });
+    setTimeout(() => {
+      if (!el.dataset.interacted) el.scrollTo({ left: 0, behavior: "smooth" });
+    }, 450);
+  };
+
+  // Frames currently in view; the peek waits for the lazy-loaded image to make them scrollable
+  const visibleFrames = new WeakSet();
+
+  const tryPeek = (el) => {
+    if (!visibleFrames.has(el) || el.dataset.peeked || el.dataset.interacted) return;
+    if (el.scrollWidth - el.clientWidth <= PEEK_DISTANCE) return;
+    el.dataset.peeked = "true";
+    if (prefersReducedMotion.matches) return;
+    setTimeout(() => {
+      if (!el.dataset.interacted) peek(el);
+    }, 350);
+  };
+
+  const peekObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const el = entry.target;
+      // isIntersecting stays true for any visible pixel, so rely on the actual ratio
+      if (entry.intersectionRatio >= PEEK_VISIBILITY) {
+        visibleFrames.add(el);
+        tryPeek(el);
+      } else {
+        visibleFrames.delete(el);
+      }
+    });
+  }, { threshold: PEEK_VISIBILITY });
+
+  frames.forEach((el) => {
+    el.addEventListener("scroll", () => updateEdges(el), { passive: true });
+
+    // The image size defines the overflow: refresh fades and retry the peek once it has loaded
+    const img = el.querySelector("img");
+    if (img) {
+      const onImageReady = () => {
+        updateEdges(el);
+        tryPeek(el);
+      };
+      if (img.complete) onImageReady();
+      else img.addEventListener("load", onImageReady, { once: true });
+    }
+
+    const markInteracted = () => { el.dataset.interacted = "true"; };
+    el.addEventListener("touchstart", markInteracted, { passive: true });
+    el.addEventListener("wheel", markInteracted, { passive: true });
+    el.addEventListener("keydown", markInteracted);
+
+    // Click & drag scrolling (mouse only, touch uses native scrolling)
+    let startX = 0;
+    let startScroll = 0;
+
+    const onPointerMove = (e) => {
+      el.scrollLeft = startScroll - (e.clientX - startX) * DRAG_SPEED;
+    };
+    const onPointerUp = () => {
+      el.classList.remove("is-dragging");
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerup", onPointerUp);
+    };
+
+    el.addEventListener("pointerdown", (e) => {
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      markInteracted();
+      startX = e.clientX;
+      startScroll = el.scrollLeft;
+      el.classList.add("is-dragging");
+      window.addEventListener("pointermove", onPointerMove);
+      window.addEventListener("pointerup", onPointerUp);
+    });
+
+    resizeObserver.observe(el);
+    peekObserver.observe(el);
+  });
+}

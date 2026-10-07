@@ -1640,6 +1640,9 @@ body.is-project-view .header {
 
 /* Horizontal scrollable frame for wide panoramic flows & diagrams */
 .case-media-scroll {
+  --scroll-fade-size: 48px;
+  --scroll-fade-left: 0px;
+  --scroll-fade-right: 0px;
   width: 100%;
   overflow-x: auto;
   border-radius: var(--border-radius-sm);
@@ -1647,6 +1650,14 @@ body.is-project-view .header {
   background-color: var(--color-white);
   box-shadow: var(--shadow-sm);
   -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  user-select: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+}
+
+.case-media-scroll.is-dragging {
+  cursor: grabbing;
 }
 
 .case-media-scroll img {
@@ -1657,6 +1668,7 @@ body.is-project-view .header {
   height: auto;
   min-height: 260px;
   max-height: 360px;
+  pointer-events: none;
 }
 
 @media (min-width: 768px) {
@@ -1664,6 +1676,21 @@ body.is-project-view .header {
     min-height: 300px;
     max-height: 420px;
   }
+}
+
+/* Edge fades toggled by JS (initMediaScrollHints) when content overflows on a side */
+.case-media-scroll.can-scroll-left {
+  --scroll-fade-left: var(--scroll-fade-size);
+}
+
+.case-media-scroll.can-scroll-right {
+  --scroll-fade-right: var(--scroll-fade-size);
+}
+
+.case-media-scroll.can-scroll-left,
+.case-media-scroll.can-scroll-right {
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black var(--scroll-fade-left), black calc(100% - var(--scroll-fade-right)), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, black var(--scroll-fade-left), black calc(100% - var(--scroll-fade-right)), transparent 100%);
 }
 
 /* Retrospective Grids */
