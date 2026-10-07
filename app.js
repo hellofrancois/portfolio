@@ -356,7 +356,6 @@ function initCaseTabs() {
           delete section.dataset.active;
         }
       } else {
-        // Switch / Open: close any other open disclosures
         disclosureButtons.forEach((b) => {
           b.setAttribute("aria-expanded", "false");
           b.classList.remove("active");
@@ -365,6 +364,9 @@ function initCaseTabs() {
         });
         tabPanels.forEach((p) => {
           p.setAttribute("hidden", "");
+        });
+        document.querySelectorAll(".case-deep-dives-section").forEach((s) => {
+          delete s.dataset.active;
         });
 
         // Activate clicked disclosure

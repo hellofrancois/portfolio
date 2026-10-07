@@ -1201,20 +1201,29 @@ body.is-project-view .header {
 
 /* Desktop (> 820px) */
 @media (min-width: 821px) {
+  .case-teaser-grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
   /* Outer fillets hidden when cards are flush with the panel ends */
-  .case-deep-dives-section[data-active="tab-research"] #teaser-card-research .teaser-fillet--left {
+  .case-deep-dives-section[data-active="tab-research"] #teaser-card-research .teaser-fillet--left,
+  .case-deep-dives-section[data-active="tab-origami-step1"] #teaser-card-origami-step1 .teaser-fillet--left {
     display: none;
   }
 
-  .case-deep-dives-section[data-active="tab-handoff"] #teaser-card-handoff .teaser-fillet--right {
+  .case-deep-dives-section[data-active="tab-handoff"] #teaser-card-handoff .teaser-fillet--right,
+  .case-deep-dives-section[data-active="tab-origami-step4"] #teaser-card-origami-step4 .teaser-fillet--right {
     display: none;
   }
 
-  .case-deep-dives-section[data-active="tab-research"] #tab-research .case-card {
+  .case-deep-dives-section[data-active="tab-research"] #tab-research .case-card,
+  .case-deep-dives-section[data-active="tab-origami-step1"] #tab-origami-step1 .case-card {
     border-top-left-radius: 0;
   }
 
-  .case-deep-dives-section[data-active="tab-handoff"] #tab-handoff .case-card {
+  .case-deep-dives-section[data-active="tab-handoff"] #tab-handoff .case-card,
+  .case-deep-dives-section[data-active="tab-origami-step4"] #tab-origami-step4 .case-card {
     border-top-right-radius: 0;
   }
 }
