@@ -662,7 +662,6 @@ function initMediaScrollHints() {
   const peekObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       const el = entry.target;
-      // isIntersecting stays true for any visible pixel, so rely on the actual ratio
       if (entry.intersectionRatio >= PEEK_VISIBILITY) {
         visibleFrames.add(el);
         tryPeek(el);

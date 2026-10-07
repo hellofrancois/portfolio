@@ -1639,16 +1639,21 @@ body.is-project-view .header {
 }
 
 /* Horizontal scrollable frame for wide panoramic flows & diagrams */
+.case-media-frame {
+  width: 100%;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--border-color);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
 .case-media-scroll {
   --scroll-fade-size: 48px;
   --scroll-fade-left: 0px;
   --scroll-fade-right: 0px;
   width: 100%;
   overflow-x: auto;
-  border-radius: var(--border-radius-sm);
-  border: 1px solid var(--border-color);
-  background-color: var(--color-white);
-  box-shadow: var(--shadow-sm);
   -webkit-overflow-scrolling: touch;
   cursor: grab;
   user-select: none;
