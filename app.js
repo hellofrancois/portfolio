@@ -178,143 +178,28 @@ function initScrollReveals() {
  */
 function initAstWorkflow() {
   const cells = document.querySelectorAll(".quadrant-cell");
-  const stepTitle = document.getElementById("step-title");
-  const stepText = document.getElementById("step-text");
-  const stepImages = document.getElementById("step-images");
+  const panels = document.querySelectorAll(".panel-footer .panel-desc-box");
 
-  if (cells.length === 0 || !stepTitle || !stepText) return;
+  if (cells.length === 0 || panels.length === 0) return;
 
-  const quadrantImages = {
-    1: [
-      {
-        src: "assets/antibiogo/matrix 1 - synergy.jpg",
-        alt: {
-          en: "Antibiogo app interface showing rare phenotype synergy detection alert",
-          fr: "Interface Antibiogo affichant l'alerte de détection de synergie pour un phénotype rare"
-        }
-      },
-      {
-        src: "assets/antibiogo/matrix 1b.jpg",
-        alt: {
-          en: "Antibiogo app interface showing rare phenotype synergy detection alert",
-          fr: "Interface Antibiogo affichant l'alerte de détection de synergie pour un phénotype rare"
-        }
-      }
-    ],
-    2: [
-      {
-        src: "assets/antibiogo/matrix 2a - antibiotic confirm.jpg",
-        alt: {
-          en: "Antibiogo app interface with antibiotic confirmation dialog",
-          fr: "Interface Antibiogo avec dialogue de confirmation de l'antibiotique"
-        }
-      },
-      {
-        src: "assets/antibiogo/matrix 2b - IZD confirm.jpg",
-        alt: {
-          en: "Antibiogo app interface confirming inhibition zone diameter",
-          fr: "Interface Antibiogo confirmant la mesure du diamètre de zone d'inhibition"
-        }
-      }
-    ],
-    3: [
-      {
-        src: "assets/antibiogo/matrix 3 - metadata.jpg",
-        alt: {
-          en: "Antibiogo app interface for patient and sample metadata input",
-          fr: "Interface Antibiogo pour la saisie des métadonnées du patient et de l'échantillon"
-        }
-      }
-    ],
-    4: []
-  };
-
-  const quadrantData = {
-    en: {
-      1: {
-        title: "Rare Phenotype Detection",
-        text: "Safety-critical & rare event: Triggering a hard visual interrupt and requiring explicit confirmation with contextual guidance to prevent misdiagnosing critical bacterial resistance."
-      },
-      2: {
-        title: "Antibiotic Validation",
-        text: "Safety-critical & daily routine: Semi-automated verification flow requiring manual confirmation of drug names and measured inhibition diameters to prevent blind automatic rubber-stamping."
-      },
-      3: {
-        title: "Patient & Sample Metadata",
-        text: "Flexible, non-blocking input for optional fields (age, ward, sample ID), streamlining the workflow by eliminating unnecessary administrative friction."
-      },
-      4: {
-        title: "Quality Control (QC)",
-        text: "Streamlined interaction steps on repetitive validation tasks to prevent cognitive fatigue while preserving mandatory regulatory traceability."
-      }
-    },
-    fr: {
-      1: {
-        title: "Détection d'un phénotype rare",
-        text: "Risque critique & événement rare : déclenchement d'une alerte visuelle bloquante avec confirmation explicite requise et rappel pédagogique pour prévenir toute erreur critique de diagnostic face à une antibiorésistance majeure."
-      },
-      2: {
-        title: "Validation des antibiotiques",
-        text: "Risque critique & routine quotidienne : processus semi-automatisé imposant la confirmation manuelle des noms de disques et diamètres pour empêcher l'acceptation automatique et aveugle des propositions."
-      },
-      3: {
-        title: "Métadonnées du patient et de l'échantillon",
-        text: "Saisie fluide et non bloquante des informations optionnelles (âge, service, identifiant), permettant de se concentrer sur l'analyse sans imposer d'étapes superflues."
-      },
-      4: {
-        title: "Contrôle Qualité (CQ)",
-        text: "Allègement mesuré des interactions sur une tâche récurrente de validation pour réduire la fatigue cognitive tout en garantissant la traçabilité."
-      }
-    }
-  };
-
-  function updateQuadrantText() {
-    const activeCell = document.querySelector(".quadrant-cell.active");
-    if (!activeCell) return;
-
-    const zoneIndex = activeCell.getAttribute("data-zone");
-    const lang = document.documentElement.getAttribute("lang") || "en";
-
-    if (quadrantData[lang] && quadrantData[lang][zoneIndex]) {
-      stepTitle.textContent = quadrantData[lang][zoneIndex].title;
-      stepText.textContent = quadrantData[lang][zoneIndex].text;
-    }
-
-    if (stepImages) {
-      stepImages.innerHTML = "";
-      const images = quadrantImages[zoneIndex] || [];
-      if (images.length > 0) {
-        stepImages.style.display = "flex";
-        images.forEach((imgData) => {
-          const img = document.createElement("img");
-          img.src = imgData.src;
-          img.alt = (imgData.alt && imgData.alt[lang]) ? imgData.alt[lang] : "";
-          img.className = "case-img case-img--phone";
-          img.loading = "lazy";
-          stepImages.appendChild(img);
-        });
-      } else {
-        stepImages.style.display = "none";
-      }
-    }
-  }
-
-  // Listen for language changes
-  document.addEventListener('lang-changed', updateQuadrantText);
-
-  // Initial sync
-  updateQuadrantText();
-
-  // Click & keyboard handlers for quadrant cells
   cells.forEach((cell) => {
     function selectCell() {
+      const targetId = cell.getAttribute("aria-controls") || `zone-desc-${cell.getAttribute("data-zone")}`;
+
       cells.forEach((c) => {
         c.classList.remove("active");
         c.setAttribute("aria-pressed", "false");
       });
       cell.classList.add("active");
       cell.setAttribute("aria-pressed", "true");
-      updateQuadrantText();
+
+      panels.forEach((panel) => {
+        if (panel.id === targetId) {
+          panel.removeAttribute("hidden");
+        } else {
+          panel.setAttribute("hidden", "");
+        }
+      });
     }
 
     cell.addEventListener("click", selectCell);

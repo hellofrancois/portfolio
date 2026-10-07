@@ -870,7 +870,7 @@
 
                         <div class="quadrant-grid">
                           <!-- Top-Left: High Risk / Rare -->
-                          <button class="quadrant-cell active" data-zone="1" type="button" aria-pressed="true">
+                          <button class="quadrant-cell active" data-zone="1" aria-controls="zone-desc-1" type="button" aria-pressed="true">
                             <span class="cell-name" lang="en">Rare Phenotype Detection</span>
                             <span class="cell-name" lang="fr">Détection d'un phénotype rare</span>
                             <span class="cell-sub" lang="en">High risk • Rare event</span>
@@ -879,7 +879,7 @@
                             <span class="cell-friction-tag" lang="fr">Friction : Alerte bloquante</span>
                           </button>
                           <!-- Top-Right: High Risk / Frequent -->
-                          <button class="quadrant-cell" data-zone="2" type="button" aria-pressed="false">
+                          <button class="quadrant-cell" data-zone="2" aria-controls="zone-desc-2" type="button" aria-pressed="false">
                             <span class="cell-name" lang="en">Antibiotic Validation</span>
                             <span class="cell-name" lang="fr">Validation des antibiotiques</span>
                             <span class="cell-sub" lang="en">High risk • Daily</span>
@@ -888,7 +888,7 @@
                             <span class="cell-friction-tag" lang="fr">Friction : Validation pas-à-pas</span>
                           </button>
                           <!-- Bottom-Left: Low Risk / Rare -->
-                          <button class="quadrant-cell" data-zone="3" type="button" aria-pressed="false">
+                          <button class="quadrant-cell" data-zone="3" aria-controls="zone-desc-3" type="button" aria-pressed="false">
                             <span class="cell-name" lang="en">Patient & Sample Metadata</span>
                             <span class="cell-name" lang="fr">Métadonnées du patient et de l'échantillon</span>
                             <span class="cell-sub" lang="en">Low risk • Punctual</span>
@@ -897,7 +897,7 @@
                             <span class="cell-friction-tag" lang="fr">Friction : Saisie fluide optionnelle</span>
                           </button>
                           <!-- Bottom-Right: Low Risk / Frequent -->
-                          <button class="quadrant-cell" data-zone="4" type="button" aria-pressed="false">
+                          <button class="quadrant-cell" data-zone="4" aria-controls="zone-desc-4" type="button" aria-pressed="false">
                             <span class="cell-name" lang="en">Quality Control (QC)</span>
                             <span class="cell-name" lang="fr">Contrôle Qualité (CQ)</span>
                             <span class="cell-sub" lang="en">Low risk • Routine</span>
@@ -916,13 +916,72 @@
                     </div>
 
                     <div class="panel-footer">
-                      <div class="panel-desc-box" id="step-description-box" aria-live="polite" aria-atomic="true">
-                        <strong id="step-title">Détection d'un phénotype rare</strong>
-                        <span id="step-text">Risque critique & événement rare : Déclenchement d'une alerte visuelle
-                          bloquante avec confirmation explicite requise et rappel pédagogique pour prévenir toute erreur
-                          de
-                          diagnostic vital.</span>
-                        <div class="case-media-row" id="step-images"></div>
+                      <!-- Zone 1: High Risk / Rare (Active by default) -->
+                      <div class="panel-desc-box" id="zone-desc-1" role="region" aria-live="polite" aria-atomic="true">
+                        <strong lang="en">Rare Phenotype Detection</strong>
+                        <strong lang="fr">Détection d'un phénotype rare</strong>
+                        <span lang="en">Safety-critical & rare event: Triggering a hard visual interrupt and requiring explicit confirmation with contextual guidance to prevent misdiagnosing critical bacterial resistance.</span>
+                        <span lang="fr">Risque critique & événement rare : déclenchement d'une alerte visuelle bloquante avec confirmation explicite requise et rappel pédagogique pour prévenir toute erreur critique de diagnostic face à une antibiorésistance majeure.</span>
+                        <div class="case-media-row">
+                          <img src="assets/antibiogo/matrix 1 - synergy.jpg"
+                            alt="Antibiogo app interface showing rare phenotype synergy detection alert"
+                            lang="en" class="case-img case-img--phone" loading="lazy">
+                          <img src="assets/antibiogo/matrix 1 - synergy.jpg"
+                            alt="Interface Antibiogo affichant l'alerte de détection de synergie pour un phénotype rare"
+                            lang="fr" class="case-img case-img--phone" loading="lazy">
+                          <img src="assets/antibiogo/matrix 1b.jpg"
+                            alt="Antibiogo app interface showing rare phenotype synergy detection alert"
+                            lang="en" class="case-img case-img--phone" loading="lazy">
+                          <img src="assets/antibiogo/matrix 1b.jpg"
+                            alt="Interface Antibiogo affichant l'alerte de détection de synergie pour un phénotype rare"
+                            lang="fr" class="case-img case-img--phone" loading="lazy">
+                        </div>
+                      </div>
+
+                      <!-- Zone 2: High Risk / Frequent -->
+                      <div class="panel-desc-box" id="zone-desc-2" role="region" aria-live="polite" aria-atomic="true" hidden>
+                        <strong lang="en">Antibiotic Validation</strong>
+                        <strong lang="fr">Validation des antibiotiques</strong>
+                        <span lang="en">Safety-critical & daily routine: Semi-automated verification flow requiring manual confirmation of drug names and measured inhibition diameters to prevent blind automatic rubber-stamping.</span>
+                        <span lang="fr">Risque critique & routine quotidienne : processus semi-automatisé imposant la confirmation manuelle des noms de disques et diamètres pour empêcher l'acceptation automatique et aveugle des propositions.</span>
+                        <div class="case-media-row">
+                          <img src="assets/antibiogo/matrix 2a - antibiotic confirm.jpg"
+                            alt="Antibiogo app interface with antibiotic confirmation dialog"
+                            lang="en" class="case-img case-img--phone" loading="lazy">
+                          <img src="assets/antibiogo/matrix 2a - antibiotic confirm.jpg"
+                            alt="Interface Antibiogo avec dialogue de confirmation de l'antibiotique"
+                            lang="fr" class="case-img case-img--phone" loading="lazy">
+                          <img src="assets/antibiogo/matrix 2b - IZD confirm.jpg"
+                            alt="Antibiogo app interface confirming inhibition zone diameter"
+                            lang="en" class="case-img case-img--phone" loading="lazy">
+                          <img src="assets/antibiogo/matrix 2b - IZD confirm.jpg"
+                            alt="Interface Antibiogo confirmant la mesure du diamètre de zone d'inhibition"
+                            lang="fr" class="case-img case-img--phone" loading="lazy">
+                        </div>
+                      </div>
+
+                      <!-- Zone 3: Low Risk / Rare -->
+                      <div class="panel-desc-box" id="zone-desc-3" role="region" aria-live="polite" aria-atomic="true" hidden>
+                        <strong lang="en">Patient & Sample Metadata</strong>
+                        <strong lang="fr">Métadonnées du patient et de l'échantillon</strong>
+                        <span lang="en">Flexible, non-blocking input for optional fields (age, ward, sample ID), streamlining the workflow by eliminating unnecessary administrative friction.</span>
+                        <span lang="fr">Saisie fluide et non bloquante des informations optionnelles (âge, service, identifiant), permettant de se concentrer sur l'analyse sans imposer d'étapes superflues.</span>
+                        <div class="case-media-row">
+                          <img src="assets/antibiogo/matrix 3 - metadata.jpg"
+                            alt="Antibiogo app interface for patient and sample metadata input"
+                            lang="en" class="case-img case-img--phone" loading="lazy">
+                          <img src="assets/antibiogo/matrix 3 - metadata.jpg"
+                            alt="Interface Antibiogo pour la saisie des métadonnées du patient et de l'échantillon"
+                            lang="fr" class="case-img case-img--phone" loading="lazy">
+                        </div>
+                      </div>
+
+                      <!-- Zone 4: Low Risk / Frequent -->
+                      <div class="panel-desc-box" id="zone-desc-4" role="region" aria-live="polite" aria-atomic="true" hidden>
+                        <strong lang="en">Quality Control (QC)</strong>
+                        <strong lang="fr">Contrôle Qualité (CQ)</strong>
+                        <span lang="en">Streamlined interaction steps on repetitive validation tasks to prevent cognitive fatigue while preserving mandatory regulatory traceability.</span>
+                        <span lang="fr">Allègement mesuré des interactions sur une tâche récurrente de validation pour réduire la fatigue cognitive tout en garantissant la traçabilité.</span>
                       </div>
                     </div>
                   </div>
