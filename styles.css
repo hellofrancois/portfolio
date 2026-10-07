@@ -189,6 +189,7 @@ a:focus:not(:focus-visible),
 
 /* Global Prefers Reduced Motion Override */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -623,13 +624,6 @@ body.is-project-view .header {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
-}
-
-.case-topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  flex-wrap: wrap;
 }
 
 .case-back-link {
@@ -1122,6 +1116,7 @@ body.is-project-view .header {
     opacity: 0;
     transform: translateY(6px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
