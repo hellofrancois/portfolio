@@ -103,14 +103,14 @@ function buildPage(pageKey, lang) {
     // Language Switcher in header
     const langSwitchHtml = isEn
       ? `<div class="lang-switch" role="group" aria-label="Language selection / Choix de langue">
-            <span class="lang-btn active" lang="en" aria-current="page" aria-label="English">EN</span>
-            <span class="lang-divider" aria-hidden="true">/</span>
             <a href="../index.html" class="lang-btn" lang="fr" hreflang="fr" aria-label="Version française">FR</a>
+            <span class="lang-divider" aria-hidden="true">/</span>
+            <span class="lang-btn active" lang="en" aria-current="page" aria-label="English">EN</span>
           </div>`
       : `<div class="lang-switch" role="group" aria-label="Choix de langue / Language selection">
-            <a href="en/index.html" class="lang-btn" lang="en" hreflang="en" aria-label="English version">EN</a>
-            <span class="lang-divider" aria-hidden="true">/</span>
             <span class="lang-btn active" lang="fr" aria-current="page" aria-label="Français">FR</span>
+            <span class="lang-divider" aria-hidden="true">/</span>
+            <a href="en/index.html" class="lang-btn" lang="en" hreflang="en" aria-label="English version">EN</a>
           </div>`;
     $('.lang-switch').replaceWith(langSwitchHtml);
   } else if (pageKey === 'antibiogo') {
