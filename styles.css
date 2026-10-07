@@ -148,8 +148,6 @@ html {
 
 /* Universal [hidden] attribute safeguard against display overrides (flex, grid, etc.) */
 [hidden],
-#home-view[hidden],
-.case-study-view[hidden],
 .case-tab-panel[hidden],
 .panel-desc-box[hidden] {
   display: none !important;

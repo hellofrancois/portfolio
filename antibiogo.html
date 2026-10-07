@@ -1,0 +1,479 @@
+<!DOCTYPE html><html lang="fr"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Étude de cas Antibiogo : conception UX/UI d'un dispositif médical mobile pour le diagnostic d'antibiogrammes sur le terrain (Fondation MSF).">
+  <meta name="author" content="François Ohl">
+
+  <title>Antibiogo — François Ohl</title>
+
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%232563eb%22/></svg>" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Antibiogo — François Ohl">
+  <meta property="og:description" content="Étude de cas Antibiogo : conception UX/UI d'un dispositif médical mobile pour le diagnostic d'antibiogrammes sur le terrain (Fondation MSF).">
+  <meta property="og:url" content="https://hellofrancois.github.io/antibiogo.html">
+  <meta name="twitter:card" content="summary">
+
+  <!-- Canonical & Hreflang -->
+  <link rel="canonical" href="https://hellofrancois.github.io/antibiogo.html">
+  <link rel="alternate" hreflang="en" href="https://hellofrancois.github.io/en/antibiogo.html">
+  <link rel="alternate" hreflang="fr" href="https://hellofrancois.github.io/antibiogo.html">
+  <link rel="alternate" hreflang="x-default" href="https://hellofrancois.github.io/antibiogo.html">
+
+  <!-- Flag JS capability immediately for progressive enhancement / no-JS fallbacks -->
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="scroller is-project-view">
+
+  <!-- Skip to Main Content Link -->
+  <a href="#main-content" class="skip-link">
+    
+    <span>Aller au contenu principal</span>
+  </a>
+
+  <!-- Header -->
+  
+
+  <main id="main-content" tabindex="-1">
+     <!-- /#home-view -->
+
+    <!-- Dedicated Case Study 01: Antibiogo View -->
+    <div id="project-view-antibiogo" class="case-study-view">
+      <!-- Top Navigation Bar -->
+      <div class="case-study-topbar">
+        <div class="container case-study-topbar-inner">
+          <a href="./#work" class="btn btn-secondary btn-small case-back-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
+              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+            </svg>
+            
+            <span>Retour aux projets</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="case-header">
+          <div class="case-brand-row">
+            <div class="logo-group">
+              <img src="assets/antibiogo_logo.svg" alt="Antibiogo" class="case-logo logo-antibiogo" width="74" height="24" loading="lazy" decoding="async">
+              <span class="logo-separator" aria-hidden="true">/</span>
+              <img src="assets/msf_logo.svg" alt="La Fondation MSF" class="case-logo logo-msf" width="28" height="20" loading="lazy" decoding="async">
+            </div>
+            
+            <span class="case-duration">2022 — Présent</span>
+          </div>
+          
+          <span class="case-tag">01 — Santé globale &amp; diagnostic terrain</span>
+          
+          <h1>Antibiogo — Dispositif médical mobile sous Android</h1>
+          <div class="case-meta-grid">
+            <div class="case-meta-item">
+              
+              <h4>Rôle</h4>
+              
+              <p>Lead UX &amp; Product Designer</p>
+            </div>
+            <div class="case-meta-item">
+              
+              <h4>Contexte</h4>
+              
+              <p>Certified medical device (IVDR / IVDD)</p>
+            </div>
+          </div>
+          
+          <p class="case-teaser-pitch"><em>En termes simples : une application mobile gratuite
+              qui aide les technicien·nes de laboratoire dans les pays à ressources limitées à identifier les
+              antibiotiques efficaces contre les infections bactériennes.</em></p>
+        </div>
+
+        <div class="case-study-content" style="margin-top: 3rem;">
+          <!-- Row 1: The Challenge (2/3) & Highlight Box (1/3) -->
+          <div class="case-challenge-grid">
+            <div class="case-section">
+              
+              <h3>Le Défi</h3>
+              
+              <p>
+                Pendant plus de 3 ans, j'ai piloté l'expérience utilisateur et la conception produit d'Antibiogo,
+                une
+                application médicale Android certifiée IVDD (et en cours de certification IVDR), développée par La
+                Fondation MSF pour lutter contre l'antibiorésistance. Le défi central : concilier l'état de l'art
+                de
+                la microbiologie clinique (normes internationales EUCAST et CLSI) avec les réalités de terrain
+                dans
+                les laboratoires de pays à ressources limitées : niveaux de compétence hétérogènes et mauvaises
+                pratiques courantes à corriger avec pédagogie, fonctionnement 100 % autonome sans serveur distant
+                et
+                sécurité clinique absolue.
+              </p>
+            </div>
+
+            <aside class="highlight-box">
+              
+              <h4>Équilibre de sécurité vitale</h4>
+              
+              <p>Garantir la conformité aux exigences strictes de certification médicale (IVDD/IVDR)
+                et
+                l'exactitude clinique, tout en respectant l'hétérogénéité des compétences sur le terrain.</p>
+            </aside>
+          </div>
+
+          <!-- Row 2: Methodology & Actions with 2x2 grid and Deep Dives cards inside -->
+          <div class="case-section case-deep-dives-section">
+            
+            <h3>Méthodologie &amp; Actions</h3>
+            
+            <ul>
+              <li><strong>Recherche &amp; immersion continue :</strong> combinaison d'observations terrain en laboratoire
+                et d'un protocole d'écoute à distance (tests modérés et questionnaires) auprès d'équipes utilisatrices
+                réparties à l'international.</li>
+              <li><strong>Stratégie UX &amp; arbitrage du risque :</strong> dosage précis de la friction d'interface selon
+                la criticité clinique des tâches, pour sécuriser le geste sans ralentir le diagnostic au quotidien.
+              </li>
+              <li><strong>Spécifications techniques &amp; Handoff :</strong> cadrage rigoureux des règles d'interaction
+                pour le développement Android (comportements natifs de l'OS, gestion du focus, clavier virtuel, cas
+                limites).</li>
+              <li><strong>Design system &amp; encadrement :</strong> direction de la refonte globale des composants et
+                encadrement d'une UI Designer : pilotage de la migration de Material 2 vers Material 3, modernisation
+                typographique, refonte des couleurs de marque et extension de la palette fonctionnelle.</li>
+            </ul>
+
+            <!-- Deep Dives Teaser Cards Grid Navigation -->
+            <div class="case-teaser-grid" aria-label="Antibiogo Deep Dives">
+              <div class="case-teaser-card" id="teaser-card-research">
+                <div class="teaser-card-top">
+                  <span class="teaser-index">01</span>
+                  
+                  <span class="teaser-tag">Recherche utilisateur</span>
+                </div>
+                <h4 class="teaser-title">
+                  <button class="teaser-btn" type="button" aria-expanded="false" aria-controls="tab-research" id="tab-btn-research" aria-describedby="desc-research-en desc-research-fr">
+                    
+                    <span>Recherche terrain &amp; réalités de paillasse</span>
+                  </button>
+                </h4>
+                
+                <p class="teaser-desc" id="desc-research-fr">Observations directes en paillasse MSF : 100 %
+                  hors-ligne et contraintes d'éclairage réel.</p>
+                <div class="teaser-cta" aria-hidden="true">
+                  
+                  <span class="teaser-cta-label teaser-cta-open">Explorer <span class="teaser-arrow">↓</span></span>
+                  
+                  <span class="teaser-cta-label teaser-cta-close">Fermer <span class="teaser-arrow">↑</span></span>
+                </div>
+                <span class="teaser-fillet teaser-fillet--left" aria-hidden="true"></span>
+                <span class="teaser-fillet teaser-fillet--right" aria-hidden="true"></span>
+              </div>
+
+              <div class="case-teaser-card" id="teaser-card-matrix">
+                <div class="teaser-card-top">
+                  <span class="teaser-index">02</span>
+                  
+                  <span class="teaser-tag">Stratégie UX &amp; Risque</span>
+                </div>
+                <h4 class="teaser-title">
+                  <button class="teaser-btn" type="button" aria-expanded="false" aria-controls="tab-matrix" id="tab-btn-matrix" aria-describedby="desc-matrix-en desc-matrix-fr">
+                    
+                    <span>Matrice de décision Risque &amp; Friction</span>
+                  </button>
+                </h4>
+                
+                <p class="teaser-desc" id="desc-matrix-fr">Dosage précis de la friction intentionnelle selon
+                  la criticité de 4 scénarios cliniques.</p>
+                <div class="teaser-cta" aria-hidden="true">
+                  
+                  <span class="teaser-cta-label teaser-cta-open">Explorer <span class="teaser-arrow">↓</span></span>
+                  
+                  <span class="teaser-cta-label teaser-cta-close">Fermer <span class="teaser-arrow">↑</span></span>
+                </div>
+                <span class="teaser-fillet teaser-fillet--left" aria-hidden="true"></span>
+                <span class="teaser-fillet teaser-fillet--right" aria-hidden="true"></span>
+              </div>
+
+              <div class="case-teaser-card" id="teaser-card-handoff">
+                <div class="teaser-card-top">
+                  <span class="teaser-index">03</span>
+                  
+                  <span class="teaser-tag">Delivery &amp; Specs Dev</span>
+                </div>
+                <h4 class="teaser-title">
+                  <button class="teaser-btn" type="button" aria-expanded="false" aria-controls="tab-handoff" id="tab-btn-handoff" aria-describedby="desc-handoff-en desc-handoff-fr">
+                    
+                    <span>Spécifications d'interaction Android</span>
+                  </button>
+                </h4>
+                
+                <p class="teaser-desc" id="desc-handoff-fr">Règles d'intégration : gestion du clavier virtuel,
+                  stabilité du layout et bottom sheets.</p>
+                <div class="teaser-cta" aria-hidden="true">
+                  
+                  <span class="teaser-cta-label teaser-cta-open">Explorer <span class="teaser-arrow">↓</span></span>
+                  
+                  <span class="teaser-cta-label teaser-cta-close">Fermer <span class="teaser-arrow">↑</span></span>
+                </div>
+                <span class="teaser-fillet teaser-fillet--left" aria-hidden="true"></span>
+                <span class="teaser-fillet teaser-fillet--right" aria-hidden="true"></span>
+              </div>
+            </div>
+
+            <!-- Tab Panels Container (Collapsed by default) -->
+            <div class="case-tab-panels">
+              <!-- Panel 1: Field Research -->
+              <div class="case-tab-panel" id="tab-research" hidden="">
+                <div class="case-card">
+                  
+                  <div class="case-card-header-text">
+                    <p><strong>Recherche terrain &amp; immersion contextuelle :</strong> Observations directes en conditions
+                      réelles de paillasse dans des laboratoires tiers (hors réseau MSF et sans Antibiogo). L'objectif
+                      était d'appréhender la réalité des environnements à ressources limitées (LMICs) : ruptures
+                      d'approvisionnement régulières, hétérogénéité des équipements, niveaux de formation variables et
+                      contraintes physiques de manipulation au-dessus des cultures bactériennes.</p>
+                    <p><strong>Veille continue, réduction des risques &amp; itérations produit :</strong> Pour maintenir
+                      une boucle de retours constante sans dépendre de déplacements sur place, mise en place d'un
+                      protocole d'enquêtes structurées et de tests modérés à distance avec des microbiologistes et
+                      technicien·nes de laboratoire.</p>
+                    <p>Cette démarche a guidé les arbitrages de conception sur plusieurs chantiers clés, motivés par les
+                      frictions d'usage et les exigences de sécurité clinique :</p>
+                    <ul>
+                      <li><strong>Réduction du risque d'oubli :</strong> confirmation systématique du nombre
+                        d'antibiotiques testés lors de l'étape de détection.</li>
+                      <li><strong>Efficience de lecture :</strong> amélioration des parcours d'identification des
+                        bactéries et des mesures de zones d'inhibition.</li>
+                      <li><strong>Clarté décisionnelle :</strong> refonte de l'affichage des résultats in-app et refonte
+                        des gabarits d'export et d'impression pour les médecins prescripteurs.</li>
+                    </ul>
+                  </div>
+                  <div class="case-media-row case-gallery-field">
+                    
+                    <img src="assets/antibiogo/bench.webp" alt="Paillasse de microbiologie avec boîtes de Petri et microscope en laboratoire" class="case-img case-img--gallery" width="800" height="533" loading="lazy" decoding="async">
+                    
+                    <img src="assets/antibiogo/lab-480.webp" srcset="assets/antibiogo/lab-480.webp 480w, assets/antibiogo/lab-960.webp 960w" sizes="(max-width: 600px) 100vw, 480px" alt="Environnement de laboratoire médical sur le terrain avec équipement d'analyse" class="case-img case-img--gallery" width="480" height="640" loading="lazy" decoding="async">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel 2: Interactive Matrix -->
+              <div class="case-tab-panel" id="tab-matrix" hidden="">
+                <div class="case-card">
+                  <div class="panel-header">
+                    
+                    <span class="panel-title">Matrice de décision UX : Risque &amp; Friction</span>
+                  </div>
+
+                  <div class="quadrant-container" role="region" aria-label="Risk vs Frequency Matrix">
+                    <div class="quadrant-matrix-wrapper">
+                      <!-- Axis Endpoint Top (High Risk) -->
+                      <div class="quadrant-axis-endpoint quadrant-axis-endpoint--top" aria-hidden="true">
+                        
+                        <span class="axis-endpoint-label">▲ Risque élevé</span>
+                      </div>
+
+                      <!-- Central Quadrant Stage with 2x2 Grid and Central Cross Axes -->
+                      <div class="quadrant-matrix-stage">
+                        <!-- Central Cross Axes (Vertical & Horizontal) -->
+                        <div class="quadrant-axis-line quadrant-axis-line--vertical" aria-hidden="true"></div>
+                        <div class="quadrant-axis-line quadrant-axis-line--horizontal" aria-hidden="true"></div>
+                        <div class="quadrant-axis-center-dot" aria-hidden="true"></div>
+
+                        <!-- Horizontal Axis Endpoints (Rare / Frequent) -->
+                        <div class="quadrant-axis-endpoint quadrant-axis-endpoint--left" aria-hidden="true">
+                          
+                          <span class="axis-endpoint-label">◀ Rare</span>
+                        </div>
+
+                        <div class="quadrant-axis-endpoint quadrant-axis-endpoint--right" aria-hidden="true">
+                          
+                          <span class="axis-endpoint-label">Fréquent ▶</span>
+                        </div>
+
+                        <div class="quadrant-grid">
+                          <!-- Top-Left: High Risk / Rare -->
+                          <button class="quadrant-cell active" data-zone="1" aria-controls="zone-desc-1" type="button" aria-pressed="true">
+                            
+                            <span class="cell-name">Détection d'un phénotype rare</span>
+                            
+                            <span class="cell-sub">Risque élevé • Événement rare</span>
+                            
+                            <span class="cell-friction-tag">Friction : Alerte bloquante</span>
+                          </button>
+                          <!-- Top-Right: High Risk / Frequent -->
+                          <button class="quadrant-cell" data-zone="2" aria-controls="zone-desc-2" type="button" aria-pressed="false">
+                            
+                            <span class="cell-name">Validation des antibiotiques</span>
+                            
+                            <span class="cell-sub">Risque élevé • Quotidien</span>
+                            
+                            <span class="cell-friction-tag">Friction : Validation pas-à-pas</span>
+                          </button>
+                          <!-- Bottom-Left: Low Risk / Rare -->
+                          <button class="quadrant-cell" data-zone="3" aria-controls="zone-desc-3" type="button" aria-pressed="false">
+                            
+                            <span class="cell-name">Métadonnées du patient et de l'échantillon</span>
+                            
+                            <span class="cell-sub">Risque faible • Ponctuel</span>
+                            
+                            <span class="cell-friction-tag">Friction : Saisie fluide optionnelle</span>
+                          </button>
+                          <!-- Bottom-Right: Low Risk / Frequent -->
+                          <button class="quadrant-cell" data-zone="4" aria-controls="zone-desc-4" type="button" aria-pressed="false">
+                            
+                            <span class="cell-name">Contrôle Qualité (CQ)</span>
+                            
+                            <span class="cell-sub">Risque faible • Routine fréquente</span>
+                            
+                            <span class="cell-friction-tag">Friction : Processus allégé</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Axis Endpoint Bottom (Low Risk) -->
+                      <div class="quadrant-axis-endpoint quadrant-axis-endpoint--bottom" aria-hidden="true">
+                        
+                        <span class="axis-endpoint-label">▼ Risque faible</span>
+                      </div>
+                    </div>
+
+                    <div class="panel-footer">
+                      <!-- Zone 1: High Risk / Rare (Active by default) -->
+                      <div class="panel-desc-box" id="zone-desc-1" role="region" aria-live="polite" aria-atomic="true">
+                        
+                        <strong>Détection d'un phénotype rare</strong>
+                        
+                        <span>Risque critique &amp; événement rare : déclenchement d'une alerte visuelle bloquante
+                          avec confirmation explicite requise et rappel pédagogique pour prévenir toute erreur critique
+                          de diagnostic face à une antibiorésistance majeure.</span>
+                        <div class="case-media-row">
+                          
+                          <img src="assets/antibiogo/matrix 1 - synergy.webp" alt="Interface Antibiogo affichant l'alerte de détection de synergie pour un phénotype rare" class="case-img case-img--phone" width="360" height="760" loading="lazy" decoding="async">
+                          
+                          <img src="assets/antibiogo/matrix 1b.webp" alt="Interface Antibiogo affichant l'alerte de détection de synergie pour un phénotype rare" class="case-img case-img--phone" width="360" height="760" loading="lazy" decoding="async">
+                        </div>
+                      </div>
+
+                      <!-- Zone 2: High Risk / Frequent -->
+                      <div class="panel-desc-box" id="zone-desc-2" role="region" aria-live="polite" aria-atomic="true" hidden="">
+                        
+                        <strong>Validation des antibiotiques</strong>
+                        
+                        <span>Risque critique &amp; routine quotidienne : processus semi-automatisé imposant la
+                          confirmation manuelle des noms de disques et diamètres pour empêcher l'acceptation automatique
+                          et aveugle des propositions.</span>
+                        <div class="case-media-row">
+                          
+                          <img src="assets/antibiogo/matrix 2a - antibiotic confirm.webp" alt="Interface Antibiogo avec dialogue de confirmation de l'antibiotique" class="case-img case-img--phone" width="360" height="760" loading="lazy" decoding="async">
+                          
+                          <img src="assets/antibiogo/matrix 2b - IZD confirm.webp" alt="Interface Antibiogo confirmant la mesure du diamètre de zone d'inhibition" class="case-img case-img--phone" width="360" height="760" loading="lazy" decoding="async">
+                        </div>
+                      </div>
+
+                      <!-- Zone 3: Low Risk / Rare -->
+                      <div class="panel-desc-box" id="zone-desc-3" role="region" aria-live="polite" aria-atomic="true" hidden="">
+                        
+                        <strong>Métadonnées du patient et de l'échantillon</strong>
+                        
+                        <span>Saisie fluide et non bloquante des informations optionnelles (âge, service,
+                          identifiant), permettant de se concentrer sur l'analyse sans imposer d'étapes
+                          superflues.</span>
+                        <div class="case-media-row">
+                          
+                          <img src="assets/antibiogo/matrix 3 - metadata.webp" alt="Interface Antibiogo pour la saisie des métadonnées du patient et de l'échantillon" class="case-img case-img--phone" width="360" height="760" loading="lazy" decoding="async">
+                        </div>
+                      </div>
+
+                      <!-- Zone 4: Low Risk / Frequent -->
+                      <div class="panel-desc-box" id="zone-desc-4" role="region" aria-live="polite" aria-atomic="true" hidden="">
+                        
+                        <strong>Contrôle Qualité (CQ)</strong>
+                        
+                        <span>Allègement mesuré des interactions sur une tâche récurrente de validation pour
+                          réduire la fatigue cognitive tout en garantissant la traçabilité.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel 3: Technical Handoff (Text first) -->
+              <div class="case-tab-panel" id="tab-handoff" hidden="">
+                <div class="case-card">
+                  <div class="case-card-header-text">
+                    
+                    <p><strong>Spécifications techniques d'interaction :</strong> Définition précise des
+                      règles de
+                      développement pour l'équipe Android — gestion dynamique du clavier virtuel, transitions
+                      simultanées
+                      d'interface, positionnement des notifications et respect des comportements natifs de l'OS.</p>
+                  </div>
+
+                  <div class="case-media-center">
+                    
+                    <img src="assets/antibiogo/annotations - detail.png" alt="Spécifications détaillées d'interaction et de développement Android : pastilles bleues pour la gestion du focus clavier et les transitions de bottom sheet ; pastilles vertes pour les contraintes de développement, la stabilité du layout et la gestion du retour natif." class="case-img case-img--detail" width="427" height="586" loading="lazy" decoding="async">
+                  </div>
+
+                  
+                  <div class="case-media-frame">
+                    <div class="case-media-scroll" tabindex="0" role="region" aria-label="Vue d'ensemble du flux">
+                      <img src="assets/antibiogo/annotations-global.webp" alt="Vue d'ensemble du flux Antibiogo complet documenté dans Figma avec l'ensemble des écrans et leurs annotations techniques." width="3074" height="553" loading="lazy" decoding="async">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 3: The Outcome -->
+          <div class="case-section">
+            
+            <h3>Le Résultat</h3>
+            
+            <p>Un outil médical robuste et certifié, utilisé au quotidien dans des laboratoires aux
+              contextes exigeants à travers le monde, qui permet aux praticien·nes d'obtenir des diagnostics
+              fiables sans dépendre d'un serveur distant.</p>
+          </div>
+        </div>
+
+        <!-- Bottom Navigation Bar -->
+        <div class="case-bottom-nav">
+          <a href="./#work" class="btn btn-secondary btn-small case-back-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
+              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+            </svg>
+            
+            <span>Retour aux projets</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dedicated Case Study 02: Origami View -->
+    
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      
+      <p>© 2026 François Ohl. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Client-side Logic -->
+  <script src="app.js"></script>
+
+
+</body></html>

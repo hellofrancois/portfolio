@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initSkipLink();
   initActiveNavLinkOnScroll();
   initScrollReveals();
-  AppRouter.init();
   initAstWorkflow();
   initCaseTabs();
   initOlderTimelineToggle();
@@ -27,39 +26,6 @@ function initSkipLink() {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     mainEl.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
   });
-}
-
-/**
- * Centralized Document Title & SEO Manager
- * Synchronizes title and meta description based on both language and active route view
- */
-function updateDocumentTitleAndSeo(lang, routeHash) {
-  const currentLang = lang || document.documentElement.getAttribute("lang") || "fr";
-  const rawHash = (routeHash !== undefined ? routeHash : (window.location.hash || "")).toLowerCase();
-  const metaDescription = document.querySelector('meta[name="description"]');
-
-  if (rawHash === "#antibiogo") {
-    document.title = currentLang === "fr"
-      ? "Antibiogo — François Ohl"
-      : "Antibiogo — François Ohl";
-  } else if (rawHash === "#origami") {
-    document.title = currentLang === "fr"
-      ? "Origami Design System — François Ohl"
-      : "Origami Design System — François Ohl";
-  } else {
-    document.title = currentLang === "fr"
-      ? "François Ohl — Senior UX & Product Designer"
-      : "François Ohl — Senior UX & Product Designer";
-  }
-
-  if (metaDescription) {
-    metaDescription.setAttribute(
-      "content",
-      currentLang === "fr"
-        ? "Portfolio de François Ohl, Senior UX/Product Designer spécialisé dans l'architecture de l'information et le design system."
-        : "Portfolio of François Ohl, Senior UX/Product Designer focusing on information architecture, complex systems, and design system scaling."
-    );
-  }
 }
 
 
@@ -329,132 +295,6 @@ function initResumeDownloadLinks() {
   });
 }
 
-/**
- * Lightweight Vanilla JS Hash Router
- * Handles 1-level drill-down navigation (#antibiogo, #origami) and returns to #home-view (#work)
- * Supports browser Back/Forward natively with history scroll restoration and accessible focus management
- */
-const AppRouter = {
-  previousScrollY: 0,
-  hasInternalNavigation: false,
-  lastActiveLink: null,
-  routes: {
-    '#antibiogo': 'project-view-antibiogo',
-    '#origami': 'project-view-origami'
-  },
-
-  init() {
-    window.addEventListener('hashchange', () => this.handleRoute());
-
-    document.addEventListener('click', (e) => {
-      const backTrigger = e.target.closest('[data-route-back]');
-      if (backTrigger) {
-        e.preventDefault();
-        this.navigateBack();
-        return;
-      }
-
-      // Check if user clicked a link navigating to an internal case study
-      const caseLink = e.target.closest('a[href="#antibiogo"], a[href="#origami"]');
-      if (caseLink) {
-        this.hasInternalNavigation = true;
-        this.lastActiveLink = caseLink;
-      }
-    });
-
-    this.handleRoute(true);
-  },
-
-  navigateBack() {
-    if (this.hasInternalNavigation && window.history.length > 1) {
-      window.history.back();
-    } else {
-      if (window.history.replaceState) {
-        window.history.replaceState(null, '', '#work');
-        this.handleRoute();
-      } else {
-        window.location.hash = '#work';
-      }
-    }
-  },
-
-  handleRoute(isInitial = false) {
-    const rawHash = (window.location.hash || '').toLowerCase();
-    const homeView = document.getElementById('home-view');
-    const projectViews = document.querySelectorAll('.case-study-view');
-
-    if (!homeView) return;
-
-    const currentLang = document.documentElement.getAttribute('lang') || 'fr';
-    const targetProjectViewId = this.routes[rawHash];
-    document.body.classList.toggle('is-project-view', Boolean(targetProjectViewId));
-
-    if (targetProjectViewId) {
-      const targetView = document.getElementById(targetProjectViewId);
-      if (!targetView) return;
-
-      // Update document title for project view
-      updateDocumentTitleAndSeo(currentLang, rawHash);
-
-      // Save scroll position only if coming from the visible home view
-      if (!homeView.hasAttribute('hidden')) {
-        this.previousScrollY = window.scrollY;
-      }
-
-      homeView.setAttribute('hidden', '');
-      projectViews.forEach((v) => {
-        if (v === targetView) {
-          v.removeAttribute('hidden');
-        } else {
-          v.setAttribute('hidden', '');
-        }
-      });
-
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      window.scrollTo({ top: 0, behavior: (isInitial || prefersReducedMotion) ? 'instant' : 'smooth' });
-
-      // Move accessible focus to the case study h1
-      const heading = targetView.querySelector('.case-header h1, h1');
-      if (heading) {
-        if (!heading.hasAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
-        heading.focus();
-      }
-    } else {
-      // Restore home view title
-      updateDocumentTitleAndSeo(currentLang, '');
-
-      const wasInsideCase = Array.from(projectViews).some((v) => !v.hasAttribute('hidden'));
-
-      projectViews.forEach((v) => v.setAttribute('hidden', ''));
-      homeView.removeAttribute('hidden');
-
-      if (wasInsideCase) {
-        if (rawHash === '#work' || rawHash === '') {
-          if (this.previousScrollY > 0) {
-            window.scrollTo({ top: this.previousScrollY, behavior: 'instant' });
-          } else {
-            const workSec = document.getElementById('work');
-            if (workSec) workSec.scrollIntoView({ behavior: 'instant' });
-          }
-        }
-
-        // Restore focus to the link that triggered the case study view
-        if (this.lastActiveLink && typeof this.lastActiveLink.focus === 'function') {
-          this.lastActiveLink.focus();
-          this.lastActiveLink = null;
-        }
-      }
-
-      if (rawHash && rawHash !== '#work' && !this.routes[rawHash]) {
-        const targetElement = document.querySelector(rawHash);
-        if (targetElement) {
-          const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-          targetElement.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-        }
-      }
-    }
-  }
-};
 
 /**
  * Horizontal Media Scroll Affordance
