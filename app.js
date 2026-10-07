@@ -331,7 +331,7 @@ function initAstWorkflow() {
  * Supports exclusive accordion behavior (clicking active card closes it, starts closed by default)
  */
 function initCaseTabs() {
-  const disclosureButtons = document.querySelectorAll(".teaser-btn, .case-teaser-card, .case-tab-btn");
+  const disclosureButtons = document.querySelectorAll(".teaser-btn");
   const tabPanels = document.querySelectorAll(".case-tab-panel");
 
   if (disclosureButtons.length === 0 || tabPanels.length === 0) return;
@@ -375,6 +375,17 @@ function initCaseTabs() {
             targetPanel.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "nearest" });
           }
         }
+      }
+    });
+  });
+
+  // Delegate click on teaser card to the disclosure button if clicked outside the button
+  const teaserCards = document.querySelectorAll(".case-teaser-card");
+  teaserCards.forEach((card) => {
+    card.addEventListener("click", (e) => {
+      if (!e.target.closest(".teaser-btn")) {
+        const btn = card.querySelector(".teaser-btn");
+        if (btn) btn.click();
       }
     });
   });
