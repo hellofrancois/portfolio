@@ -48,19 +48,36 @@ function initActiveNavLinkOnScroll() {
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
+      const id = entry.target.getAttribute("id");
+      const matchingLink = Array.from(navLinks).find(
+        (link) => link.getAttribute("href") === `#${id}`
+      );
+
       if (entry.isIntersecting) {
-        const activeId = entry.target.getAttribute("id");
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === `#${activeId}`) {
-            link.classList.add("active");
-          }
-        });
+        navLinks.forEach((link) => link.classList.remove("active"));
+        if (matchingLink) {
+          matchingLink.classList.add("active");
+        }
+      } else {
+        if (matchingLink && matchingLink.classList.contains("active")) {
+          matchingLink.classList.remove("active");
+        }
       }
     });
   }, observerOptions);
 
   sections.forEach((section) => observer.observe(section));
+
+  // Reset to neutral when scrolled back up into the hero section
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (window.scrollY < 50) {
+        navLinks.forEach((link) => link.classList.remove("active"));
+      }
+    },
+    { passive: true }
+  );
 }
 
 /**
