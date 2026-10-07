@@ -105,10 +105,10 @@ function buildPage(pageKey, lang) {
       ? `<div class="lang-switch" role="group" aria-label="Language selection / Choix de langue">
             <span class="lang-btn active" lang="en" aria-current="page" aria-label="English">EN</span>
             <span class="lang-divider" aria-hidden="true">/</span>
-            <a href="../" class="lang-btn" lang="fr" hreflang="fr" aria-label="Version française">FR</a>
+            <a href="../index.html" class="lang-btn" lang="fr" hreflang="fr" aria-label="Version française">FR</a>
           </div>`
       : `<div class="lang-switch" role="group" aria-label="Choix de langue / Language selection">
-            <a href="en/" class="lang-btn" lang="en" hreflang="en" aria-label="English version">EN</a>
+            <a href="en/index.html" class="lang-btn" lang="en" hreflang="en" aria-label="English version">EN</a>
             <span class="lang-divider" aria-hidden="true">/</span>
             <span class="lang-btn active" lang="fr" aria-current="page" aria-label="Français">FR</span>
           </div>`;
@@ -124,6 +124,9 @@ function buildPage(pageKey, lang) {
     // Reveal Antibiogo
     $('#project-view-antibiogo').removeAttr('hidden');
     $('body').addClass('is-project-view');
+
+    // Ensure back links explicitly target index.html#work
+    $('.case-back-link').attr('href', 'index.html#work');
   } else if (pageKey === 'origami') {
     // Remove home view and antibiogo
     $('#home-view').remove();
@@ -135,6 +138,9 @@ function buildPage(pageKey, lang) {
     // Reveal Origami
     $('#project-view-origami').removeAttr('hidden');
     $('body').addClass('is-project-view');
+
+    // Ensure back links explicitly target index.html#work
+    $('.case-back-link').attr('href', 'index.html#work');
   }
 
   // 2. SEO & Head tags
