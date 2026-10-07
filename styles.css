@@ -146,6 +146,15 @@ html {
   scroll-padding-top: calc(var(--header-height) + 20px);
 }
 
+/* Universal [hidden] attribute safeguard against display overrides (flex, grid, etc.) */
+[hidden],
+#home-view[hidden],
+.case-study-view[hidden],
+.case-tab-panel[hidden],
+.panel-desc-box[hidden] {
+  display: none !important;
+}
+
 /* Accessibility Focus Rings & Skip Link */
 :focus-visible {
   outline: 2px solid var(--accent-primary);
@@ -614,11 +623,6 @@ body.is-project-view .header {
   background-color: var(--bg-color);
   padding: 0 0 6rem;
   animation: fadeInCase 0.3s ease;
-}
-
-.case-study-view[hidden],
-#home-view[hidden] {
-  display: none !important;
 }
 
 .case-study-topbar {
@@ -1188,10 +1192,6 @@ body.is-project-view .header {
 
 .case-tab-panel {
   animation: fadeInTab 0.25s ease-out;
-}
-
-.case-tab-panel[hidden] {
-  display: none !important;
 }
 
 @keyframes fadeInTab {
