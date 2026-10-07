@@ -341,6 +341,7 @@ function initCaseTabs() {
       const targetPanelId = btn.getAttribute("aria-controls");
       const targetPanel = document.getElementById(targetPanelId);
       const card = btn.closest(".case-teaser-card");
+      const section = btn.closest(".case-deep-dives-section");
       const isCurrentlyExpanded = btn.getAttribute("aria-expanded") === "true";
 
       if (isCurrentlyExpanded) {
@@ -350,6 +351,9 @@ function initCaseTabs() {
         if (card) card.classList.remove("is-active", "active");
         if (targetPanel) {
           targetPanel.setAttribute("hidden", "");
+        }
+        if (section) {
+          delete section.dataset.active;
         }
       } else {
         // Switch / Open: close any other open disclosures
@@ -367,12 +371,22 @@ function initCaseTabs() {
         btn.setAttribute("aria-expanded", "true");
         btn.classList.add("active");
         if (card) card.classList.add("is-active", "active");
+        if (section) {
+          section.dataset.active = targetPanelId;
+        }
         if (targetPanel) {
           targetPanel.removeAttribute("hidden");
-          const rect = targetPanel.getBoundingClientRect();
-          const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-          if (rect.top > window.innerHeight * 0.75) {
-            targetPanel.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "nearest" });
+        }
+
+        // On mobile carousel: smoothly align/center the card within the horizontal scroller
+        if (card) {
+          const grid = card.parentElement;
+          if (grid && grid.scrollWidth > grid.clientWidth) {
+            const max = grid.scrollWidth - grid.clientWidth;
+            const target = card.offsetLeft - (grid.clientWidth - card.offsetWidth) / 2;
+            const left = Math.min(Math.max(target, 0), max);
+            const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            grid.scrollTo({ left, behavior: prefersReducedMotion ? "auto" : "smooth" });
           }
         }
       }

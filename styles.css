@@ -73,12 +73,21 @@
   /* Utilities */
   --header-height: 72px;
   --max-width: 1100px;
+  --container-pad: 2rem;
   --border-radius-sm: 8px;
   --border-radius-md: 16px;
   --border-radius-lg: 24px;
   --border-radius-pill: 9999px;
   --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-snappy: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Deep Dives Teaser Tokens */
+  --teaser-bar-h: 4px;
+  --teaser-panel-gap: 1rem;
+  --teaser-inactive-bg: var(--card-bg);
+  --teaser-inactive-border: var(--border-color);
+  --teaser-active-bg: var(--bg-alt);
+  --teaser-active-border: var(--border-color);
 
   /* Scrollbars & selection */
   /* Section Spacing Tokens */
@@ -296,7 +305,7 @@ ul {
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 var(--container-pad);
 }
 
 .section {
@@ -917,7 +926,7 @@ body.is-project-view .header {
 .case-deep-dives-section {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0;
   margin-top: 1rem;
 }
 
@@ -925,6 +934,7 @@ body.is-project-view .header {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+  margin-bottom: 1.25rem;
 }
 
 .case-teaser-grid {
@@ -932,13 +942,9 @@ body.is-project-view .header {
   grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
   width: 100%;
-}
-
-@media (max-width: 820px) {
-  .case-teaser-grid {
-    grid-template-columns: 1fr;
-    gap: 0.85rem;
-  }
+  margin-bottom: 0;
+  position: relative;
+  z-index: 5;
 }
 
 .case-teaser-card {
@@ -946,8 +952,8 @@ body.is-project-view .header {
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  background-color: var(--bg-alt);
-  border: 1px solid var(--border-color);
+  background-color: var(--teaser-inactive-bg);
+  border: 1px solid var(--teaser-inactive-border);
   border-radius: var(--border-radius-sm);
   padding: 1.15rem 1rem;
   gap: 0.45rem;
@@ -959,18 +965,36 @@ body.is-project-view .header {
   user-select: none;
 }
 
-.case-teaser-card:hover {
-  background-color: hsla(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l), 0.04);
-  border-color: hsla(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l), 0.25);
+@media (hover: hover) {
+  .case-teaser-card:not(.is-active):hover {
+    background-color: var(--hover-bg);
+    border-color: hsla(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l), 0.25);
+  }
 }
 
 .case-teaser-card.is-active,
 .case-teaser-card:has(.teaser-btn[aria-expanded="true"]),
 .case-teaser-card[aria-selected="true"],
 .case-teaser-card.active {
-  background-color: var(--accent-primary-muted);
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 0 1px var(--accent-primary);
+  background-color: var(--teaser-active-bg);
+  border-color: var(--teaser-active-border);
+  position: relative;
+  z-index: 2;
+}
+
+/* Active Top Accent Bar */
+.case-teaser-card.is-active::before,
+.case-teaser-card:has(.teaser-btn[aria-expanded="true"])::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  height: var(--teaser-bar-h);
+  background-color: var(--accent-primary);
+  border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .case-teaser-card:has(.teaser-btn:focus-visible),
@@ -1099,8 +1123,42 @@ body.is-project-view .header {
   font-weight: 700;
 }
 
+/* Concave Fillet Transitions Between Active Card and Content Panel */
+.teaser-fillet {
+  display: none;
+  position: absolute;
+  bottom: calc(-1 * var(--teaser-panel-gap) - 1px);
+  /* Mirrored by .teaser-fillet--left. Colors mirror --teaser-active-bg (#f8fafc) and --border-color (#e2e8f0):
+     CSS variables cannot be used inside data URIs, update both if those tokens change. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M0,0 C0,6.627 5.373,12 12,12 L0,12 Z' fill='%23f8fafc'/%3E%3Cpath d='M0,0 C0,6.627 5.373,12 12,12' stroke='%23e2e8f0' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.case-teaser-card.is-active .teaser-fillet,
+.case-teaser-card:has(.teaser-btn[aria-expanded="true"]) .teaser-fillet {
+  display: block;
+}
+
+.teaser-fillet--left {
+  left: -12px;
+  transform: scaleX(-1);
+}
+
+.teaser-fillet--right {
+  right: -12px;
+}
+
+/* Tab panels: base rule must precede the mobile media query so its width/margins override it */
 .case-tab-panels {
   width: 100%;
+  margin-top: var(--teaser-panel-gap);
+  position: relative;
+  z-index: 1;
 }
 
 .case-tab-panel {
@@ -1114,12 +1172,117 @@ body.is-project-view .header {
 @keyframes fadeInTab {
   from {
     opacity: 0;
-    transform: translateY(6px);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+  }
+}
+
+/* Active card ↔ panel attachment (all viewports) */
+.case-deep-dives-section[data-active] .case-teaser-card.is-active {
+  border-bottom: none;
+  border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+}
+
+/* Seamless bridge crossing the panel gap and masking the panel's 1px top border */
+.case-deep-dives-section[data-active] .case-teaser-card.is-active::after {
+  content: '';
+  position: absolute;
+  top: calc(100% - 1px);
+  left: -1px;
+  right: -1px;
+  height: calc(var(--teaser-panel-gap) + 2px);
+  background-color: var(--teaser-active-bg);
+  border-inline: 1px solid var(--teaser-active-border);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Desktop (> 820px) */
+@media (min-width: 821px) {
+  /* Outer fillets hidden when cards are flush with the panel ends */
+  .case-deep-dives-section[data-active="tab-research"] #teaser-card-research .teaser-fillet--left {
+    display: none;
+  }
+
+  .case-deep-dives-section[data-active="tab-handoff"] #teaser-card-handoff .teaser-fillet--right {
+    display: none;
+  }
+
+  .case-deep-dives-section[data-active="tab-research"] #tab-research .case-card {
+    border-top-left-radius: 0;
+  }
+
+  .case-deep-dives-section[data-active="tab-handoff"] #tab-handoff .case-card {
+    border-top-right-radius: 0;
+  }
+}
+
+/* Mobile (<= 820px) Horizontal Carousel Snapping & Full-Bleed Content */
+@media (max-width: 820px) {
+  .case-teaser-grid {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    width: calc(100% + 2 * var(--container-pad));
+    max-width: none;
+    box-sizing: border-box;
+    margin-inline: calc(-1 * var(--container-pad));
+    padding-inline: var(--container-pad);
+    scroll-padding-inline: var(--container-pad);
+    gap: 0.85rem;
+    align-items: stretch;
+    padding-top: 6px;
+    /* Extends the scroll box downward so the active-card bridge/fillets are not clipped */
+    padding-bottom: calc(var(--teaser-panel-gap) + 6px);
+    margin-bottom: calc(-1 * (var(--teaser-panel-gap) + 6px));
+  }
+
+  /* Invisible spacer ensuring Safari/iOS respects end scroll padding */
+  .case-teaser-grid::after {
+    content: '';
+    flex: 0 0 1px;
+    width: 1px;
+    height: 1px;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .case-teaser-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .case-teaser-card {
+    flex: 0 0 calc(100vw - 4.5rem);
+    min-width: 280px;
+    max-width: 380px;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    box-sizing: border-box;
+  }
+
+  .case-teaser-card:first-child {
+    scroll-snap-align: start;
+  }
+
+  .case-teaser-card:last-of-type {
+    scroll-snap-align: end;
+  }
+
+  .case-tab-panels {
+    margin-inline: calc(-1 * var(--container-pad));
+    width: calc(100% + 2 * var(--container-pad));
+  }
+
+  .case-tab-panel .case-card {
+    border-inline: none;
+    border-radius: 0;
+    padding: 1.5rem var(--container-pad);
   }
 }
 
@@ -1975,11 +2138,8 @@ html[lang="fr"] [lang="en"]:not(.lang-btn) {
     padding: 0.16rem 0.42rem;
   }
 
-  .container {
-    padding: 0 1.25rem;
-  }
-
   :root {
+    --container-pad: 1.25rem;
     --section-space: 3.5rem;
   }
 
