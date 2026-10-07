@@ -590,6 +590,12 @@ ul {
 .case-teaser-pitch {
   margin-top: 1.25rem;
   margin-bottom: 0;
+  font-size: var(--font-size-md);
+  opacity: 0.85;
+}
+
+.case-study-card .case-teaser-pitch {
+  font-size: var(--font-size-sm);
 }
 
 .case-toggle-bar {
@@ -838,11 +844,6 @@ body.is-project-view .header {
   margin-bottom: 1rem;
   font-size: var(--font-size-base);
   line-height: 1.6;
-}
-
-.plain-language {
-  font-size: var(--font-size-sm);
-  opacity: 0.85;
 }
 
 .case-section ul {
