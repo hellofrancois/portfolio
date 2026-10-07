@@ -1651,10 +1651,19 @@ body.is-project-view .header {
 
 .case-media-scroll img {
   display: block;
-  width: 100%;
-  min-width: 680px;
+  width: auto;
+  min-width: 100%;
+  max-width: none;
   height: auto;
-  object-fit: contain;
+  min-height: 260px;
+  max-height: 360px;
+}
+
+@media (min-width: 768px) {
+  .case-media-scroll img {
+    min-height: 300px;
+    max-height: 420px;
+  }
 }
 
 /* Retrospective Grids */
