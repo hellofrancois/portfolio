@@ -99,7 +99,7 @@
   --scrollbar-track: #f2efe9;
 
   /* Section Spacing Tokens */
-  --section-space: 8rem;
+  --section-space: 11rem;
 
   /* Elevation & Shadow Tokens */
   --shadow-sm: 0 2px 8px rgba(28, 25, 23, 0.04);
@@ -343,11 +343,6 @@ ul {
 
 .section {
   padding: var(--section-space) 0;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.section:last-of-type {
-  border-bottom: none;
 }
 
 /* ==========================================================================
@@ -495,9 +490,7 @@ ul {
 }
 
 .hero h1 span.accent-text {
-  color: var(--accent-secondary);
-  font-style: italic;
-  font-weight: 400;
+  color: inherit;
 }
 
 .hero-description {
@@ -559,25 +552,173 @@ ul {
   box-shadow: 0 4px 12px hsla(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l), 0.15);
 }
 
-/* approach Section */
-.approach-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+/* approach Section — Asymmetric Sticky Layout & Un-boxed Principles */
+.approach-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
 }
 
-.approach-card,
-.case-study-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-md);
-  padding: 2.5rem;
+.approach-intro p {
+  margin-bottom: 0;
+  font-size: var(--font-size-md);
+  line-height: 1.6;
+}
+
+.approach-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+  margin-top: 0;
+}
+
+@media (min-width: 900px) {
+  .approach-layout {
+    display: grid;
+    grid-template-columns: 0.38fr 0.62fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .approach-intro {
+    position: sticky;
+    top: calc(var(--header-height) + 2.5rem);
+  }
+
+  .approach-grid {
+    gap: 5rem;
+  }
 }
 
 .approach-card {
   position: relative;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  max-width: 54ch;
+}
+
+.case-study-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .case-study-card {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 3.5rem;
+  }
+}
+
+.case-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+/* Featured Project Visual Showcases (Home Split-Screen) */
+.case-preview-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-alt);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 2rem 1.5rem;
+  min-height: 360px;
+  position: relative;
   overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.case-preview-visual:hover {
+  border-color: hsla(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l), 0.3);
+}
+
+.preview-phones-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.preview-phone {
+  width: 44%;
+  max-width: 170px;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  background-color: var(--color-white);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.preview-phone--primary {
+  transform: translateY(-10px);
+}
+
+.preview-phone--secondary {
+  transform: translateY(14px);
+}
+
+.case-preview-visual:hover .preview-phone--primary {
+  transform: translateY(-15px);
+}
+
+.case-preview-visual:hover .preview-phone--secondary {
+  transform: translateY(9px);
+}
+
+.preview-system-stage {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.preview-surface {
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  background-color: var(--color-white);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.preview-surface--back {
+  width: 90%;
+  height: 190px;
+  object-fit: cover;
+  object-position: left top;
+}
+
+.preview-surface--front {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 64%;
+  height: 215px;
+  object-fit: cover;
+  object-position: top center;
+  box-shadow: var(--shadow-lg);
+}
+
+.case-preview-visual:hover .preview-surface--back {
+  transform: translateY(-4px);
+}
+
+.case-preview-visual:hover .preview-surface--front {
+  transform: translateY(-6px);
 }
 
 .approach-number {
@@ -587,41 +728,33 @@ ul {
   font-style: italic;
   line-height: 1;
   color: var(--accent-secondary);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.approach-number::after {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 1.5px;
-  background-color: var(--border-color);
-}
-
 .approach-card h3 {
   margin-bottom: 0.75rem;
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 500;
 }
 
 .approach-card p {
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.65;
   margin-bottom: 0;
 }
 
-/* Case Studies Layout — Expandable Cards */
+/* Case Studies Layout — Split-Screen Showcases */
 .case-intro-text {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .case-study-list {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 6rem;
 }
 
 .case-teaser-pitch {
@@ -1768,14 +1901,19 @@ body.is-project-view .header {
   }
 }
 
-/* Experience Timeline */
+/* Experience Timeline — Centered Narrow Editorial Column */
+.experience-container {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
 .timeline {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 3.75rem;
   position: relative;
   padding-left: 2rem;
-  margin-top: 3rem;
+  margin-top: 3.5rem;
 }
 
 .timeline::before {
@@ -2143,18 +2281,29 @@ body.is-project-view .header {
     font-size: 1rem;
   }
 
-  /* Approach Grid — Clean Responsive Grid */
+  /* Approach Grid — Vertical Stack on Mobile */
   .approach-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.25rem;
-    margin-top: 2rem;
+    gap: 3rem;
+    margin-top: 0;
   }
 
-  /* Approach & Case Study Cards — Harmonized Mobile Padding */
-  .approach-card,
+  /* Case Study Cards — Harmonized Mobile Padding */
   .case-study-card {
     padding: 1.5rem;
+    gap: 2rem;
+  }
+
+  .case-study-list {
+    gap: 3.5rem;
+  }
+
+  .case-preview-visual {
+    min-height: 280px;
+    padding: 1.5rem 1rem;
+  }
+
+  .preview-system-stage {
+    height: 250px;
   }
 
   /* Hero CTA — Stacked */
@@ -2341,7 +2490,6 @@ body.is-project-view .header {
     padding: var(--section-space) 0;
   }
 
-  .approach-card,
   .case-study-card {
     padding: 1.25rem;
   }
