@@ -600,20 +600,25 @@ ul {
 }
 
 .case-study-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-md);
-  padding: 3rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.5rem;
+  gap: 3rem;
   align-items: center;
 }
 
 @media (min-width: 900px) {
   .case-study-card {
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 3.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+
+  /* Quinconce (alternance gauche/droite) : Origami a son visuel à gauche et son texte à droite */
+  .case-study-card:nth-child(even) .case-preview-visual {
+    order: -1;
   }
 }
 
@@ -624,101 +629,63 @@ ul {
   min-width: 0;
 }
 
-/* Featured Project Visual Showcases (Home Split-Screen) */
+.case-study-card h3 {
+  font-size: clamp(1.85rem, 3.2vw, 2.35rem);
+  font-weight: 500;
+  line-height: 1.15;
+  margin-top: 0.15rem;
+}
+
+/* Open-Air Project Visuals (No enclosing card box, no link) */
 .case-preview-visual {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg-alt);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-sm);
-  padding: 2rem 1.5rem;
-  min-height: 360px;
+  background: transparent;
+  border: none;
+  padding: 0;
   position: relative;
-  overflow: hidden;
-  transition: var(--transition-smooth);
 }
 
-.case-preview-visual:hover {
-  border-color: hsla(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l), 0.3);
-}
-
-.preview-phones-stage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.25rem;
+.preview-antibiogo-composition {
+  position: relative;
   width: 100%;
+  max-width: 460px;
+  padding-right: 2.75rem;
+  padding-bottom: 1.75rem;
 }
 
-.preview-phone {
-  width: 44%;
-  max-width: 170px;
+.preview-lab-photo {
+  display: block;
+  width: 86%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+}
+
+.preview-app-screen {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 37%;
+  max-width: 155px;
   height: auto;
   border-radius: 12px;
   border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
   background-color: var(--color-white);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.preview-phone--primary {
-  transform: translateY(-10px);
-}
-
-.preview-phone--secondary {
-  transform: translateY(14px);
-}
-
-.case-preview-visual:hover .preview-phone--primary {
-  transform: translateY(-15px);
-}
-
-.case-preview-visual:hover .preview-phone--secondary {
-  transform: translateY(9px);
-}
-
-.preview-system-stage {
-  position: relative;
+.preview-origami-img {
+  display: block;
   width: 100%;
-  height: 320px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-
-.preview-surface {
-  border-radius: 8px;
+  height: auto;
+  border-radius: var(--border-radius-sm);
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-md);
   background-color: var(--color-white);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.preview-surface--back {
-  width: 90%;
-  height: 190px;
-  object-fit: cover;
-  object-position: left top;
-}
-
-.preview-surface--front {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 64%;
-  height: 215px;
-  object-fit: cover;
-  object-position: top center;
-  box-shadow: var(--shadow-lg);
-}
-
-.case-preview-visual:hover .preview-surface--back {
-  transform: translateY(-4px);
-}
-
-.case-preview-visual:hover .preview-surface--front {
-  transform: translateY(-6px);
 }
 
 .approach-number {
@@ -746,15 +713,15 @@ ul {
   margin-bottom: 0;
 }
 
-/* Case Studies Layout — Split-Screen Showcases */
+/* Case Studies Layout — Open-Air Quinconce Chapters */
 .case-intro-text {
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 
 .case-study-list {
   display: flex;
   flex-direction: column;
-  gap: 6rem;
+  gap: 11rem;
 }
 
 .case-teaser-pitch {
@@ -765,11 +732,14 @@ ul {
 }
 
 .case-study-card .case-teaser-pitch {
-  font-size: var(--font-size-sm);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin-top: 0.5rem;
+  opacity: 1;
 }
 
 .case-toggle-bar {
-  margin-top: 1.75rem;
+  margin-top: 2rem;
   display: flex;
   align-items: center;
 }
@@ -906,13 +876,13 @@ body.is-project-view .header {
 
 .case-duration {
   font-family: var(--font-body);
-  font-size: var(--badge-font-size);
-  font-weight: 600;
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  letter-spacing: 0.04em;
   color: var(--muted-color);
-  background-color: var(--hover-bg);
-  border: 1px solid var(--border-color);
-  padding: var(--badge-padding);
-  border-radius: var(--badge-radius);
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 .case-header {
@@ -961,6 +931,14 @@ body.is-project-view .header {
   padding: 1.5rem 0;
   margin-top: 1rem;
   font-size: var(--font-size-sm);
+}
+
+.case-study-card .case-meta-grid {
+  border-top: none;
+  border-bottom: none;
+  padding: 0.25rem 0 0;
+  margin-top: 0.5rem;
+  gap: 1.75rem;
 }
 
 .case-meta-item h4 {
@@ -2287,23 +2265,14 @@ body.is-project-view .header {
     margin-top: 0;
   }
 
-  /* Case Study Cards — Harmonized Mobile Padding */
+  /* Case Study Chapters — Mobile Spacing */
   .case-study-card {
-    padding: 1.5rem;
-    gap: 2rem;
+    padding: 0;
+    gap: 2.25rem;
   }
 
   .case-study-list {
-    gap: 3.5rem;
-  }
-
-  .case-preview-visual {
-    min-height: 280px;
-    padding: 1.5rem 1rem;
-  }
-
-  .preview-system-stage {
-    height: 250px;
+    gap: 6rem;
   }
 
   /* Hero CTA — Stacked */
@@ -2491,7 +2460,7 @@ body.is-project-view .header {
   }
 
   .case-study-card {
-    padding: 1.25rem;
+    padding: 0;
   }
 
   .approach-number {
