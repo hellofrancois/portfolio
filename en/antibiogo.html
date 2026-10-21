@@ -48,64 +48,128 @@
   
 
   <main id="main-content" tabindex="-1">
+    <!-- Shared SVG Pencil Wobble Filters (always mounted in DOM across Home and Case Study pages) -->
+    <svg class="svg-filters-defs" width="0" height="0" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="sketch-hero" x="-8%" y="-8%" width="116%" height="116%" filterUnits="objectBoundingBox">
+          <feTurbulence type="fractalNoise" baseFrequency="0.024" numOctaves="3" seed="19" result="noise"></feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.3" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        </filter>
+        <filter id="sketch-emblem" x="-12%" y="-12%" width="124%" height="124%" filterUnits="objectBoundingBox">
+          <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="3" seed="7" result="noise"></feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.65" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        </filter>
+      </defs>
+    </svg>
+
      <!-- /#home-view -->
 
     <!-- Dedicated Case Study 01: Antibiogo View -->
     <div id="project-view-antibiogo" class="case-study-view">
-      <!-- Top Navigation Bar -->
-      <div class="case-study-topbar">
-        <div class="container case-study-topbar-inner">
-          <a href="index.html#work" class="btn btn-secondary btn-small case-back-link">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
-              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
-            </svg>
-            <span>Back to projects</span>
-            
-          </a>
+      <!-- Tinted Full-Width Editorial Header Band -->
+      <div class="case-hero-band case-hero-band--sage">
+        <div class="container container--wide">
+          <!-- Top Navigation Bar -->
+          <div class="case-study-topbar">
+            <div class="case-study-topbar-inner">
+              <a href="index.html#work" class="btn btn-secondary btn-small case-back-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
+                  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+                </svg>
+                <span>Back to projects</span>
+                
+              </a>
+            </div>
+          </div>
+
+          <div class="case-hero-layout">
+            <div class="case-header">
+              <div class="case-brand-row">
+                <div class="logo-group">
+                  <img src="../assets/antibiogo_logo.svg" alt="Antibiogo" class="case-logo logo-antibiogo" width="74" height="24" loading="lazy" decoding="async">
+                  <span class="logo-separator" aria-hidden="true">/</span>
+                  <img src="../assets/msf_logo.svg" alt="La Fondation MSF" class="case-logo logo-msf" width="28" height="20" loading="lazy" decoding="async">
+                </div>
+                <span class="case-duration">2022 — Present</span>
+                
+              </div>
+              <span class="case-tag">01 — Global Health &amp; Field Diagnostics</span>
+              
+              <h1>Antibiogo — Android Mobile Medical Device</h1>
+              
+              <div class="case-meta-grid">
+                <div class="case-meta-item">
+                  <h4>Role</h4>
+                  
+                  <p>Lead UX &amp; Product Designer</p>
+                  
+                </div>
+                <div class="case-meta-item">
+                  <h4>Context</h4>
+                  
+                  <p>Certified medical device (IVDR / IVDD) / Android App</p>
+                  
+                </div>
+              </div>
+              <p class="case-teaser-pitch"><em>In simpler terms: a free smartphone app helping
+                  laboratory technicians in low-resource settings determine which antibiotics are effective against
+                  bacterial infections.</em></p>
+              
+            </div>
+
+            <!-- Hand-Sketched Petri Dish (Antibiogramme) Illustration — 3/4 Isometric View -->
+            <div class="case-hero-illustration" aria-hidden="true">
+              <svg class="case-hero-svg" viewBox="0 0 280 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#sketch-hero)">
+                  <!-- Isometric Petri Dish Top Rim (ellipse cx=140, cy=105, rx=114, ry=64) -->
+                  <path d="M 140 41 C 203 40, 254 69, 254 105 C 254 141, 203 170, 140 170 C 77 170, 26 141, 26 105 C 26 69, 77 41, 141 41" class="sketch-frame"></path>
+
+                  <!-- Inner Agar Surface Rim (ellipse cx=140, cy=109, rx=106, ry=58) -->
+                  <path d="M 140 51 C 199 51, 246 77, 246 109 C 246 141, 199 167, 140 167 C 81 167, 34 141, 34 109 C 34 77, 81 51, 141 51" class="sketch-ink-light"></path>
+
+                  <!-- Cylindrical Dish Side Walls & Bottom Base Curve (3D depth h=26px) -->
+                  <path d="M 26 105 L 26 131 C 26 167, 77 196, 140 196 C 203 196, 254 167, 254 131 L 254 105" class="sketch-frame"></path>
+                  <!-- Subtle glass wall thickness reflections on the front rim -->
+                  <path d="M 48 148 L 48 164 M 92 165 L 92 184 M 196 163 L 196 182 M 234 146 L 234 162" class="sketch-ink-faint"></path>
+
+                  <!-- Disk 1 (Back-Center: x=132, y=76) — Medium inhibition halo -->
+                  <ellipse cx="132" cy="76" rx="24" ry="13.5" class="sketch-ink-light" stroke-dasharray="4 4"></ellipse>
+                  <ellipse cx="132" cy="76" rx="6.5" ry="3.8" class="sketch-ink"></ellipse>
+
+                  <!-- Disk 2 (Middle-Left: x=76, y=102) — Small resistant halo -->
+                  <ellipse cx="76" cy="102" rx="17" ry="9.5" class="sketch-ink-light" stroke-dasharray="3 4"></ellipse>
+                  <ellipse cx="76" cy="102" rx="6.5" ry="3.8" class="sketch-ink"></ellipse>
+
+                  <!-- Disk 3 (Front-Left: x=106, y=138) — Medium inhibition halo -->
+                  <ellipse cx="106" cy="138" rx="22" ry="12.5" class="sketch-ink-light" stroke-dasharray="4 4"></ellipse>
+                  <ellipse cx="106" cy="138" rx="6.5" ry="3.8" class="sketch-ink"></ellipse>
+
+                  <!-- Disk 4 (Back-Right: x=196, y=88) — No halo (fully resistant) -->
+                  <ellipse cx="196" cy="88" rx="6.5" ry="3.8" class="sketch-ink"></ellipse>
+
+                  <!-- Disk 5 (Front-Right Target in Terracotta: x=174, y=124) — Clear inhibition zone + diameter caliper -->
+                  <ellipse cx="174" cy="124" rx="34" ry="19" class="sketch-terracotta"></ellipse>
+                  <!-- Isometric diameter measurement line & caliper ticks -->
+                  <path d="M 140 124 L 208 124" class="sketch-terracotta"></path>
+                  <path d="M 140 118 L 140 130 M 208 118 L 208 130" class="sketch-terracotta"></path>
+                  <!-- Central antibiotic disk -->
+                  <ellipse cx="174" cy="124" rx="6.5" ry="3.8" class="sketch-terracotta-fill"></ellipse>
+                </g>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="container">
-        <div class="case-header">
-          <div class="case-brand-row">
-            <div class="logo-group">
-              <img src="../assets/antibiogo_logo.svg" alt="Antibiogo" class="case-logo logo-antibiogo" width="74" height="24" loading="lazy" decoding="async">
-              <span class="logo-separator" aria-hidden="true">/</span>
-              <img src="../assets/msf_logo.svg" alt="La Fondation MSF" class="case-logo logo-msf" width="28" height="20" loading="lazy" decoding="async">
-            </div>
-            <span class="case-duration">2022 — Present</span>
-            
-          </div>
-          <span class="case-tag">01 — Global Health &amp; Field Diagnostics</span>
-          
-          <h1>Antibiogo — Android Mobile Medical Device</h1>
-          
-          <div class="case-meta-grid">
-            <div class="case-meta-item">
-              <h4>Role</h4>
-              
-              <p>Lead UX &amp; Product Designer</p>
-              
-            </div>
-            <div class="case-meta-item">
-              <h4>Context</h4>
-              
-              <p>Certified medical device (IVDR / IVDD) / Android App</p>
-              
-            </div>
-          </div>
-          <p class="case-teaser-pitch"><em>In simpler terms: a free smartphone app helping
-              laboratory technicians in low-resource settings determine which antibiotics are effective against
-              bacterial infections.</em></p>
-          
-        </div>
-
-        <div class="case-study-content" style="margin-top: 3rem;">
-          <!-- Row 1: The Challenge (2/3) & Highlight Box (1/3) -->
-          <div class="case-challenge-grid">
-            <div class="case-section">
+      <div class="case-study-content">
+        <!-- Chapter 1: The Challenge (Paper Background, Editorial Split) -->
+        <section class="section">
+          <div class="container editorial-split">
+            <div class="editorial-split__aside">
               <h3>The Challenge</h3>
               
+            </div>
+            <div class="editorial-split__content case-section">
               <p>
                 For over 3 years, I led the user experience and product design of Antibiogo, an offline Android
                 medical device certified under IVDD (with IVDR certification in progress), developed by the MSF
@@ -117,33 +181,53 @@
                 requirements.
               </p>
               
+
+              <aside class="highlight-box">
+                <h4>Safety-Critical Balance</h4>
+                
+                <p>Ensuring compliance with strict medical device regulations (IVDD/IVDR) and clinical
+                  accuracy, while respecting the diverse frontline skills of local operators.</p>
+                
+              </aside>
             </div>
-
-            <aside class="highlight-box">
-              <h4>Safety-Critical Balance</h4>
-              
-              <p>Ensuring compliance with strict medical device regulations (IVDD/IVDR) and clinical
-                accuracy, while respecting the diverse frontline skills of local operators.</p>
-              
-            </aside>
           </div>
+        </section>
 
-          <!-- Row 2: Methodology & Actions with 2x2 grid and Deep Dives cards inside -->
-          <div class="case-section case-deep-dives-section">
-            <h3>Methodology &amp; Action</h3>
-            
-            <ul>
-              <li><strong>Research &amp; ongoing discovery:</strong> Blending on-site laboratory observations with remote
-                discovery protocols (moderated usability tests and surveys) across international user teams.</li>
-              <li><strong>UX strategy &amp; risk mitigation:</strong> Balancing intentional interface friction against
-                clinical task criticality to prevent diagnostic errors without burdening routine operations.</li>
-              <li><strong>Technical handoff &amp; interaction specs:</strong> Defining detailed Android interaction
-                guidelines (native OS behaviors, focus states, virtual keyboard, and edge cases).</li>
-              <li><strong>Design system &amp; leadership:</strong> Led the full component overhaul while supervising an UI
-                designer: driving the migration from Material 2 to Material 3, updating typography, refreshing brand
-                colors, and expanding the functional UI palette.</li>
-            </ul>
-            
+        <!-- Chapter 2: Methodology, Actions & Interactive Deep Dives (Sand Background with White Elevated Cards) -->
+        <section class="section section--sand case-deep-dives-section">
+          <div class="container">
+            <div class="editorial-split">
+              <div class="editorial-split__aside">
+                <h3>Methodology &amp; Action</h3>
+                
+              </div>
+              <div class="editorial-split__content">
+                <div class="editorial-pillars">
+                  <div class="editorial-pillar">
+                    <h4>Research &amp; ongoing discovery</h4>
+                    <p>Blending on-site laboratory observations with remote discovery protocols (moderated usability
+                      tests and surveys) across international user teams.</p>
+                  </div>
+                  <div class="editorial-pillar">
+                    <h4>UX strategy &amp; risk mitigation</h4>
+                    <p>Balancing intentional interface friction against clinical task criticality to prevent diagnostic
+                      errors without burdening routine operations.</p>
+                  </div>
+                  <div class="editorial-pillar">
+                    <h4>Technical handoff &amp; interaction specs</h4>
+                    <p>Defining detailed Android interaction guidelines (native OS behaviors, focus states, virtual
+                      keyboard, and edge cases).</p>
+                  </div>
+                  <div class="editorial-pillar">
+                    <h4>Design system &amp; leadership</h4>
+                    <p>Led the full component overhaul while supervising an UI designer: driving the migration from
+                      Material 2 to Material 3, updating typography, refreshing brand colors, and expanding the
+                      functional UI palette.</p>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
 
             <!-- Deep Dives Teaser Cards Grid Navigation -->
             <div class="case-teaser-grid" aria-label="Antibiogo Deep Dives">
@@ -249,7 +333,7 @@
                     </ul>
                   </div>
                   
-                  <div class="case-media-row case-gallery-field">
+                  <div class="case-media-row">
                     <img src="../assets/antibiogo/bench.webp" alt="Microbiology bench with Petri dishes and microscope in field laboratory" class="case-img case-img--gallery" width="800" height="533" loading="lazy" decoding="async">
                     
                     <img src="../assets/antibiogo/lab-480.webp" srcset="../assets/antibiogo/lab-480.webp 480w, ../assets/antibiogo/lab-960.webp 960w" sizes="(max-width: 600px) 100vw, 480px" alt="Frontline medical laboratory environment with diagnostic analysis equipment" class="case-img case-img--gallery" width="480" height="640" loading="lazy" decoding="async">
@@ -424,29 +508,44 @@
               </div>
             </div>
           </div>
+        </section>
 
-          <!-- Row 3: The Outcome -->
-          <div class="case-section">
-            <h3>The Outcome</h3>
-            
-            <p>A robust, certified medical tool deployed daily across demanding laboratory
-              environments
-              worldwide, empowering practitioners to obtain reliable diagnostics independently of any remote
-              server.</p>
-            
+        <!-- Chapter 4: The Outcome (Paper Background, Editorial Split with Large Newsreader Statement + Bottom Nav) -->
+        <section class="section">
+          <div class="container editorial-split">
+            <div class="editorial-split__aside">
+              <h3>The Outcome</h3>
+              
+            </div>
+            <div class="editorial-split__content">
+              <p class="case-outcome-statement">A robust, certified medical tool deployed daily across demanding laboratory
+                environments
+                worldwide, empowering practitioners to obtain reliable diagnostics independently of any remote
+                server.</p>
+              
+            </div>
           </div>
-        </div>
 
-        <!-- Bottom Navigation Bar -->
-        <div class="case-bottom-nav">
-          <a href="index.html#work" class="btn btn-secondary btn-small case-back-link">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
-              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
-            </svg>
-            <span>Back to projects</span>
-            
-          </a>
-        </div>
+          <!-- Bottom Navigation Bar (Inside the same unified surface) -->
+          <div class="container">
+            <div class="case-bottom-nav">
+              <a href="index.html#work" class="btn btn-secondary btn-small case-back-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
+                  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+                </svg>
+                <span>Back to projects</span>
+                
+              </a>
+              <a href="origami.html" class="btn btn-secondary btn-small case-next-link">
+                <span>View other study: Origami</span>
+                
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="case-arrow-right">
+                  <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
 

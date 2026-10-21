@@ -86,50 +86,147 @@
   </header>
 
   <main id="main-content" tabindex="-1">
+    <!-- Shared SVG Pencil Wobble Filters (always mounted in DOM across Home and Case Study pages) -->
+    <svg class="svg-filters-defs" width="0" height="0" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="sketch-hero" x="-8%" y="-8%" width="116%" height="116%" filterUnits="objectBoundingBox">
+          <feTurbulence type="fractalNoise" baseFrequency="0.024" numOctaves="3" seed="19" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.3" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+        <filter id="sketch-emblem" x="-12%" y="-12%" width="124%" height="124%" filterUnits="objectBoundingBox">
+          <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="3" seed="7" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.65" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </defs>
+    </svg>
+
     <div id="home-view">
 
       <!-- Hero Section -->
       <section class="hero section">
-        <div class="container hero-content" data-js-reveal>
-          <div class="hero-badge" lang="en">
-            <span class="badge-dot"></span>
-            Open to full-time roles & advisory projects
+        <div class="container container--wide hero-layout" data-js-reveal>
+          <div class="hero-content">
+            <div class="hero-badge" lang="en">
+              <span class="badge-dot"></span>
+              Open to full-time roles & advisory projects
+            </div>
+            <div class="hero-badge" lang="fr">
+              <span class="badge-dot"></span>
+              À l'écoute d'opportunités — CDI & missions
+            </div>
+            <h1 lang="en">I bring <span class="accent-text">clarity and simplicity</span> to demanding environments.</h1>
+            <h1 lang="fr">Je rends <span class="accent-text">lisibles et intuitifs</span> les environnements les plus
+              complexes.</h1>
+            <p class="hero-description" lang="en">
+              Lead / Senior product designer specialized in information architecture, systemic design, and accessibility. I
+              choose projects that create genuine, positive impact — currently designing a clinical tool for MSF's fight
+              against antimicrobial resistance.
+            </p>
+            <p class="hero-description" lang="fr">
+              Lead / Senior product designer spécialisé en architecture de l'information, design systémique et accessibilité. Je
+              choisis des projets à impact concret — actuellement en mission chez MSF sur un outil médical dédié à la
+              lutte contre l'antibiorésistance.
+            </p>
+            <div class="hero-cta">
+              <a href="#work" class="btn btn-primary" lang="en">Read Case Studies</a>
+              <a href="#work" class="btn btn-primary" lang="fr">Lire les études de cas</a>
+              <a href="#contact" class="btn btn-secondary" lang="en">Get in Touch</a>
+              <a href="#contact" class="btn btn-secondary" lang="fr">Me contacter</a>
+            </div>
           </div>
-          <div class="hero-badge" lang="fr">
-            <span class="badge-dot"></span>
-            À l'écoute d'opportunités — CDI & missions
-          </div>
-          <h1 lang="en">I bring <span class="accent-text">clarity and simplicity</span> to demanding environments.</h1>
-          <h1 lang="fr">Je rends <span class="accent-text">lisibles et intuitifs</span> les environnements les plus
-            complexes.</h1>
-          <p class="hero-description" lang="en">
-            Lead / Senior product designer specialized in information architecture, systemic design, and accessibility. I
-            choose projects that create genuine, positive impact — currently designing a clinical tool for MSF's fight
-            against antimicrobial resistance.
-          </p>
-          <p class="hero-description" lang="fr">
-            Lead / Senior product designer spécialisé en architecture de l'information, design systémique et accessibilité. Je
-            choisis des projets à impact concret — actuellement en mission chez MSF sur un outil médical dédié à la
-            lutte contre l'antibiorésistance.
-          </p>
-          <div class="hero-cta">
-            <a href="#work" class="btn btn-primary" lang="en">Read Case Studies</a>
-            <a href="#work" class="btn btn-primary" lang="fr">Lire les études de cas</a>
-            <a href="#contact" class="btn btn-secondary" lang="en">Get in Touch</a>
-            <a href="#contact" class="btn btn-secondary" lang="fr">Me contacter</a>
+
+          <!-- Hand-Sketched Notebook Illustration: Framing Window (Cutting Noise vs. Aligning Essentials) -->
+          <div class="hero-illustration" aria-hidden="true">
+            <!-- Desktop SVG: Vertical Flow (Top = chaotic tangle crashing onto the frame's top edge -> Bottom = 3 calm vertical lines inside the frame) -->
+            <svg class="hero-svg hero-svg--desktop" viewBox="0 0 320 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#sketch-hero)">
+                <!-- 1. DENSE CHAOTIC TANGLE ABOVE THE FRAME (y: 14 -> 186), crashing & flattening directly against y=186 -->
+                <!-- Faint background scribble mass -->
+                <path d="M 88 22 L 154 78 L 62 94 L 198 44 L 246 112 L 114 134 L 228 158 L 96 172 L 142 186 L 158 186" class="sketch-ink-faint" />
+                <path d="M 218 18 L 112 64 L 252 82 L 84 122 L 188 148 L 72 178 L 82 186 L 98 186" class="sketch-ink-faint" />
+                <path d="M 54 46 C 142 12, 238 138, 126 112 C 48 94, 214 168, 186 186 L 202 186" class="sketch-ink-faint" />
+
+                <!-- Irregular, non-oscillating chaotic trajectories crashing dead onto the top border (y=186) -->
+                <path d="M 64 28 L 138 96 L 74 118 L 106 164 L 68 186 L 58 186" class="sketch-ink-light" />
+                <path d="M 102 16 C 42 74, 186 62, 148 118 C 122 156, 82 146, 92 186 L 106 186" class="sketch-ink-light" />
+                <path d="M 146 24 L 88 84 L 212 104 L 134 152 L 126 186 L 118 186" class="sketch-ink" />
+                <path d="M 184 14 C 264 58, 96 88, 168 136 C 212 166, 138 170, 144 186 L 154 186" class="sketch-ink-light" />
+                <path d="M 236 30 L 148 68 L 244 128 L 172 154 L 178 186 L 192 186" class="sketch-ink" />
+                <path d="M 262 52 C 194 36, 158 124, 238 142 C 276 150, 218 174, 224 186 L 238 186" class="sketch-ink-light" />
+                <path d="M 48 74 L 176 52 L 94 142 L 228 118 L 248 186 L 260 186" class="sketch-ink-light" />
+                <path d="M 124 38 C 218 82, 58 132, 152 162 L 136 186 L 148 186" class="sketch-ink-light" />
+                <path d="M 78 52 C 118 138, 256 64, 196 144 L 218 176 L 196 186 L 182 186" class="sketch-ink-light" />
+                <path d="M 206 38 L 116 108 L 184 126 L 98 168 L 104 186" class="sketch-ink-faint" />
+                <path d="M 162 18 C 74 44, 242 96, 142 138 C 92 158, 244 166, 232 186" class="sketch-ink-faint" />
+
+                <!-- 2. THE 3 ESSENTIAL LINES (weaving through the chaos above, then entering the frame at y=186 and dropping straight & calm) -->
+                <!-- Left Track (x=108 inside frame) -->
+                <path d="M 58 36 C 148 88, 66 138, 118 164 C 132 172, 108 176, 108 186 L 108 338" class="sketch-ink" />
+                <path d="M 104 338 C 104 343, 112 343, 112 338 C 112 333, 104 333, 105 339" class="sketch-ink" />
+
+                <!-- Center Primary Terracotta Track (x=160 inside frame) -->
+                <path d="M 172 20 C 86 66, 234 114, 146 154 C 126 164, 160 174, 160 186 L 160 358" class="sketch-terracotta" />
+                <path d="M 153 358 C 153 367, 167 367, 167 358 C 167 349, 153 349, 154 360" class="sketch-terracotta" />
+                <circle cx="160" cy="358" r="2.8" class="sketch-terracotta-fill" />
+
+                <!-- Right Track (x=212 inside frame) -->
+                <path d="M 248 26 C 162 78, 264 134, 198 162 C 184 168, 212 176, 212 186 L 212 322" class="sketch-ink" />
+                <path d="M 208 322 C 208 327, 216 327, 216 322 C 216 317, 208 317, 209 323" class="sketch-ink" />
+
+                <!-- 3. THE FRAMING WINDOW (Lower half: x=52..268, y=186..396, with overshooting corners) -->
+                <!-- Top border (the barrier where noisy lines crash) -->
+                <path d="M 40 186 L 280 186" class="sketch-frame" />
+                <path d="M 48 188 L 272 187" class="sketch-ink-light" />
+                <!-- Bottom border -->
+                <path d="M 42 396 L 278 395" class="sketch-frame" />
+                <!-- Left border -->
+                <path d="M 52 174 L 53 406" class="sketch-frame" />
+                <!-- Right border -->
+                <path d="M 268 174 L 267 406" class="sketch-frame" />
+              </g>
+            </svg>
+
+            <!-- Mobile Horizontal SVG: Left-to-Right Flow (Chaotic tangle on the left crashing onto x=172 -> 3 calm lines inside frame on the right) -->
+            <svg class="hero-svg hero-svg--mobile" viewBox="0 0 420 155" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#sketch-hero)">
+                <!-- Dense chaotic tangle on the left (x: 8 -> 172), crashing & flattening onto x=172 -->
+                <path d="M 14 28 L 76 88 L 28 118 L 114 36 L 146 116 L 88 134 L 172 96 L 172 108" class="sketch-ink-faint" />
+                <path d="M 22 114 L 84 24 L 128 98 L 62 72 L 154 44 L 172 62 L 172 50" class="sketch-ink-faint" />
+                <path d="M 10 44 L 68 18 L 96 84 L 142 32 L 172 36 L 172 26" class="sketch-ink-light" />
+                <path d="M 18 18 C 78 96, 44 134, 118 68 C 148 42, 146 92, 172 86 L 172 96" class="sketch-ink-light" />
+                <path d="M 8 82 L 74 42 L 58 124 L 136 86 L 156 122 L 172 114 L 172 124" class="sketch-ink" />
+                <path d="M 26 134 C 94 74, 62 16, 132 58 L 158 28 L 172 52 L 172 64" class="sketch-ink-light" />
+                <path d="M 12 62 C 88 12, 112 142, 148 74 L 172 68 L 172 58" class="sketch-ink" />
+                <path d="M 34 102 L 108 48 L 82 128 L 154 98 L 172 128 L 172 118" class="sketch-ink-light" />
+
+                <!-- The 3 essential lines weaving from the left, then running straight & calm inside the frame (x: 172 -> 396) -->
+                <path d="M 16 34 C 72 86, 118 14, 152 54 C 162 64, 164 46, 172 46 L 348 46" class="sketch-ink" />
+                <circle cx="348" cy="46" r="2.8" class="sketch-ink" />
+
+                <path d="M 10 94 C 66 26, 114 128, 150 68 C 160 52, 164 78, 172 78 L 368 78" class="sketch-terracotta" />
+                <path d="M 368 72 C 375 72, 375 84, 368 84 C 361 84, 361 72, 369 73" class="sketch-terracotta" />
+                <circle cx="368" cy="78" r="2.5" class="sketch-terracotta-fill" />
+
+                <path d="M 20 126 C 78 68, 116 144, 154 102 C 162 92, 166 110, 172 110 L 332 110" class="sketch-ink" />
+                <circle cx="332" cy="110" r="2.8" class="sketch-ink" />
+
+                <!-- Horizontal Framing Window (x=172..398, y=18..138, with overshooting corners) -->
+                <path d="M 160 18 L 408 17" class="sketch-frame" />
+                <path d="M 160 138 L 408 137" class="sketch-frame" />
+                <path d="M 172 8 L 172 148" class="sketch-frame" />
+                <path d="M 174 16 L 173 140" class="sketch-ink-light" />
+                <path d="M 398 8 L 397 148" class="sketch-frame" />
+              </g>
+            </svg>
           </div>
         </div>
       </section>
 
       <!-- Work / Case Studies Section -->
       <section id="work" class="section">
-        <div class="container" data-js-reveal>
-          <h2 lang="en">Featured Projects</h2>
-          <h2 lang="fr">Projets phares</h2>
-          <p class="case-intro-text" lang="en">Two case studies showcasing my approach to complex, highly constrained
-            environments.</p>
-          <p class="case-intro-text" lang="fr">Deux études de cas illustrant ma démarche face à des environnements
-            complexes et exigeants.</p>
+        <div class="container container--wide" data-js-reveal>
+          <h2 class="sr-only" lang="en">Featured Projects</h2>
+          <h2 class="sr-only" lang="fr">Projets phares</h2>
 
           <div class="case-study-list">
             <!-- Case Study 01: Antibiogo -->
@@ -189,9 +286,9 @@
                 <div class="preview-antibiogo-composition">
                   <img src="assets/antibiogo/lab-960.webp"
                     srcset="assets/antibiogo/lab-480.webp 480w, assets/antibiogo/lab-960.webp 960w"
-                    sizes="(max-width: 900px) 85vw, 420px" alt="" class="preview-lab-photo" width="960" height="1280"
+                    sizes="(max-width: 900px) 90vw, 640px" alt="" class="preview-lab-photo"
                     loading="lazy" decoding="async">
-                  <img src="assets/antibiogo/AST Home.webp" alt="" class="preview-app-screen" width="360" height="760"
+                  <img src="assets/antibiogo/AST Home.webp" alt="" class="preview-app-screen"
                     loading="lazy" decoding="async">
                 </div>
               </div>
@@ -202,7 +299,7 @@
               <div class="case-card-body">
                 <div class="case-header">
                   <div class="case-brand-row">
-                    <img src="assets/ag2r_logo.webp" alt="AG2R La Mondiale" class="case-logo logo-ag2r" width="84"
+                    <img src="assets/ag2r_logo.webp" alt="AG2R La Mondiale" class="case-logo" width="84"
                       height="24" loading="lazy" decoding="async">
                     <span class="case-duration">2019 — 2022</span>
                   </div>
@@ -245,7 +342,7 @@
               </div>
 
               <div class="case-preview-visual case-preview-visual--origami" aria-hidden="true">
-                <img src="assets/origami/figma-1.webp" alt="" class="preview-origami-img" width="845" height="431"
+                <img src="assets/origami/figma-1.webp" alt="" class="preview-origami-img"
                   loading="lazy" decoding="async">
               </div>
             </article>
@@ -254,9 +351,9 @@
       </section>
 
       <!-- approach Section -->
-      <section id="approach" class="section">
-        <div class="container approach-layout" data-js-reveal>
-          <div class="approach-intro">
+      <section id="approach" class="section section--sand">
+        <div class="container editorial-split" data-js-reveal>
+          <div class="editorial-split__aside approach-intro">
             <h2 lang="en">Design Approach & Principles</h2>
             <h2 lang="fr">Approche & principes</h2>
             <p lang="en">I design simple, reliable digital products built for real-world use and tested against complex
@@ -264,47 +361,86 @@
             <p lang="fr">Je conçois des produits numériques simples et fiables, pensés pour des usages réels et éprouvés
               face à des environnements complexes.</p>
           </div>
-          <div class="approach-grid">
+          <div class="editorial-split__content approach-grid">
             <div class="approach-card">
-              <div class="approach-number">01</div>
-              <h3 lang="en">Inclusive</h3>
-              <h3 lang="fr">Inclusif</h3>
-              <p lang="en">Inclusivity starts with solid interface foundations: deliberate contrast, legible type, and
-                intuitive layouts designed for broad usability.</p>
-              <p lang="fr">L'inclusivité commence par les fondamentaux d'interface : contrastes soignés, typographies
-                lisibles et navigation évidente pour tous les profils <span
-                  aria-hidden="true">d'utilisateur·rices</span><span class="sr-only">d'utilisateurs,
-                  utilisatrices</span>.</p>
+              <svg class="approach-emblem" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+                <!-- Inclusive: Two hand-sketched intersecting loops + 3 quick terracotta hatch strokes -->
+                <g filter="url(#sketch-emblem)">
+                  <path d="M 22 13 C 31 12, 37 19, 36 28 C 35 37, 29 43, 21 43 C 12 43, 7 36, 8 27 C 8 18, 15 13, 24 14" class="sketch-ink" />
+                  <path d="M 35 13 C 44 13, 49 20, 48 29 C 48 37, 41 43, 33 43 C 25 43, 19 36, 20 27 C 20 19, 27 13, 37 14" class="sketch-ink" />
+                  <path d="M 25 23 L 31 19 M 23 29 L 33 23 M 25 34 L 32 29" class="sketch-terracotta" />
+                </g>
+              </svg>
+              <div class="approach-card-body">
+                <h3 lang="en">Inclusive</h3>
+                <h3 lang="fr">Inclusif</h3>
+                <p lang="en">Inclusivity starts with solid interface foundations: deliberate contrast, legible type, and
+                  intuitive layouts designed for broad usability.</p>
+                <p lang="fr">L'inclusivité commence par les fondamentaux d'interface : contrastes soignés, typographies
+                  lisibles et navigation évidente pour tous les profils <span
+                    aria-hidden="true">d'utilisateur·rices</span><span class="sr-only">d'utilisateurs,
+                    utilisatrices</span>.</p>
+              </div>
             </div>
             <div class="approach-card">
-              <div class="approach-number">02</div>
-              <h3 lang="en">Systemic</h3>
-              <h3 lang="fr">Systémique</h3>
-              <p lang="en">I build resilient architectures and modular design systems, mindful of their technical
-                footprint and broader social or environmental impact.</p>
-              <p lang="fr">Je conçois des architectures pérennes et des design systems modulaires, attentifs à leur
-                empreinte technique et à leur impact social et environnemental.</p>
+              <svg class="approach-emblem" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+                <!-- Systemic: 4 freehand modular blocks with slight corner overshoots, 1 in terracotta -->
+                <g filter="url(#sketch-emblem)">
+                  <path d="M 10 13 L 26 12 M 25 11 L 25 26 M 26 25 L 10 25 M 11 26 L 11 11" class="sketch-ink" />
+                  <path d="M 10 31 L 26 30 M 25 29 L 25 45 M 26 44 L 10 44 M 11 45 L 11 29" class="sketch-ink" />
+                  <path d="M 29 31 L 45 30 M 44 29 L 44 45 M 45 44 L 29 44 M 30 45 L 30 29" class="sketch-ink" />
+                  <path d="M 30 10 L 47 9 M 46 8 L 45 24 M 46 23 L 30 23 M 31 24 L 31 8" class="sketch-terracotta" />
+                </g>
+              </svg>
+              <div class="approach-card-body">
+                <h3 lang="en">Systemic</h3>
+                <h3 lang="fr">Systémique</h3>
+                <p lang="en">I build resilient architectures and modular design systems, mindful of their technical
+                  footprint and broader social or environmental impact.</p>
+                <p lang="fr">Je conçois des architectures pérennes et des design systems modulaires, attentifs à leur
+                  empreinte technique et à leur impact social et environnemental.</p>
+              </div>
             </div>
             <div class="approach-card">
-              <div class="approach-number">03</div>
-              <h3 lang="en">End-to-end continuity</h3>
-              <h3 lang="fr">De bout en bout</h3>
-              <p lang="en">I bridge research, strategy, and engineering, working hand-in-hand with developers and domain
-                experts through to final production.</p>
-              <p lang="fr">J'assure le lien continu entre recherche, stratégie et intégration, en travaillant main dans
-                la main avec <span aria-hidden="true">les développeur·euses et les expert·es métier</span><span
-                  class="sr-only">les développeurs, développeuses, experts, expertes métier</span> jusqu'à la mise en
-                production.</p>
+              <svg class="approach-emblem" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+                <!-- End-to-end: Single continuous freehand trajectory from loop to terracotta point -->
+                <g filter="url(#sketch-emblem)">
+                  <path d="M 9 36 C 14 14, 24 14, 28 28 C 32 42, 40 38, 46 18" class="sketch-ink" />
+                  <path d="M 9 33 C 12 33, 13 39, 9 39 C 5 39, 6 33, 10 34" class="sketch-ink" />
+                  <path d="M 46 13 C 51 13, 51 22, 46 22 C 41 22, 41 14, 47 14" class="sketch-terracotta" />
+                  <circle cx="46" cy="18" r="2" class="sketch-terracotta-fill" />
+                </g>
+              </svg>
+              <div class="approach-card-body">
+                <h3 lang="en">End-to-end continuity</h3>
+                <h3 lang="fr">De bout en bout</h3>
+                <p lang="en">I bridge research, strategy, and engineering, working hand-in-hand with developers and domain
+                  experts through to final production.</p>
+                <p lang="fr">J'assure le lien continu entre recherche, stratégie et intégration, en travaillant main dans
+                  la main avec <span aria-hidden="true">les développeur·euses et les expert·es métier</span><span
+                    class="sr-only">les développeurs, développeuses, experts, expertes métier</span> jusqu'à la mise en
+                  production.</p>
+              </div>
             </div>
             <div class="approach-card">
-              <div class="approach-number">04</div>
-              <h3 lang="en">Collective</h3>
-              <h3 lang="fr">Collectif</h3>
-              <p lang="en">Design is never done in silos: I mentor and align design teams, while actively engaging user
-                communities throughout co-design.</p>
-              <p lang="fr">Le design n'est jamais un acte isolé : j'anime et synchronise les équipes de design, tout en
-                impliquant activement les communautés <span aria-hidden="true">d'utilisateur·rices</span><span
-                  class="sr-only">d'utilisateurs, utilisatrices</span> dans la co-conception.</p>
+              <svg class="approach-emblem" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+                <!-- Collective: Two loose hand-drawn intersecting orbits + central terracotta nexus -->
+                <g filter="url(#sketch-emblem)">
+                  <path d="M 13 15 C 22 7, 39 14, 43 27 C 47 39, 36 47, 23 41 C 11 35, 7 21, 15 14" class="sketch-ink" />
+                  <path d="M 42 15 C 48 23, 41 39, 28 43 C 15 47, 8 36, 14 23 C 20 11, 35 8, 43 16" class="sketch-ink-light" />
+                  <path d="M 28 22 C 33 22, 34 33, 28 33 C 22 33, 23 22, 29 23" class="sketch-terracotta" />
+                  <circle cx="28" cy="28" r="2.2" class="sketch-terracotta-fill" />
+                </g>
+              </svg>
+              <div class="approach-card-body">
+                <h3 lang="en">Collective</h3>
+                <h3 lang="fr">Collectif</h3>
+                <p lang="en">Design is never done in silos: I mentor and align design teams, while actively engaging user
+                  communities throughout co-design.</p>
+                <p lang="fr">Le design n'est jamais un acte isolé : j'anime et synchronise les équipes de design, tout en
+                  impliquant activement les communautés <span aria-hidden="true">d'utilisateur·rices</span><span
+                    class="sr-only">d'utilisateurs, utilisatrices</span> dans la co-conception.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -419,7 +555,7 @@
             </div>
 
             <!-- Expandable Older Experiences -->
-            <div class="timeline-item timeline-older-toggle-item">
+            <div class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-header">
                 <div class="timeline-title-group">
@@ -565,64 +701,114 @@
 
     <!-- Dedicated Case Study 01: Antibiogo View -->
     <div id="project-view-antibiogo" class="case-study-view" hidden>
-      <!-- Top Navigation Bar -->
-      <div class="case-study-topbar">
-        <div class="container case-study-topbar-inner">
-          <a href="index.html#work" class="btn btn-secondary btn-small case-back-link">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
-              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
-            </svg>
-            <span lang="en">Back to projects</span>
-            <span lang="fr">Retour aux projets</span>
-          </a>
+      <!-- Tinted Full-Width Editorial Header Band -->
+      <div class="case-hero-band case-hero-band--sage">
+        <div class="container container--wide">
+          <!-- Top Navigation Bar -->
+          <div class="case-study-topbar">
+            <div class="case-study-topbar-inner">
+              <a href="index.html#work" class="btn btn-secondary btn-small case-back-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
+                  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+                </svg>
+                <span lang="en">Back to projects</span>
+                <span lang="fr">Retour aux projets</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="case-hero-layout">
+            <div class="case-header">
+              <div class="case-brand-row">
+                <div class="logo-group">
+                  <img src="assets/antibiogo_logo.svg" alt="Antibiogo" class="case-logo logo-antibiogo" width="74"
+                    height="24" loading="lazy" decoding="async">
+                  <span class="logo-separator" aria-hidden="true">/</span>
+                  <img src="assets/msf_logo.svg" alt="La Fondation MSF" class="case-logo logo-msf" width="28" height="20"
+                    loading="lazy" decoding="async">
+                </div>
+                <span class="case-duration" lang="en">2022 — Present</span>
+                <span class="case-duration" lang="fr">2022 — Présent</span>
+              </div>
+              <span class="case-tag" lang="en">01 — Global Health & Field Diagnostics</span>
+              <span class="case-tag" lang="fr">01 — Santé globale & diagnostic terrain</span>
+              <h1 lang="en">Antibiogo — Android Mobile Medical Device</h1>
+              <h1 lang="fr">Antibiogo — Dispositif médical mobile sous Android</h1>
+              <div class="case-meta-grid">
+                <div class="case-meta-item">
+                  <h4 lang="en">Role</h4>
+                  <h4 lang="fr">Rôle</h4>
+                  <p lang="en">Lead UX & Product Designer</p>
+                  <p lang="fr">Lead UX & Product Designer</p>
+                </div>
+                <div class="case-meta-item">
+                  <h4 lang="en">Context</h4>
+                  <h4 lang="fr">Contexte</h4>
+                  <p lang="en">Certified medical device (IVDR / IVDD) / Android App</p>
+                  <p lang="fr">Dispositif médical certifié (IVDR / IVDD) / App Android</p>
+                </div>
+              </div>
+              <p class="case-teaser-pitch" lang="en"><em>In simpler terms: a free smartphone app helping
+                  laboratory technicians in low-resource settings determine which antibiotics are effective against
+                  bacterial infections.</em></p>
+              <p class="case-teaser-pitch" lang="fr"><em>En termes simples : une application mobile gratuite
+                  qui aide <span aria-hidden="true">les technicien·nes</span><span class="sr-only">les techniciens, techniciennes</span> de laboratoire dans les pays à ressources limitées à identifier les
+                  antibiotiques efficaces contre les infections bactériennes.</em></p>
+            </div>
+
+            <!-- Hand-Sketched Petri Dish (Antibiogramme) Illustration — 3/4 Isometric View -->
+            <div class="case-hero-illustration" aria-hidden="true">
+              <svg class="case-hero-svg" viewBox="0 0 280 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#sketch-hero)">
+                  <!-- Isometric Petri Dish Top Rim (ellipse cx=140, cy=105, rx=114, ry=64) -->
+                  <path d="M 140 41 C 203 40, 254 69, 254 105 C 254 141, 203 170, 140 170 C 77 170, 26 141, 26 105 C 26 69, 77 41, 141 41" class="sketch-frame" />
+
+                  <!-- Inner Agar Surface Rim (ellipse cx=140, cy=109, rx=106, ry=58) -->
+                  <path d="M 140 51 C 199 51, 246 77, 246 109 C 246 141, 199 167, 140 167 C 81 167, 34 141, 34 109 C 34 77, 81 51, 141 51" class="sketch-ink-light" />
+
+                  <!-- Cylindrical Dish Side Walls & Bottom Base Curve (3D depth h=26px) -->
+                  <path d="M 26 105 L 26 131 C 26 167, 77 196, 140 196 C 203 196, 254 167, 254 131 L 254 105" class="sketch-frame" />
+                  <!-- Subtle glass wall thickness reflections on the front rim -->
+                  <path d="M 48 148 L 48 164 M 92 165 L 92 184 M 196 163 L 196 182 M 234 146 L 234 162" class="sketch-ink-faint" />
+
+                  <!-- Disk 1 (Back-Center: x=132, y=76) — Medium inhibition halo -->
+                  <ellipse cx="132" cy="76" rx="24" ry="13.5" class="sketch-ink-light" stroke-dasharray="4 4" />
+                  <ellipse cx="132" cy="76" rx="6.5" ry="3.8" class="sketch-ink" />
+
+                  <!-- Disk 2 (Middle-Left: x=76, y=102) — Small resistant halo -->
+                  <ellipse cx="76" cy="102" rx="17" ry="9.5" class="sketch-ink-light" stroke-dasharray="3 4" />
+                  <ellipse cx="76" cy="102" rx="6.5" ry="3.8" class="sketch-ink" />
+
+                  <!-- Disk 3 (Front-Left: x=106, y=138) — Medium inhibition halo -->
+                  <ellipse cx="106" cy="138" rx="22" ry="12.5" class="sketch-ink-light" stroke-dasharray="4 4" />
+                  <ellipse cx="106" cy="138" rx="6.5" ry="3.8" class="sketch-ink" />
+
+                  <!-- Disk 4 (Back-Right: x=196, y=88) — No halo (fully resistant) -->
+                  <ellipse cx="196" cy="88" rx="6.5" ry="3.8" class="sketch-ink" />
+
+                  <!-- Disk 5 (Front-Right Target in Terracotta: x=174, y=124) — Clear inhibition zone + diameter caliper -->
+                  <ellipse cx="174" cy="124" rx="34" ry="19" class="sketch-terracotta" />
+                  <!-- Isometric diameter measurement line & caliper ticks -->
+                  <path d="M 140 124 L 208 124" class="sketch-terracotta" />
+                  <path d="M 140 118 L 140 130 M 208 118 L 208 130" class="sketch-terracotta" />
+                  <!-- Central antibiotic disk -->
+                  <ellipse cx="174" cy="124" rx="6.5" ry="3.8" class="sketch-terracotta-fill" />
+                </g>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="container">
-        <div class="case-header">
-          <div class="case-brand-row">
-            <div class="logo-group">
-              <img src="assets/antibiogo_logo.svg" alt="Antibiogo" class="case-logo logo-antibiogo" width="74"
-                height="24" loading="lazy" decoding="async">
-              <span class="logo-separator" aria-hidden="true">/</span>
-              <img src="assets/msf_logo.svg" alt="La Fondation MSF" class="case-logo logo-msf" width="28" height="20"
-                loading="lazy" decoding="async">
-            </div>
-            <span class="case-duration" lang="en">2022 — Present</span>
-            <span class="case-duration" lang="fr">2022 — Présent</span>
-          </div>
-          <span class="case-tag" lang="en">01 — Global Health & Field Diagnostics</span>
-          <span class="case-tag" lang="fr">01 — Santé globale & diagnostic terrain</span>
-          <h1 lang="en">Antibiogo — Android Mobile Medical Device</h1>
-          <h1 lang="fr">Antibiogo — Dispositif médical mobile sous Android</h1>
-          <div class="case-meta-grid">
-            <div class="case-meta-item">
-              <h4 lang="en">Role</h4>
-              <h4 lang="fr">Rôle</h4>
-              <p lang="en">Lead UX & Product Designer</p>
-              <p lang="fr">Lead UX & Product Designer</p>
-            </div>
-            <div class="case-meta-item">
-              <h4 lang="en">Context</h4>
-              <h4 lang="fr">Contexte</h4>
-              <p lang="en">Certified medical device (IVDR / IVDD) / Android App</p>
-              <p lang="fr">Dispositif médical certifié (IVDR / IVDD) / App Android</p>
-            </div>
-          </div>
-          <p class="case-teaser-pitch" lang="en"><em>In simpler terms: a free smartphone app helping
-              laboratory technicians in low-resource settings determine which antibiotics are effective against
-              bacterial infections.</em></p>
-          <p class="case-teaser-pitch" lang="fr"><em>En termes simples : une application mobile gratuite
-              qui aide <span aria-hidden="true">les technicien·nes</span><span class="sr-only">les techniciens, techniciennes</span> de laboratoire dans les pays à ressources limitées à identifier les
-              antibiotiques efficaces contre les infections bactériennes.</em></p>
-        </div>
-
-        <div class="case-study-content" style="margin-top: 3rem;">
-          <!-- Row 1: The Challenge (2/3) & Highlight Box (1/3) -->
-          <div class="case-challenge-grid">
-            <div class="case-section">
+      <div class="case-study-content">
+        <!-- Chapter 1: The Challenge (Paper Background, Editorial Split) -->
+        <section class="section">
+          <div class="container editorial-split">
+            <div class="editorial-split__aside">
               <h3 lang="en">The Challenge</h3>
               <h3 lang="fr">Le Défi</h3>
+            </div>
+            <div class="editorial-split__content case-section">
               <p lang="en">
                 For over 3 years, I led the user experience and product design of Antibiogo, an offline Android
                 medical device certified under IVDD (with IVDR certification in progress), developed by the MSF
@@ -646,48 +832,77 @@
                 et
                 sécurité clinique absolue.
               </p>
+
+              <aside class="highlight-box">
+                <h4 lang="en">Safety-Critical Balance</h4>
+                <h4 lang="fr">Équilibre de sécurité vitale</h4>
+                <p lang="en">Ensuring compliance with strict medical device regulations (IVDD/IVDR) and clinical
+                  accuracy, while respecting the diverse frontline skills of local operators.</p>
+                <p lang="fr">Garantir la conformité aux exigences strictes de certification médicale (IVDD/IVDR)
+                  et
+                  l'exactitude clinique, tout en respectant l'hétérogénéité des compétences sur le terrain.</p>
+              </aside>
             </div>
-
-            <aside class="highlight-box">
-              <h4 lang="en">Safety-Critical Balance</h4>
-              <h4 lang="fr">Équilibre de sécurité vitale</h4>
-              <p lang="en">Ensuring compliance with strict medical device regulations (IVDD/IVDR) and clinical
-                accuracy, while respecting the diverse frontline skills of local operators.</p>
-              <p lang="fr">Garantir la conformité aux exigences strictes de certification médicale (IVDD/IVDR)
-                et
-                l'exactitude clinique, tout en respectant l'hétérogénéité des compétences sur le terrain.</p>
-            </aside>
           </div>
+        </section>
 
-          <!-- Row 2: Methodology & Actions with 2x2 grid and Deep Dives cards inside -->
-          <div class="case-section case-deep-dives-section">
-            <h3 lang="en">Methodology & Action</h3>
-            <h3 lang="fr">Méthodologie & Actions</h3>
-            <ul lang="en">
-              <li><strong>Research & ongoing discovery:</strong> Blending on-site laboratory observations with remote
-                discovery protocols (moderated usability tests and surveys) across international user teams.</li>
-              <li><strong>UX strategy & risk mitigation:</strong> Balancing intentional interface friction against
-                clinical task criticality to prevent diagnostic errors without burdening routine operations.</li>
-              <li><strong>Technical handoff & interaction specs:</strong> Defining detailed Android interaction
-                guidelines (native OS behaviors, focus states, virtual keyboard, and edge cases).</li>
-              <li><strong>Design system & leadership:</strong> Led the full component overhaul while supervising an UI
-                designer: driving the migration from Material 2 to Material 3, updating typography, refreshing brand
-                colors, and expanding the functional UI palette.</li>
-            </ul>
-            <ul lang="fr">
-              <li><strong>Recherche & immersion continue :</strong> combinaison d'observations terrain en laboratoire
-                et d'un protocole d'écoute à distance (tests modérés et questionnaires) auprès d'équipes utilisatrices
-                réparties à l'international.</li>
-              <li><strong>Stratégie UX & arbitrage du risque :</strong> dosage précis de la friction d'interface selon
-                la criticité clinique des tâches, pour sécuriser le geste sans ralentir le diagnostic au quotidien.
-              </li>
-              <li><strong>Spécifications techniques & Handoff :</strong> cadrage rigoureux des règles d'interaction
-                pour le développement Android (comportements natifs de l'OS, gestion du focus, clavier virtuel, cas
-                limites).</li>
-              <li><strong>Design system & encadrement :</strong> direction de la refonte globale des composants et
-                encadrement d'une UI Designer : pilotage de la migration de Material 2 vers Material 3, modernisation
-                typographique, refonte des couleurs de marque et extension de la palette fonctionnelle.</li>
-            </ul>
+        <!-- Chapter 2: Methodology, Actions & Interactive Deep Dives (Sand Background with White Elevated Cards) -->
+        <section class="section section--sand case-deep-dives-section">
+          <div class="container">
+            <div class="editorial-split">
+              <div class="editorial-split__aside">
+                <h3 lang="en">Methodology & Action</h3>
+                <h3 lang="fr">Méthodologie & Actions</h3>
+              </div>
+              <div class="editorial-split__content">
+                <div class="editorial-pillars" lang="en">
+                  <div class="editorial-pillar">
+                    <h4>Research & ongoing discovery</h4>
+                    <p>Blending on-site laboratory observations with remote discovery protocols (moderated usability
+                      tests and surveys) across international user teams.</p>
+                  </div>
+                  <div class="editorial-pillar">
+                    <h4>UX strategy & risk mitigation</h4>
+                    <p>Balancing intentional interface friction against clinical task criticality to prevent diagnostic
+                      errors without burdening routine operations.</p>
+                  </div>
+                  <div class="editorial-pillar">
+                    <h4>Technical handoff & interaction specs</h4>
+                    <p>Defining detailed Android interaction guidelines (native OS behaviors, focus states, virtual
+                      keyboard, and edge cases).</p>
+                  </div>
+                  <div class="editorial-pillar">
+                    <h4>Design system & leadership</h4>
+                    <p>Led the full component overhaul while supervising an UI designer: driving the migration from
+                      Material 2 to Material 3, updating typography, refreshing brand colors, and expanding the
+                      functional UI palette.</p>
+                  </div>
+                </div>
+                <div class="editorial-pillars" lang="fr">
+                  <div class="editorial-pillar">
+                    <h4>Recherche & immersion continue</h4>
+                    <p>Combinaison d'observations terrain en laboratoire et d'un protocole d'écoute à distance (tests
+                      modérés et questionnaires) auprès d'équipes utilisatrices réparties à l'international.</p>
+                  </div>
+                  <div class="editorial-pillar">
+                    <h4>Stratégie UX & arbitrage du risque</h4>
+                    <p>Dosage précis de la friction d'interface selon la criticité clinique des tâches, pour sécuriser
+                      le geste sans ralentir le diagnostic au quotidien.</p>
+                  </div>
+                  <div class="editorial-pillar">
+                    <h4>Spécifications techniques & Handoff</h4>
+                    <p>Cadrage rigoureux des règles d'interaction pour le développement Android (comportements natifs de
+                      l'OS, gestion du focus, clavier virtuel, cas limites).</p>
+                  </div>
+                  <div class="editorial-pillar">
+                    <h4>Design system & encadrement</h4>
+                    <p>Direction de la refonte globale des composants et encadrement d'une UI Designer : pilotage de la
+                      migration de Material 2 vers Material 3, modernisation typographique, refonte des couleurs de
+                      marque et extension de la palette fonctionnelle.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <!-- Deep Dives Teaser Cards Grid Navigation -->
             <div class="case-teaser-grid" aria-label="Antibiogo Deep Dives">
@@ -831,7 +1046,7 @@
                         des gabarits d'export et d'impression pour le corps médical prescripteur.</li>
                     </ul>
                   </div>
-                  <div class="case-media-row case-gallery-field">
+                  <div class="case-media-row">
                     <img src="assets/antibiogo/bench.webp"
                       alt="Microbiology bench with Petri dishes and microscope in field laboratory" lang="en"
                       class="case-img case-img--gallery" width="800" height="533" loading="lazy" decoding="async">
@@ -1073,85 +1288,143 @@
               </div>
             </div>
           </div>
+        </section>
 
-          <!-- Row 3: The Outcome -->
-          <div class="case-section">
-            <h3 lang="en">The Outcome</h3>
-            <h3 lang="fr">Le Résultat</h3>
-            <p lang="en">A robust, certified medical tool deployed daily across demanding laboratory
-              environments
-              worldwide, empowering practitioners to obtain reliable diagnostics independently of any remote
-              server.</p>
-            <p lang="fr">Un outil médical robuste et certifié, utilisé au quotidien dans des laboratoires aux
-              contextes exigeants à travers le monde, qui permet <span aria-hidden="true">aux praticien·nes</span><span class="sr-only">aux praticiens, praticiennes</span> d'obtenir des diagnostics
-              fiables sans dépendre d'un serveur distant.</p>
+        <!-- Chapter 4: The Outcome (Paper Background, Editorial Split with Large Newsreader Statement + Bottom Nav) -->
+        <section class="section">
+          <div class="container editorial-split">
+            <div class="editorial-split__aside">
+              <h3 lang="en">The Outcome</h3>
+              <h3 lang="fr">Le Résultat</h3>
+            </div>
+            <div class="editorial-split__content">
+              <p class="case-outcome-statement" lang="en">A robust, certified medical tool deployed daily across demanding laboratory
+                environments
+                worldwide, empowering practitioners to obtain reliable diagnostics independently of any remote
+                server.</p>
+              <p class="case-outcome-statement" lang="fr">Un outil médical robuste et certifié, utilisé au quotidien dans des laboratoires aux
+                contextes exigeants à travers le monde, qui permet <span aria-hidden="true">aux praticien·nes</span><span class="sr-only">aux praticiens, praticiennes</span> d'obtenir des diagnostics
+                fiables sans dépendre d'un serveur distant.</p>
+            </div>
           </div>
-        </div>
 
-        <!-- Bottom Navigation Bar -->
-        <div class="case-bottom-nav">
-          <a href="index.html#work" class="btn btn-secondary btn-small case-back-link">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
-              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
-            </svg>
-            <span lang="en">Back to projects</span>
-            <span lang="fr">Retour aux projets</span>
-          </a>
-        </div>
+          <!-- Bottom Navigation Bar (Inside the same unified surface) -->
+          <div class="container">
+            <div class="case-bottom-nav">
+              <a href="index.html#work" class="btn btn-secondary btn-small case-back-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
+                  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+                </svg>
+                <span lang="en">Back to projects</span>
+                <span lang="fr">Retour aux projets</span>
+              </a>
+              <a href="origami.html" class="btn btn-secondary btn-small case-next-link">
+                <span lang="en">View other study: Origami</span>
+                <span lang="fr">Voir l'autre étude : Origami</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="case-arrow-right">
+                  <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
 
     <!-- Dedicated Case Study 02: Origami View -->
     <div id="project-view-origami" class="case-study-view" hidden>
-      <!-- Top Navigation Bar -->
-      <div class="case-study-topbar">
-        <div class="container case-study-topbar-inner">
-          <a href="index.html#work" class="btn btn-secondary btn-small case-back-link">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
-              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
-            </svg>
-            <span lang="en">Back to projects</span>
-            <span lang="fr">Retour aux projets</span>
-          </a>
+      <!-- Tinted Full-Width Editorial Header Band -->
+      <div class="case-hero-band case-hero-band--terracotta">
+        <div class="container container--wide">
+          <!-- Top Navigation Bar -->
+          <div class="case-study-topbar">
+            <div class="case-study-topbar-inner">
+              <a href="index.html#work" class="btn btn-secondary btn-small case-back-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
+                  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+                </svg>
+                <span lang="en">Back to projects</span>
+                <span lang="fr">Retour aux projets</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="case-hero-layout">
+            <div class="case-header">
+              <div class="case-brand-row">
+                <img src="assets/ag2r_logo.webp" alt="AG2R La Mondiale" class="case-logo" width="84" height="24"
+                  loading="lazy" decoding="async">
+                <span class="case-duration">2019 — 2022</span>
+              </div>
+              <span class="case-tag" lang="en">02 — Design Ops & Tooling</span>
+              <span class="case-tag" lang="fr">02 — Outillage & culture design</span>
+              <h1 lang="en">Origami — Scaling the Design System</h1>
+              <h1 lang="fr">Origami — Industrialisation du design system</h1>
+              <div class="case-meta-grid">
+                <div class="case-meta-item">
+                  <h4 lang="en">Role</h4>
+                  <h4 lang="fr">Rôle</h4>
+                  <p lang="en">Design System Lead / Co-Product Owner</p>
+                  <p lang="fr">Lead Design System / Co-Product Owner</p>
+                </div>
+                <div class="case-meta-item">
+                  <h4 lang="en">Context</h4>
+                  <h4 lang="fr">Contexte</h4>
+                  <p lang="en">Enterprise web ecosystem (15M policyholders)</p>
+                  <p lang="fr">Écosystème web grand compte (15M <span aria-hidden="true">d'assuré·es</span><span class="sr-only">d'assurés, assurées</span>)</p>
+                </div>
+              </div>
+              <p class="case-teaser-pitch" lang="en"><em>In simpler terms: a shared UI and technical baseline
+                  between design and engineering to align the group’s web portals serving millions of policyholders.</em>
+              </p>
+              <p class="case-teaser-pitch" lang="fr"><em>En termes simples : un socle UI et technique
+                  mutualisé entre design et code pour harmoniser les espaces clients web du groupe au service de millions
+                  <span aria-hidden="true">d'assuré·es</span><span class="sr-only">d'assurés, assurées</span>.</em></p>
+            </div>
+
+            <!-- Hand-Sketched Modular UI & Tokens Illustration -->
+            <div class="case-hero-illustration" aria-hidden="true">
+              <svg class="case-hero-svg" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#sketch-hero)">
+                  <!-- Outer alignment construction guides -->
+                  <path d="M 38 24 L 38 256 M 242 24 L 242 256" class="sketch-ink-faint" stroke-dasharray="4 5" />
+                  <path d="M 24 44 L 256 44 M 24 236 L 256 236" class="sketch-ink-faint" stroke-dasharray="4 5" />
+
+                  <!-- Top Left Block: Token / Atom Card -->
+                  <path d="M 34 44 L 136 44 M 132 40 L 132 118 M 136 114 L 34 114 M 38 118 L 38 40" class="sketch-frame" />
+                  <path d="M 52 66 L 94 66 M 52 82 L 114 82 M 52 96 L 82 96" class="sketch-ink-light" />
+
+                  <!-- Top Right Block:Highlighted Modular UI Component (Terracotta Keystone) -->
+                  <path d="M 152 44 L 246 44 M 242 40 L 242 118 M 246 114 L 152 114 M 156 118 L 156 40" class="sketch-terracotta" />
+                  <circle cx="176" cy="79" r="8" class="sketch-terracotta" />
+                  <circle cx="176" cy="79" r="2.5" class="sketch-terracotta-fill" />
+                  <path d="M 194 72 L 226 72 M 194 86 L 216 86" class="sketch-terracotta" />
+
+                  <!-- Horizontal Spacing Token Callout between Top & Bottom Rows (y=114..142) -->
+                  <path d="M 85 116 L 85 140 M 79 118 L 91 118 M 79 138 L 91 138" class="sketch-terracotta" />
+                  <path d="M 199 116 L 199 140 M 193 118 L 205 118 M 193 138 L 205 138" class="sketch-terracotta" />
+
+                  <!-- Bottom Full-Width Composite Pattern Block -->
+                  <path d="M 34 142 L 246 142 M 242 138 L 242 238 M 246 236 L 34 236 M 38 238 L 38 138" class="sketch-frame" />
+                  <!-- Nested UI Anatomy inside bottom block (Button + Input slots) -->
+                  <path d="M 54 162 L 146 162 M 54 178 L 122 178" class="sketch-ink" />
+                  <!-- Action Button Slot (Terracotta) -->
+                  <path d="M 54 198 L 118 198 L 118 220 L 54 220 Z" class="sketch-terracotta" />
+                  <path d="M 68 209 L 104 209" class="sketch-terracotta" />
+                  <!-- Secondary Slot -->
+                  <path d="M 132 198 L 224 198 L 224 220 L 132 220 Z" class="sketch-ink-light" />
+                </g>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="container">
-        <div class="case-header">
-          <div class="case-brand-row">
-            <img src="assets/ag2r_logo.webp" alt="AG2R La Mondiale" class="case-logo logo-ag2r" width="84" height="24"
-              loading="lazy" decoding="async">
-            <span class="case-duration">2019 — 2022</span>
-          </div>
-          <span class="case-tag" lang="en">02 — Design Ops & Tooling</span>
-          <span class="case-tag" lang="fr">02 — Outillage & culture design</span>
-          <h1 lang="en">Origami — Scaling the Design System</h1>
-          <h1 lang="fr">Origami — Industrialisation du design system</h1>
-          <div class="case-meta-grid">
-            <div class="case-meta-item">
-              <h4 lang="en">Role</h4>
-              <h4 lang="fr">Rôle</h4>
-              <p lang="en">Design System Lead / Co-Product Owner</p>
-              <p lang="fr">Lead Design System / Co-Product Owner</p>
-            </div>
-            <div class="case-meta-item">
-              <h4 lang="en">Context</h4>
-              <h4 lang="fr">Contexte</h4>
-              <p lang="en">Enterprise web ecosystem (15M policyholders)</p>
-              <p lang="fr">Écosystème web grand compte (15M <span aria-hidden="true">d'assuré·es</span><span class="sr-only">d'assurés, assurées</span>)</p>
-            </div>
-          </div>
-          <p class="case-teaser-pitch" lang="en"><em>In simpler terms: a shared UI and technical baseline
-              between design and engineering to align the group’s web portals serving millions of policyholders.</em>
-          </p>
-          <p class="case-teaser-pitch" lang="fr"><em>En termes simples : un socle UI et technique
-              mutualisé entre design et code pour harmoniser les espaces clients web du groupe au service de millions
-              <span aria-hidden="true">d'assuré·es</span><span class="sr-only">d'assurés, assurées</span>.</em></p>
-        </div>
-
-        <div class="case-study-content" style="margin-top: 3rem;">
-          <!-- 4 Rollout Steps Deep Dives Section -->
-          <div class="case-section case-deep-dives-section">
+      <div class="case-study-content">
+        <!-- Chapter 1: 4 Rollout Steps Deep Dives Section (Sand Background with White Elevated Cards) -->
+        <section class="section section--sand case-deep-dives-section">
+          <div class="container">
             <div class="deep-dives-header">
               <h3 lang="en">The 4 Rollout Steps</h3>
               <h3 lang="fr">Les 4 étapes du déploiement</h3>
@@ -1455,15 +1728,19 @@
               </div>
             </div>
           </div>
+        </section>
 
-          <!-- Full Width: Project Retrospective -->
-          <div class="case-section">
-            <h3 lang="en">Retrospective Analysis</h3>
-            <h3 lang="fr">Analyse rétrospective</h3>
-            <p lang="en">Reflecting on the rollout of the Origami Design System over its lifecycle.</p>
-            <p lang="fr">Retour sur le déploiement du Design System Origami tout au long de son cycle de vie.</p>
-            <div class="retro-grid">
-              <div class="retro-box">
+        <!-- Chapter 2: Project Retrospective (Paper Background, Editorial Split + Bottom Nav) -->
+        <section class="section">
+          <div class="container editorial-split">
+            <div class="editorial-split__aside case-section">
+              <h3 lang="en">Retrospective Analysis</h3>
+              <h3 lang="fr">Analyse rétrospective</h3>
+              <p lang="en">Reflecting on the rollout of the Origami Design System over its lifecycle.</p>
+              <p lang="fr">Retour sur le déploiement du Design System Origami tout au long de son cycle de vie.</p>
+            </div>
+            <div class="editorial-split__content retro-stack">
+              <div class="retro-box retro-box--positive">
                 <h4 lang="en">What worked well</h4>
                 <h4 lang="fr">Ce qui a fonctionné</h4>
                 <ul lang="en">
@@ -1476,7 +1753,7 @@
                     maturité.</li>
                 </ul>
               </div>
-              <div class="retro-box">
+              <div class="retro-box retro-box--improvement">
                 <h4 lang="en">Areas of improvement</h4>
                 <h4 lang="fr">Axes d'amélioration</h4>
                 <ul lang="en">
@@ -1493,18 +1770,28 @@
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Bottom Navigation Bar -->
-        <div class="case-bottom-nav">
-          <a href="index.html#work" class="btn btn-secondary btn-small case-back-link">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
-              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
-            </svg>
-            <span lang="en">Back to projects</span>
-            <span lang="fr">Retour aux projets</span>
-          </a>
-        </div>
+          <!-- Bottom Navigation Bar (Inside the same unified surface) -->
+          <div class="container">
+            <div class="case-bottom-nav">
+              <a href="index.html#work" class="btn btn-secondary btn-small case-back-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
+                  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+                </svg>
+                <span lang="en">Back to projects</span>
+                <span lang="fr">Retour aux projets</span>
+              </a>
+              <a href="antibiogo.html" class="btn btn-secondary btn-small case-next-link">
+                <span lang="en">View other study: Antibiogo</span>
+                <span lang="fr">Voir l'autre étude : Antibiogo</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="case-arrow-right">
+                  <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
 

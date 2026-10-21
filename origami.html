@@ -48,6 +48,20 @@
   
 
   <main id="main-content" tabindex="-1">
+    <!-- Shared SVG Pencil Wobble Filters (always mounted in DOM across Home and Case Study pages) -->
+    <svg class="svg-filters-defs" width="0" height="0" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="sketch-hero" x="-8%" y="-8%" width="116%" height="116%" filterUnits="objectBoundingBox">
+          <feTurbulence type="fractalNoise" baseFrequency="0.024" numOctaves="3" seed="19" result="noise"></feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.3" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        </filter>
+        <filter id="sketch-emblem" x="-12%" y="-12%" width="124%" height="124%" filterUnits="objectBoundingBox">
+          <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="3" seed="7" result="noise"></feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.65" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        </filter>
+      </defs>
+    </svg>
+
      <!-- /#home-view -->
 
     <!-- Dedicated Case Study 01: Antibiogo View -->
@@ -55,52 +69,94 @@
 
     <!-- Dedicated Case Study 02: Origami View -->
     <div id="project-view-origami" class="case-study-view">
-      <!-- Top Navigation Bar -->
-      <div class="case-study-topbar">
-        <div class="container case-study-topbar-inner">
-          <a href="index.html#work" class="btn btn-secondary btn-small case-back-link">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
-              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
-            </svg>
-            
-            <span>Retour aux projets</span>
-          </a>
+      <!-- Tinted Full-Width Editorial Header Band -->
+      <div class="case-hero-band case-hero-band--terracotta">
+        <div class="container container--wide">
+          <!-- Top Navigation Bar -->
+          <div class="case-study-topbar">
+            <div class="case-study-topbar-inner">
+              <a href="index.html#work" class="btn btn-secondary btn-small case-back-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
+                  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+                </svg>
+                
+                <span>Retour aux projets</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="case-hero-layout">
+            <div class="case-header">
+              <div class="case-brand-row">
+                <img src="assets/ag2r_logo.webp" alt="AG2R La Mondiale" class="case-logo" width="84" height="24" loading="lazy" decoding="async">
+                <span class="case-duration">2019 — 2022</span>
+              </div>
+              
+              <span class="case-tag">02 — Outillage &amp; culture design</span>
+              
+              <h1>Origami — Industrialisation du design system</h1>
+              <div class="case-meta-grid">
+                <div class="case-meta-item">
+                  
+                  <h4>Rôle</h4>
+                  
+                  <p>Lead Design System / Co-Product Owner</p>
+                </div>
+                <div class="case-meta-item">
+                  
+                  <h4>Contexte</h4>
+                  
+                  <p>Écosystème web grand compte (15M <span aria-hidden="true">d'assuré·es</span><span class="sr-only">d'assurés, assurées</span>)</p>
+                </div>
+              </div>
+              
+              <p class="case-teaser-pitch"><em>En termes simples : un socle UI et technique
+                  mutualisé entre design et code pour harmoniser les espaces clients web du groupe au service de millions
+                  <span aria-hidden="true">d'assuré·es</span><span class="sr-only">d'assurés, assurées</span>.</em></p>
+            </div>
+
+            <!-- Hand-Sketched Modular UI & Tokens Illustration -->
+            <div class="case-hero-illustration" aria-hidden="true">
+              <svg class="case-hero-svg" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#sketch-hero)">
+                  <!-- Outer alignment construction guides -->
+                  <path d="M 38 24 L 38 256 M 242 24 L 242 256" class="sketch-ink-faint" stroke-dasharray="4 5"></path>
+                  <path d="M 24 44 L 256 44 M 24 236 L 256 236" class="sketch-ink-faint" stroke-dasharray="4 5"></path>
+
+                  <!-- Top Left Block: Token / Atom Card -->
+                  <path d="M 34 44 L 136 44 M 132 40 L 132 118 M 136 114 L 34 114 M 38 118 L 38 40" class="sketch-frame"></path>
+                  <path d="M 52 66 L 94 66 M 52 82 L 114 82 M 52 96 L 82 96" class="sketch-ink-light"></path>
+
+                  <!-- Top Right Block:Highlighted Modular UI Component (Terracotta Keystone) -->
+                  <path d="M 152 44 L 246 44 M 242 40 L 242 118 M 246 114 L 152 114 M 156 118 L 156 40" class="sketch-terracotta"></path>
+                  <circle cx="176" cy="79" r="8" class="sketch-terracotta"></circle>
+                  <circle cx="176" cy="79" r="2.5" class="sketch-terracotta-fill"></circle>
+                  <path d="M 194 72 L 226 72 M 194 86 L 216 86" class="sketch-terracotta"></path>
+
+                  <!-- Horizontal Spacing Token Callout between Top & Bottom Rows (y=114..142) -->
+                  <path d="M 85 116 L 85 140 M 79 118 L 91 118 M 79 138 L 91 138" class="sketch-terracotta"></path>
+                  <path d="M 199 116 L 199 140 M 193 118 L 205 118 M 193 138 L 205 138" class="sketch-terracotta"></path>
+
+                  <!-- Bottom Full-Width Composite Pattern Block -->
+                  <path d="M 34 142 L 246 142 M 242 138 L 242 238 M 246 236 L 34 236 M 38 238 L 38 138" class="sketch-frame"></path>
+                  <!-- Nested UI Anatomy inside bottom block (Button + Input slots) -->
+                  <path d="M 54 162 L 146 162 M 54 178 L 122 178" class="sketch-ink"></path>
+                  <!-- Action Button Slot (Terracotta) -->
+                  <path d="M 54 198 L 118 198 L 118 220 L 54 220 Z" class="sketch-terracotta"></path>
+                  <path d="M 68 209 L 104 209" class="sketch-terracotta"></path>
+                  <!-- Secondary Slot -->
+                  <path d="M 132 198 L 224 198 L 224 220 L 132 220 Z" class="sketch-ink-light"></path>
+                </g>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="container">
-        <div class="case-header">
-          <div class="case-brand-row">
-            <img src="assets/ag2r_logo.webp" alt="AG2R La Mondiale" class="case-logo logo-ag2r" width="84" height="24" loading="lazy" decoding="async">
-            <span class="case-duration">2019 — 2022</span>
-          </div>
-          
-          <span class="case-tag">02 — Outillage &amp; culture design</span>
-          
-          <h1>Origami — Industrialisation du design system</h1>
-          <div class="case-meta-grid">
-            <div class="case-meta-item">
-              
-              <h4>Rôle</h4>
-              
-              <p>Lead Design System / Co-Product Owner</p>
-            </div>
-            <div class="case-meta-item">
-              
-              <h4>Contexte</h4>
-              
-              <p>Écosystème web grand compte (15M <span aria-hidden="true">d'assuré·es</span><span class="sr-only">d'assurés, assurées</span>)</p>
-            </div>
-          </div>
-          
-          <p class="case-teaser-pitch"><em>En termes simples : un socle UI et technique
-              mutualisé entre design et code pour harmoniser les espaces clients web du groupe au service de millions
-              <span aria-hidden="true">d'assuré·es</span><span class="sr-only">d'assurés, assurées</span>.</em></p>
-        </div>
-
-        <div class="case-study-content" style="margin-top: 3rem;">
-          <!-- 4 Rollout Steps Deep Dives Section -->
-          <div class="case-section case-deep-dives-section">
+      <div class="case-study-content">
+        <!-- Chapter 1: 4 Rollout Steps Deep Dives Section (Sand Background with White Elevated Cards) -->
+        <section class="section section--sand case-deep-dives-section">
+          <div class="container">
             <div class="deep-dives-header">
               
               <h3>Les 4 étapes du déploiement</h3>
@@ -320,15 +376,19 @@
               </div>
             </div>
           </div>
+        </section>
 
-          <!-- Full Width: Project Retrospective -->
-          <div class="case-section">
-            
-            <h3>Analyse rétrospective</h3>
-            
-            <p>Retour sur le déploiement du Design System Origami tout au long de son cycle de vie.</p>
-            <div class="retro-grid">
-              <div class="retro-box">
+        <!-- Chapter 2: Project Retrospective (Paper Background, Editorial Split + Bottom Nav) -->
+        <section class="section">
+          <div class="container editorial-split">
+            <div class="editorial-split__aside case-section">
+              
+              <h3>Analyse rétrospective</h3>
+              
+              <p>Retour sur le déploiement du Design System Origami tout au long de son cycle de vie.</p>
+            </div>
+            <div class="editorial-split__content retro-stack">
+              <div class="retro-box retro-box--positive">
                 
                 <h4>Ce qui a fonctionné</h4>
                 
@@ -338,7 +398,7 @@
                     maturité.</li>
                 </ul>
               </div>
-              <div class="retro-box">
+              <div class="retro-box retro-box--improvement">
                 
                 <h4>Axes d'amélioration</h4>
                 
@@ -351,18 +411,27 @@
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Bottom Navigation Bar -->
-        <div class="case-bottom-nav">
-          <a href="index.html#work" class="btn btn-secondary btn-small case-back-link">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
-              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
-            </svg>
-            
-            <span>Retour aux projets</span>
-          </a>
-        </div>
+          <!-- Bottom Navigation Bar (Inside the same unified surface) -->
+          <div class="container">
+            <div class="case-bottom-nav">
+              <a href="index.html#work" class="btn btn-secondary btn-small case-back-link">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="case-back-arrow">
+                  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+                </svg>
+                
+                <span>Retour aux projets</span>
+              </a>
+              <a href="antibiogo.html" class="btn btn-secondary btn-small case-next-link">
+                
+                <span>Voir l'autre étude : Antibiogo</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="case-arrow-right">
+                  <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
 

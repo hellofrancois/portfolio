@@ -77,42 +77,140 @@
   </header>
 
   <main id="main-content" tabindex="-1">
+    <!-- Shared SVG Pencil Wobble Filters (always mounted in DOM across Home and Case Study pages) -->
+    <svg class="svg-filters-defs" width="0" height="0" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="sketch-hero" x="-8%" y="-8%" width="116%" height="116%" filterUnits="objectBoundingBox">
+          <feTurbulence type="fractalNoise" baseFrequency="0.024" numOctaves="3" seed="19" result="noise"></feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.3" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        </filter>
+        <filter id="sketch-emblem" x="-12%" y="-12%" width="124%" height="124%" filterUnits="objectBoundingBox">
+          <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="3" seed="7" result="noise"></feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.65" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        </filter>
+      </defs>
+    </svg>
+
     <div id="home-view">
 
       <!-- Hero Section -->
       <section class="hero section">
-        <div class="container hero-content" data-js-reveal="">
-          
-          <div class="hero-badge">
-            <span class="badge-dot"></span>
-            À l'écoute d'opportunités — CDI &amp; missions
+        <div class="container container--wide hero-layout" data-js-reveal="">
+          <div class="hero-content">
+            
+            <div class="hero-badge">
+              <span class="badge-dot"></span>
+              À l'écoute d'opportunités — CDI &amp; missions
+            </div>
+            
+            <h1>Je rends <span class="accent-text">lisibles et intuitifs</span> les environnements les plus
+              complexes.</h1>
+            
+            <p class="hero-description">
+              Lead / Senior product designer spécialisé en architecture de l'information, design systémique et accessibilité. Je
+              choisis des projets à impact concret — actuellement en mission chez MSF sur un outil médical dédié à la
+              lutte contre l'antibiorésistance.
+            </p>
+            <div class="hero-cta">
+              
+              <a href="#work" class="btn btn-primary">Lire les études de cas</a>
+              
+              <a href="#contact" class="btn btn-secondary">Me contacter</a>
+            </div>
           </div>
-          
-          <h1>Je rends <span class="accent-text">lisibles et intuitifs</span> les environnements les plus
-            complexes.</h1>
-          
-          <p class="hero-description">
-            Lead / Senior product designer spécialisé en architecture de l'information, design systémique et accessibilité. Je
-            choisis des projets à impact concret — actuellement en mission chez MSF sur un outil médical dédié à la
-            lutte contre l'antibiorésistance.
-          </p>
-          <div class="hero-cta">
-            
-            <a href="#work" class="btn btn-primary">Lire les études de cas</a>
-            
-            <a href="#contact" class="btn btn-secondary">Me contacter</a>
+
+          <!-- Hand-Sketched Notebook Illustration: Framing Window (Cutting Noise vs. Aligning Essentials) -->
+          <div class="hero-illustration" aria-hidden="true">
+            <!-- Desktop SVG: Vertical Flow (Top = chaotic tangle crashing onto the frame's top edge -> Bottom = 3 calm vertical lines inside the frame) -->
+            <svg class="hero-svg hero-svg--desktop" viewBox="0 0 320 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#sketch-hero)">
+                <!-- 1. DENSE CHAOTIC TANGLE ABOVE THE FRAME (y: 14 -> 186), crashing & flattening directly against y=186 -->
+                <!-- Faint background scribble mass -->
+                <path d="M 88 22 L 154 78 L 62 94 L 198 44 L 246 112 L 114 134 L 228 158 L 96 172 L 142 186 L 158 186" class="sketch-ink-faint"></path>
+                <path d="M 218 18 L 112 64 L 252 82 L 84 122 L 188 148 L 72 178 L 82 186 L 98 186" class="sketch-ink-faint"></path>
+                <path d="M 54 46 C 142 12, 238 138, 126 112 C 48 94, 214 168, 186 186 L 202 186" class="sketch-ink-faint"></path>
+
+                <!-- Irregular, non-oscillating chaotic trajectories crashing dead onto the top border (y=186) -->
+                <path d="M 64 28 L 138 96 L 74 118 L 106 164 L 68 186 L 58 186" class="sketch-ink-light"></path>
+                <path d="M 102 16 C 42 74, 186 62, 148 118 C 122 156, 82 146, 92 186 L 106 186" class="sketch-ink-light"></path>
+                <path d="M 146 24 L 88 84 L 212 104 L 134 152 L 126 186 L 118 186" class="sketch-ink"></path>
+                <path d="M 184 14 C 264 58, 96 88, 168 136 C 212 166, 138 170, 144 186 L 154 186" class="sketch-ink-light"></path>
+                <path d="M 236 30 L 148 68 L 244 128 L 172 154 L 178 186 L 192 186" class="sketch-ink"></path>
+                <path d="M 262 52 C 194 36, 158 124, 238 142 C 276 150, 218 174, 224 186 L 238 186" class="sketch-ink-light"></path>
+                <path d="M 48 74 L 176 52 L 94 142 L 228 118 L 248 186 L 260 186" class="sketch-ink-light"></path>
+                <path d="M 124 38 C 218 82, 58 132, 152 162 L 136 186 L 148 186" class="sketch-ink-light"></path>
+                <path d="M 78 52 C 118 138, 256 64, 196 144 L 218 176 L 196 186 L 182 186" class="sketch-ink-light"></path>
+                <path d="M 206 38 L 116 108 L 184 126 L 98 168 L 104 186" class="sketch-ink-faint"></path>
+                <path d="M 162 18 C 74 44, 242 96, 142 138 C 92 158, 244 166, 232 186" class="sketch-ink-faint"></path>
+
+                <!-- 2. THE 3 ESSENTIAL LINES (weaving through the chaos above, then entering the frame at y=186 and dropping straight & calm) -->
+                <!-- Left Track (x=108 inside frame) -->
+                <path d="M 58 36 C 148 88, 66 138, 118 164 C 132 172, 108 176, 108 186 L 108 338" class="sketch-ink"></path>
+                <path d="M 104 338 C 104 343, 112 343, 112 338 C 112 333, 104 333, 105 339" class="sketch-ink"></path>
+
+                <!-- Center Primary Terracotta Track (x=160 inside frame) -->
+                <path d="M 172 20 C 86 66, 234 114, 146 154 C 126 164, 160 174, 160 186 L 160 358" class="sketch-terracotta"></path>
+                <path d="M 153 358 C 153 367, 167 367, 167 358 C 167 349, 153 349, 154 360" class="sketch-terracotta"></path>
+                <circle cx="160" cy="358" r="2.8" class="sketch-terracotta-fill"></circle>
+
+                <!-- Right Track (x=212 inside frame) -->
+                <path d="M 248 26 C 162 78, 264 134, 198 162 C 184 168, 212 176, 212 186 L 212 322" class="sketch-ink"></path>
+                <path d="M 208 322 C 208 327, 216 327, 216 322 C 216 317, 208 317, 209 323" class="sketch-ink"></path>
+
+                <!-- 3. THE FRAMING WINDOW (Lower half: x=52..268, y=186..396, with overshooting corners) -->
+                <!-- Top border (the barrier where noisy lines crash) -->
+                <path d="M 40 186 L 280 186" class="sketch-frame"></path>
+                <path d="M 48 188 L 272 187" class="sketch-ink-light"></path>
+                <!-- Bottom border -->
+                <path d="M 42 396 L 278 395" class="sketch-frame"></path>
+                <!-- Left border -->
+                <path d="M 52 174 L 53 406" class="sketch-frame"></path>
+                <!-- Right border -->
+                <path d="M 268 174 L 267 406" class="sketch-frame"></path>
+              </g>
+            </svg>
+
+            <!-- Mobile Horizontal SVG: Left-to-Right Flow (Chaotic tangle on the left crashing onto x=172 -> 3 calm lines inside frame on the right) -->
+            <svg class="hero-svg hero-svg--mobile" viewBox="0 0 420 155" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#sketch-hero)">
+                <!-- Dense chaotic tangle on the left (x: 8 -> 172), crashing & flattening onto x=172 -->
+                <path d="M 14 28 L 76 88 L 28 118 L 114 36 L 146 116 L 88 134 L 172 96 L 172 108" class="sketch-ink-faint"></path>
+                <path d="M 22 114 L 84 24 L 128 98 L 62 72 L 154 44 L 172 62 L 172 50" class="sketch-ink-faint"></path>
+                <path d="M 10 44 L 68 18 L 96 84 L 142 32 L 172 36 L 172 26" class="sketch-ink-light"></path>
+                <path d="M 18 18 C 78 96, 44 134, 118 68 C 148 42, 146 92, 172 86 L 172 96" class="sketch-ink-light"></path>
+                <path d="M 8 82 L 74 42 L 58 124 L 136 86 L 156 122 L 172 114 L 172 124" class="sketch-ink"></path>
+                <path d="M 26 134 C 94 74, 62 16, 132 58 L 158 28 L 172 52 L 172 64" class="sketch-ink-light"></path>
+                <path d="M 12 62 C 88 12, 112 142, 148 74 L 172 68 L 172 58" class="sketch-ink"></path>
+                <path d="M 34 102 L 108 48 L 82 128 L 154 98 L 172 128 L 172 118" class="sketch-ink-light"></path>
+
+                <!-- The 3 essential lines weaving from the left, then running straight & calm inside the frame (x: 172 -> 396) -->
+                <path d="M 16 34 C 72 86, 118 14, 152 54 C 162 64, 164 46, 172 46 L 348 46" class="sketch-ink"></path>
+                <circle cx="348" cy="46" r="2.8" class="sketch-ink"></circle>
+
+                <path d="M 10 94 C 66 26, 114 128, 150 68 C 160 52, 164 78, 172 78 L 368 78" class="sketch-terracotta"></path>
+                <path d="M 368 72 C 375 72, 375 84, 368 84 C 361 84, 361 72, 369 73" class="sketch-terracotta"></path>
+                <circle cx="368" cy="78" r="2.5" class="sketch-terracotta-fill"></circle>
+
+                <path d="M 20 126 C 78 68, 116 144, 154 102 C 162 92, 166 110, 172 110 L 332 110" class="sketch-ink"></path>
+                <circle cx="332" cy="110" r="2.8" class="sketch-ink"></circle>
+
+                <!-- Horizontal Framing Window (x=172..398, y=18..138, with overshooting corners) -->
+                <path d="M 160 18 L 408 17" class="sketch-frame"></path>
+                <path d="M 160 138 L 408 137" class="sketch-frame"></path>
+                <path d="M 172 8 L 172 148" class="sketch-frame"></path>
+                <path d="M 174 16 L 173 140" class="sketch-ink-light"></path>
+                <path d="M 398 8 L 397 148" class="sketch-frame"></path>
+              </g>
+            </svg>
           </div>
         </div>
       </section>
 
       <!-- Work / Case Studies Section -->
       <section id="work" class="section">
-        <div class="container" data-js-reveal="">
+        <div class="container container--wide" data-js-reveal="">
           
-          <h2>Projets phares</h2>
-          
-          <p class="case-intro-text">Deux études de cas illustrant ma démarche face à des environnements
-            complexes et exigeants.</p>
+          <h2 class="sr-only">Projets phares</h2>
 
           <div class="case-study-list">
             <!-- Case Study 01: Antibiogo -->
@@ -165,8 +263,8 @@
 
               <div class="case-preview-visual case-preview-visual--antibiogo" aria-hidden="true">
                 <div class="preview-antibiogo-composition">
-                  <img src="assets/antibiogo/lab-960.webp" srcset="assets/antibiogo/lab-480.webp 480w, assets/antibiogo/lab-960.webp 960w" sizes="(max-width: 900px) 85vw, 420px" alt="" class="preview-lab-photo" width="960" height="1280" loading="lazy" decoding="async">
-                  <img src="assets/antibiogo/AST Home.webp" alt="" class="preview-app-screen" width="360" height="760" loading="lazy" decoding="async">
+                  <img src="assets/antibiogo/lab-960.webp" srcset="assets/antibiogo/lab-480.webp 480w, assets/antibiogo/lab-960.webp 960w" sizes="(max-width: 900px) 90vw, 640px" alt="" class="preview-lab-photo" loading="lazy" decoding="async">
+                  <img src="assets/antibiogo/AST Home.webp" alt="" class="preview-app-screen" loading="lazy" decoding="async">
                 </div>
               </div>
             </article>
@@ -176,7 +274,7 @@
               <div class="case-card-body">
                 <div class="case-header">
                   <div class="case-brand-row">
-                    <img src="assets/ag2r_logo.webp" alt="AG2R La Mondiale" class="case-logo logo-ag2r" width="84" height="24" loading="lazy" decoding="async">
+                    <img src="assets/ag2r_logo.webp" alt="AG2R La Mondiale" class="case-logo" width="84" height="24" loading="lazy" decoding="async">
                     <span class="case-duration">2019 — 2022</span>
                   </div>
                   
@@ -215,7 +313,7 @@
               </div>
 
               <div class="case-preview-visual case-preview-visual--origami" aria-hidden="true">
-                <img src="assets/origami/figma-1.webp" alt="" class="preview-origami-img" width="845" height="431" loading="lazy" decoding="async">
+                <img src="assets/origami/figma-1.webp" alt="" class="preview-origami-img" loading="lazy" decoding="async">
               </div>
             </article>
           </div>
@@ -223,49 +321,88 @@
       </section>
 
       <!-- approach Section -->
-      <section id="approach" class="section">
-        <div class="container approach-layout" data-js-reveal="">
-          <div class="approach-intro">
+      <section id="approach" class="section section--sand">
+        <div class="container editorial-split" data-js-reveal="">
+          <div class="editorial-split__aside approach-intro">
             
             <h2>Approche &amp; principes</h2>
             
             <p>Je conçois des produits numériques simples et fiables, pensés pour des usages réels et éprouvés
               face à des environnements complexes.</p>
           </div>
-          <div class="approach-grid">
+          <div class="editorial-split__content approach-grid">
             <div class="approach-card">
-              <div class="approach-number">01</div>
-              
-              <h3>Inclusif</h3>
-              
-              <p>L'inclusivité commence par les fondamentaux d'interface : contrastes soignés, typographies
-                lisibles et navigation évidente pour tous les profils <span aria-hidden="true">d'utilisateur·rices</span><span class="sr-only">d'utilisateurs,
-                  utilisatrices</span>.</p>
+              <svg class="approach-emblem" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+                <!-- Inclusive: Two hand-sketched intersecting loops + 3 quick terracotta hatch strokes -->
+                <g filter="url(#sketch-emblem)">
+                  <path d="M 22 13 C 31 12, 37 19, 36 28 C 35 37, 29 43, 21 43 C 12 43, 7 36, 8 27 C 8 18, 15 13, 24 14" class="sketch-ink"></path>
+                  <path d="M 35 13 C 44 13, 49 20, 48 29 C 48 37, 41 43, 33 43 C 25 43, 19 36, 20 27 C 20 19, 27 13, 37 14" class="sketch-ink"></path>
+                  <path d="M 25 23 L 31 19 M 23 29 L 33 23 M 25 34 L 32 29" class="sketch-terracotta"></path>
+                </g>
+              </svg>
+              <div class="approach-card-body">
+                
+                <h3>Inclusif</h3>
+                
+                <p>L'inclusivité commence par les fondamentaux d'interface : contrastes soignés, typographies
+                  lisibles et navigation évidente pour tous les profils <span aria-hidden="true">d'utilisateur·rices</span><span class="sr-only">d'utilisateurs,
+                    utilisatrices</span>.</p>
+              </div>
             </div>
             <div class="approach-card">
-              <div class="approach-number">02</div>
-              
-              <h3>Systémique</h3>
-              
-              <p>Je conçois des architectures pérennes et des design systems modulaires, attentifs à leur
-                empreinte technique et à leur impact social et environnemental.</p>
+              <svg class="approach-emblem" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+                <!-- Systemic: 4 freehand modular blocks with slight corner overshoots, 1 in terracotta -->
+                <g filter="url(#sketch-emblem)">
+                  <path d="M 10 13 L 26 12 M 25 11 L 25 26 M 26 25 L 10 25 M 11 26 L 11 11" class="sketch-ink"></path>
+                  <path d="M 10 31 L 26 30 M 25 29 L 25 45 M 26 44 L 10 44 M 11 45 L 11 29" class="sketch-ink"></path>
+                  <path d="M 29 31 L 45 30 M 44 29 L 44 45 M 45 44 L 29 44 M 30 45 L 30 29" class="sketch-ink"></path>
+                  <path d="M 30 10 L 47 9 M 46 8 L 45 24 M 46 23 L 30 23 M 31 24 L 31 8" class="sketch-terracotta"></path>
+                </g>
+              </svg>
+              <div class="approach-card-body">
+                
+                <h3>Systémique</h3>
+                
+                <p>Je conçois des architectures pérennes et des design systems modulaires, attentifs à leur
+                  empreinte technique et à leur impact social et environnemental.</p>
+              </div>
             </div>
             <div class="approach-card">
-              <div class="approach-number">03</div>
-              
-              <h3>De bout en bout</h3>
-              
-              <p>J'assure le lien continu entre recherche, stratégie et intégration, en travaillant main dans
-                la main avec <span aria-hidden="true">les développeur·euses et les expert·es métier</span><span class="sr-only">les développeurs, développeuses, experts, expertes métier</span> jusqu'à la mise en
-                production.</p>
+              <svg class="approach-emblem" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+                <!-- End-to-end: Single continuous freehand trajectory from loop to terracotta point -->
+                <g filter="url(#sketch-emblem)">
+                  <path d="M 9 36 C 14 14, 24 14, 28 28 C 32 42, 40 38, 46 18" class="sketch-ink"></path>
+                  <path d="M 9 33 C 12 33, 13 39, 9 39 C 5 39, 6 33, 10 34" class="sketch-ink"></path>
+                  <path d="M 46 13 C 51 13, 51 22, 46 22 C 41 22, 41 14, 47 14" class="sketch-terracotta"></path>
+                  <circle cx="46" cy="18" r="2" class="sketch-terracotta-fill"></circle>
+                </g>
+              </svg>
+              <div class="approach-card-body">
+                
+                <h3>De bout en bout</h3>
+                
+                <p>J'assure le lien continu entre recherche, stratégie et intégration, en travaillant main dans
+                  la main avec <span aria-hidden="true">les développeur·euses et les expert·es métier</span><span class="sr-only">les développeurs, développeuses, experts, expertes métier</span> jusqu'à la mise en
+                  production.</p>
+              </div>
             </div>
             <div class="approach-card">
-              <div class="approach-number">04</div>
-              
-              <h3>Collectif</h3>
-              
-              <p>Le design n'est jamais un acte isolé : j'anime et synchronise les équipes de design, tout en
-                impliquant activement les communautés <span aria-hidden="true">d'utilisateur·rices</span><span class="sr-only">d'utilisateurs, utilisatrices</span> dans la co-conception.</p>
+              <svg class="approach-emblem" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+                <!-- Collective: Two loose hand-drawn intersecting orbits + central terracotta nexus -->
+                <g filter="url(#sketch-emblem)">
+                  <path d="M 13 15 C 22 7, 39 14, 43 27 C 47 39, 36 47, 23 41 C 11 35, 7 21, 15 14" class="sketch-ink"></path>
+                  <path d="M 42 15 C 48 23, 41 39, 28 43 C 15 47, 8 36, 14 23 C 20 11, 35 8, 43 16" class="sketch-ink-light"></path>
+                  <path d="M 28 22 C 33 22, 34 33, 28 33 C 22 33, 23 22, 29 23" class="sketch-terracotta"></path>
+                  <circle cx="28" cy="28" r="2.2" class="sketch-terracotta-fill"></circle>
+                </g>
+              </svg>
+              <div class="approach-card-body">
+                
+                <h3>Collectif</h3>
+                
+                <p>Le design n'est jamais un acte isolé : j'anime et synchronise les équipes de design, tout en
+                  impliquant activement les communautés <span aria-hidden="true">d'utilisateur·rices</span><span class="sr-only">d'utilisateurs, utilisatrices</span> dans la co-conception.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -361,7 +498,7 @@
             </div>
 
             <!-- Expandable Older Experiences -->
-            <div class="timeline-item timeline-older-toggle-item">
+            <div class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-header">
                 <div class="timeline-title-group">
