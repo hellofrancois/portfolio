@@ -6,48 +6,53 @@
 
 :root {
   /* Fonts */
-  --font-heading: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: 'Newsreader', Georgia, "Times New Roman", serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  /* Theme Tokens - Default Light Mode (Cold Slate & Action Blue) */
-  --bg-color: #ffffff;
-  --header-bg: rgba(255, 255, 255, 0.85);
-  --fg-color: #0f172a;
-  /* Gris foncé froid (#0F172A) pour textes et titres */
+  /* Theme Tokens - Warm Mineral Editorial (Chalk Paper, Forest Green & Terracotta) */
+  --bg-color: #faf8f5;
+  --header-bg: rgba(250, 248, 245, 0.88);
+  --fg-color: #1c1917;
+  /* Encre fusain chaude (#1C1917) pour textes et titres */
 
-  --muted-color: #475569;
-  /* Slate 600 pour les textes secondaires */
-  --subtle-color: #64748b;
-  /* Slate 500 (conforme WCAG AA contrast ratio > 4.5:1 sur blanc) */
-  --border-color: #e2e8f0;
-  /* Slate 200 */
-  --card-bg: #f1f5f9;
-  /* Gris-bleu très pâle (#F1F5F9) pour cartes et citations */
-  --hover-bg: #e2e8f0;
-  /* Slate 200 */
-  --bg-alt: #f8fafc;
-  /* Slate 50 */
+  --muted-color: #524e4a;
+  /* Pierre sombre (contraste ~8:1 sur #faf8f5) pour les textes secondaires */
+  --subtle-color: #6b655e;
+  /* Pierre moyenne (conforme WCAG AA contrast ratio > 5.3:1 sur #faf8f5) */
+  --border-color: #e4dfd7;
+  /* Filet minéral chaud */
+  --card-bg: #f2efe9;
+  /* Pierre douce / Sable (#F2EFE9) pour cartes et citations */
+  --hover-bg: #e4dfd7;
+  /* Survol minéral */
+  --bg-alt: #f6f3ee;
+  /* Fond alternatif papier pierre */
 
-  /* Accent Colors */
-  --accent-primary-h: 224;
-  --accent-primary-s: 76%;
-  --accent-primary-l: 55%;
-  /* Bleu principal : réservé à l'action (boutons, liens, tags actifs) */
+  /* Accent Colors — Piste B (Vert Forêt profond + Terracotta franc) */
+  --accent-primary-h: 155;
+  --accent-primary-s: 43%;
+  --accent-primary-l: 18%;
+  /* Vert Forêt (#1A4231 / #1B4332) : réservé à l'action (boutons, liens, tags actifs) */
+  /* Variante Piste C (Encre noire + Terracotta) : décommenter les 3 lignes ci-dessous pour tester
+  --accent-primary-h: 24;
+  --accent-primary-s: 10%;
+  --accent-primary-l: 10%;
+  */
   --accent-primary: hsl(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l));
   --accent-primary-muted: hsla(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l), 0.1);
-  --accent-primary-strong: hsl(var(--accent-primary-h), var(--accent-primary-s), 50%);
-  /* Bleu foncé calibré pour texte micro/labels sur fond teinté (contraste > 5.2:1) */
+  --accent-primary-strong: hsl(var(--accent-primary-h), var(--accent-primary-s), 18%);
+  /* Vert forêt dense calibré pour texte micro/labels sur fond teinté (contraste > 10:1) */
 
-  --accent-secondary-h: 28;
-  --accent-secondary-s: 90%;
-  --accent-secondary-l: 37%;
-  /* Accent secondaire (#B45309) : strictement réservé aux éléments de repérage */
-  --accent-secondary: #B45309;
-  --accent-secondary-muted: rgba(180, 83, 9, 0.12);
+  --accent-secondary-h: 11;
+  --accent-secondary-s: 69%;
+  --accent-secondary-l: 45%;
+  /* Accent secondaire Terracotta / Vermillon brique (#C24124) : repérage éditorial & accents */
+  --accent-secondary: #c24124;
+  --accent-secondary-muted: rgba(194, 65, 36, 0.12);
 
   /* Semantic Status & Neutral Colors */
-  --color-success: #10b981;
-  --color-success-muted: rgba(16, 185, 129, 0.12);
+  --color-success: #2d6a4f;
+  --color-success-muted: rgba(45, 106, 79, 0.12);
   --color-white: #ffffff;
 
   /* Typography Scale */
@@ -90,17 +95,20 @@
   --teaser-active-border: var(--border-color);
 
   /* Scrollbars & selection */
+  --scrollbar-thumb: #c7bfb3;
+  --scrollbar-track: #f2efe9;
+
   /* Section Spacing Tokens */
   --section-space: 8rem;
 
   /* Elevation & Shadow Tokens */
-  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
-  --shadow-lg: 0 4px 16px rgba(15, 23, 42, 0.15);
+  --shadow-sm: 0 2px 8px rgba(28, 25, 23, 0.04);
+  --shadow-md: 0 4px 12px rgba(28, 25, 23, 0.07);
+  --shadow-lg: 0 4px 16px rgba(28, 25, 23, 0.13);
 
   /* Status Animation Halo Tokens */
-  --pulse-halo-start: rgba(16, 185, 129, 0.7);
-  --pulse-halo-end: rgba(16, 185, 129, 0);
+  --pulse-halo-start: rgba(45, 106, 79, 0.55);
+  --pulse-halo-end: rgba(45, 106, 79, 0);
 
   color-scheme: light;
 }
@@ -257,28 +265,35 @@ body {
 /* Typography Rules */
 h1,
 h2,
-h3,
-h4 {
+h3 {
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
+  color: var(--fg-color);
+}
+
+h4 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
   color: var(--fg-color);
 }
 
 h1 {
-  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-size: clamp(2.5rem, 5.5vw, 4.35rem);
 }
 
 h2 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-size: clamp(1.9rem, 4vw, 2.65rem);
   margin-bottom: 2rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 h3 {
-  font-size: clamp(1.4rem, 3vw, 1.8rem);
-  font-weight: 600;
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 500;
 }
 
 p {
@@ -286,6 +301,17 @@ p {
   font-weight: 400;
   max-width: 65ch;
   margin-bottom: 1.5rem;
+}
+
+p a:not(.btn) {
+  color: var(--accent-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: hsla(var(--accent-primary-h), var(--accent-primary-s), var(--accent-primary-l), 0.4);
+}
+
+p a:not(.btn):hover {
+  text-decoration-color: var(--accent-primary);
 }
 
 blockquote {
@@ -464,11 +490,14 @@ ul {
 
 .hero h1 {
   margin-bottom: 2rem;
-  font-weight: 800;
+  font-weight: 400;
+  line-height: 1.12;
 }
 
 .hero h1 span.accent-text {
-  color: inherit;
+  color: var(--accent-secondary);
+  font-style: italic;
+  font-weight: 400;
 }
 
 .hero-description {
@@ -553,10 +582,11 @@ ul {
 
 .approach-number {
   font-family: var(--font-heading);
-  font-size: 2.25rem;
-  font-weight: 800;
+  font-size: 2.35rem;
+  font-weight: 400;
+  font-style: italic;
   line-height: 1;
-  color: var(--subtle-color);
+  color: var(--accent-secondary);
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -567,14 +597,14 @@ ul {
   content: '';
   display: block;
   width: 40px;
-  height: 2px;
+  height: 1.5px;
   background-color: var(--border-color);
 }
 
 .approach-card h3 {
   margin-bottom: 0.75rem;
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.35rem;
+  font-weight: 500;
 }
 
 .approach-card p {
@@ -759,14 +789,14 @@ body.is-project-view .header {
 }
 
 .case-study-view .case-header h1 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  font-weight: 600;
+  font-size: clamp(1.9rem, 4vw, 2.65rem);
+  font-weight: 500;
   margin-bottom: 0;
 }
 
 .case-tag,
 .step-badge {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: var(--badge-font-size);
   font-weight: 700;
   text-transform: uppercase;
@@ -1041,10 +1071,11 @@ body.is-project-view .header {
 
 .teaser-index {
   font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: var(--font-size-sm);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 1rem;
   color: var(--accent-secondary);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }
 
 .teaser-tag {
@@ -1070,6 +1101,7 @@ body.is-project-view .header {
 }
 
 .teaser-title {
+  font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--fg-color);
@@ -1155,9 +1187,9 @@ body.is-project-view .header {
   display: none;
   position: absolute;
   bottom: calc(-1 * var(--teaser-panel-gap) - 1px);
-  /* Mirrored by .teaser-fillet--left. Colors mirror --teaser-active-bg (#f8fafc) and --border-color (#e2e8f0):
+  /* Mirrored by .teaser-fillet--left. Colors mirror --teaser-active-bg (#f6f3ee) and --border-color (#e4dfd7):
      CSS variables cannot be used inside data URIs, update both if those tokens change. */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M0,0 C0,6.627 5.373,12 12,12 L0,12 Z' fill='%23f8fafc'/%3E%3Cpath d='M0,0 C0,6.627 5.373,12 12,12' stroke='%23e2e8f0' stroke-width='1'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M0,0 C0,6.627 5.373,12 12,12 L0,12 Z' fill='%23f6f3ee'/%3E%3Cpath d='M0,0 C0,6.627 5.373,12 12,12' stroke='%23e4dfd7' stroke-width='1'/%3E%3C/svg%3E");
   background-size: 12px 12px;
   background-repeat: no-repeat;
   width: 12px;
@@ -1791,8 +1823,8 @@ body.is-project-view .header {
 }
 
 .timeline-title-group h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 
 .timeline-company {
@@ -1910,8 +1942,8 @@ body.is-project-view .header {
   display: inline-block;
   font-family: var(--font-heading);
   font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  letter-spacing: -0.015em;
   margin: 2rem 0;
   border-bottom: 2px solid var(--border-color);
   padding-bottom: 0.5rem;
