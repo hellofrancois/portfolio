@@ -9,7 +9,7 @@
   <!-- Preconnect for Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..600&amp;family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&amp;family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400..700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&amp;family=Outfit:wght@400..700&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;family=Sora:wght@600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Syne:wght@600;700;800&amp;family=Unbounded:wght@600;700;800;900&amp;family=Work+Sans:ital,wght@0,400..700;1,400..600&amp;display=swap">
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%231b4332%22/></svg>" type="image/svg+xml">
@@ -27,9 +27,17 @@
   <link rel="alternate" hreflang="fr" href="https://hellofrancois.github.io/">
   <link rel="alternate" hreflang="x-default" href="https://hellofrancois.github.io/">
 
-  <!-- Flag JS capability immediately for progressive enhancement / no-JS fallbacks -->
+  <!-- Flag JS capability immediately and restore Theme Lab preferences to avoid FOUC -->
   <script>
     document.documentElement.classList.add("js");
+    try {
+      const p = localStorage.getItem("theme_lab_palette");
+      if (p && p !== "default") document.documentElement.dataset.theme = p;
+      const f = localStorage.getItem("theme_lab_font");
+      if (f && f !== "newsreader") document.documentElement.dataset.font = f;
+      const b = localStorage.getItem("theme_lab_body");
+      if (b && b !== "default") document.documentElement.dataset.body = b;
+    } catch (e) {}
   </script>
 
   <!-- Stylesheet -->
@@ -103,7 +111,7 @@
               À l'écoute d'opportunités — CDI &amp; missions
             </div>
             
-            <h1>Je rends <span class="accent-text">lisibles et intuitifs</span> les environnements les plus
+            <h1>Je rends <span class="highlight-accent">lisibles et intuitifs</span> les environnements les plus
               complexes.</h1>
             
             <p class="hero-description">
@@ -148,10 +156,10 @@
                 <path d="M 58 36 C 148 88, 66 138, 118 164 C 132 172, 108 176, 108 186 L 108 338" class="sketch-ink"></path>
                 <path d="M 104 338 C 104 343, 112 343, 112 338 C 112 333, 104 333, 105 339" class="sketch-ink"></path>
 
-                <!-- Center Primary Terracotta Track (x=160 inside frame) -->
-                <path d="M 172 20 C 86 66, 234 114, 146 154 C 126 164, 160 174, 160 186 L 160 358" class="sketch-terracotta"></path>
-                <path d="M 153 358 C 153 367, 167 367, 167 358 C 167 349, 153 349, 154 360" class="sketch-terracotta"></path>
-                <circle cx="160" cy="358" r="2.8" class="sketch-terracotta-fill"></circle>
+                <!-- Center Primary Accent Track (x=160 inside frame) -->
+                <path d="M 172 20 C 86 66, 234 114, 146 154 C 126 164, 160 174, 160 186 L 160 358" class="sketch-accent"></path>
+                <path d="M 153 358 C 153 367, 167 367, 167 358 C 167 349, 153 349, 154 360" class="sketch-accent"></path>
+                <circle cx="160" cy="358" r="2.8" class="sketch-accent-fill"></circle>
 
                 <!-- Right Track (x=212 inside frame) -->
                 <path d="M 248 26 C 162 78, 264 134, 198 162 C 184 168, 212 176, 212 186 L 212 322" class="sketch-ink"></path>
@@ -187,9 +195,9 @@
                 <path d="M 16 34 C 72 86, 118 14, 152 54 C 162 64, 164 46, 172 46 L 348 46" class="sketch-ink"></path>
                 <circle cx="348" cy="46" r="2.8" class="sketch-ink"></circle>
 
-                <path d="M 10 94 C 66 26, 114 128, 150 68 C 160 52, 164 78, 172 78 L 368 78" class="sketch-terracotta"></path>
-                <path d="M 368 72 C 375 72, 375 84, 368 84 C 361 84, 361 72, 369 73" class="sketch-terracotta"></path>
-                <circle cx="368" cy="78" r="2.5" class="sketch-terracotta-fill"></circle>
+                <path d="M 10 94 C 66 26, 114 128, 150 68 C 160 52, 164 78, 172 78 L 368 78" class="sketch-accent"></path>
+                <path d="M 368 72 C 375 72, 375 84, 368 84 C 361 84, 361 72, 369 73" class="sketch-accent"></path>
+                <circle cx="368" cy="78" r="2.5" class="sketch-accent-fill"></circle>
 
                 <path d="M 20 126 C 78 68, 116 144, 154 102 C 162 92, 166 110, 172 110 L 332 110" class="sketch-ink"></path>
                 <circle cx="332" cy="110" r="2.8" class="sketch-ink"></circle>
@@ -251,7 +259,7 @@
                 </div>
 
                 <div class="case-toggle-bar">
-                  <a href="antibiogo.html" class="btn btn-secondary btn-small btn-toggle-case">
+                  <a href="antibiogo.html" class="btn btn-primary btn-small">
                     
                     <span>Lire l'étude complète <span class="sr-only"> : Antibiogo</span></span>
                     <svg viewBox="0 0 24 24" aria-hidden="true" class="case-arrow-right">
@@ -302,7 +310,7 @@
                 </div>
 
                 <div class="case-toggle-bar">
-                  <a href="origami.html" class="btn btn-secondary btn-small btn-toggle-case">
+                  <a href="origami.html" class="btn btn-primary btn-small">
                     
                     <span>Lire l'étude complète <span class="sr-only"> : Design System Origami</span></span>
                     <svg viewBox="0 0 24 24" aria-hidden="true" class="case-arrow-right">
@@ -333,11 +341,11 @@
           <div class="editorial-split__content approach-grid">
             <div class="approach-card">
               <svg class="approach-emblem" viewBox="0 0 56 56" fill="none" aria-hidden="true">
-                <!-- Inclusive: Two hand-sketched intersecting loops + 3 quick terracotta hatch strokes -->
+                <!-- Inclusive: Two hand-sketched intersecting loops + 3 quick accent hatch strokes -->
                 <g filter="url(#sketch-emblem)">
                   <path d="M 22 13 C 31 12, 37 19, 36 28 C 35 37, 29 43, 21 43 C 12 43, 7 36, 8 27 C 8 18, 15 13, 24 14" class="sketch-ink"></path>
                   <path d="M 35 13 C 44 13, 49 20, 48 29 C 48 37, 41 43, 33 43 C 25 43, 19 36, 20 27 C 20 19, 27 13, 37 14" class="sketch-ink"></path>
-                  <path d="M 25 23 L 31 19 M 23 29 L 33 23 M 25 34 L 32 29" class="sketch-terracotta"></path>
+                  <path d="M 25 23 L 31 19 M 23 29 L 33 23 M 25 34 L 32 29" class="sketch-accent"></path>
                 </g>
               </svg>
               <div class="approach-card-body">
@@ -351,12 +359,12 @@
             </div>
             <div class="approach-card">
               <svg class="approach-emblem" viewBox="0 0 56 56" fill="none" aria-hidden="true">
-                <!-- Systemic: 4 freehand modular blocks with slight corner overshoots, 1 in terracotta -->
+                <!-- Systemic: 4 freehand modular blocks with slight corner overshoots, 1 in accent -->
                 <g filter="url(#sketch-emblem)">
                   <path d="M 10 13 L 26 12 M 25 11 L 25 26 M 26 25 L 10 25 M 11 26 L 11 11" class="sketch-ink"></path>
                   <path d="M 10 31 L 26 30 M 25 29 L 25 45 M 26 44 L 10 44 M 11 45 L 11 29" class="sketch-ink"></path>
                   <path d="M 29 31 L 45 30 M 44 29 L 44 45 M 45 44 L 29 44 M 30 45 L 30 29" class="sketch-ink"></path>
-                  <path d="M 30 10 L 47 9 M 46 8 L 45 24 M 46 23 L 30 23 M 31 24 L 31 8" class="sketch-terracotta"></path>
+                  <path d="M 30 10 L 47 9 M 46 8 L 45 24 M 46 23 L 30 23 M 31 24 L 31 8" class="sketch-accent"></path>
                 </g>
               </svg>
               <div class="approach-card-body">
@@ -369,12 +377,12 @@
             </div>
             <div class="approach-card">
               <svg class="approach-emblem" viewBox="0 0 56 56" fill="none" aria-hidden="true">
-                <!-- End-to-end: Single continuous freehand trajectory from loop to terracotta point -->
+                <!-- End-to-end: Single continuous freehand trajectory from loop to accent point -->
                 <g filter="url(#sketch-emblem)">
                   <path d="M 9 36 C 14 14, 24 14, 28 28 C 32 42, 40 38, 46 18" class="sketch-ink"></path>
                   <path d="M 9 33 C 12 33, 13 39, 9 39 C 5 39, 6 33, 10 34" class="sketch-ink"></path>
-                  <path d="M 46 13 C 51 13, 51 22, 46 22 C 41 22, 41 14, 47 14" class="sketch-terracotta"></path>
-                  <circle cx="46" cy="18" r="2" class="sketch-terracotta-fill"></circle>
+                  <path d="M 46 13 C 51 13, 51 22, 46 22 C 41 22, 41 14, 47 14" class="sketch-accent"></path>
+                  <circle cx="46" cy="18" r="2" class="sketch-accent-fill"></circle>
                 </g>
               </svg>
               <div class="approach-card-body">
@@ -388,12 +396,12 @@
             </div>
             <div class="approach-card">
               <svg class="approach-emblem" viewBox="0 0 56 56" fill="none" aria-hidden="true">
-                <!-- Collective: Two loose hand-drawn intersecting orbits + central terracotta nexus -->
+                <!-- Collective: Two loose hand-drawn intersecting orbits + central accent nexus -->
                 <g filter="url(#sketch-emblem)">
                   <path d="M 13 15 C 22 7, 39 14, 43 27 C 47 39, 36 47, 23 41 C 11 35, 7 21, 15 14" class="sketch-ink"></path>
                   <path d="M 42 15 C 48 23, 41 39, 28 43 C 15 47, 8 36, 14 23 C 20 11, 35 8, 43 16" class="sketch-ink-light"></path>
-                  <path d="M 28 22 C 33 22, 34 33, 28 33 C 22 33, 23 22, 29 23" class="sketch-terracotta"></path>
-                  <circle cx="28" cy="28" r="2.2" class="sketch-terracotta-fill"></circle>
+                  <path d="M 28 22 C 33 22, 34 33, 28 33 C 22 33, 23 22, 29 23" class="sketch-accent"></path>
+                  <circle cx="28" cy="28" r="2.2" class="sketch-accent-fill"></circle>
                 </g>
               </svg>
               <div class="approach-card-body">

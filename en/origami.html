@@ -9,7 +9,7 @@
   <!-- Preconnect for Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..600&amp;family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&amp;family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400..700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&amp;family=Outfit:wght@400..700&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;family=Sora:wght@600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Syne:wght@600;700;800&amp;family=Unbounded:wght@600;700;800;900&amp;family=Work+Sans:ital,wght@0,400..700;1,400..600&amp;display=swap">
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%231b4332%22/></svg>" type="image/svg+xml">
@@ -27,9 +27,17 @@
   <link rel="alternate" hreflang="fr" href="https://hellofrancois.github.io/origami.html">
   <link rel="alternate" hreflang="x-default" href="https://hellofrancois.github.io/origami.html">
 
-  <!-- Flag JS capability immediately for progressive enhancement / no-JS fallbacks -->
+  <!-- Flag JS capability immediately and restore Theme Lab preferences to avoid FOUC -->
   <script>
     document.documentElement.classList.add("js");
+    try {
+      const p = localStorage.getItem("theme_lab_palette");
+      if (p && p !== "default") document.documentElement.dataset.theme = p;
+      const f = localStorage.getItem("theme_lab_font");
+      if (f && f !== "newsreader") document.documentElement.dataset.font = f;
+      const b = localStorage.getItem("theme_lab_body");
+      if (b && b !== "default") document.documentElement.dataset.body = b;
+    } catch (e) {}
   </script>
 
   <!-- Stylesheet -->
@@ -127,23 +135,23 @@
                   <path d="M 34 44 L 136 44 M 132 40 L 132 118 M 136 114 L 34 114 M 38 118 L 38 40" class="sketch-frame"></path>
                   <path d="M 52 66 L 94 66 M 52 82 L 114 82 M 52 96 L 82 96" class="sketch-ink-light"></path>
 
-                  <!-- Top Right Block:Highlighted Modular UI Component (Terracotta Keystone) -->
-                  <path d="M 152 44 L 246 44 M 242 40 L 242 118 M 246 114 L 152 114 M 156 118 L 156 40" class="sketch-terracotta"></path>
-                  <circle cx="176" cy="79" r="8" class="sketch-terracotta"></circle>
-                  <circle cx="176" cy="79" r="2.5" class="sketch-terracotta-fill"></circle>
-                  <path d="M 194 72 L 226 72 M 194 86 L 216 86" class="sketch-terracotta"></path>
+                  <!-- Top Right Block: Highlighted Modular UI Component (Accent Keystone) -->
+                  <path d="M 152 44 L 246 44 M 242 40 L 242 118 M 246 114 L 152 114 M 156 118 L 156 40" class="sketch-accent"></path>
+                  <circle cx="176" cy="79" r="8" class="sketch-accent"></circle>
+                  <circle cx="176" cy="79" r="2.5" class="sketch-accent-fill"></circle>
+                  <path d="M 194 72 L 226 72 M 194 86 L 216 86" class="sketch-accent"></path>
 
                   <!-- Horizontal Spacing Token Callout between Top & Bottom Rows (y=114..142) -->
-                  <path d="M 85 116 L 85 140 M 79 118 L 91 118 M 79 138 L 91 138" class="sketch-terracotta"></path>
-                  <path d="M 199 116 L 199 140 M 193 118 L 205 118 M 193 138 L 205 138" class="sketch-terracotta"></path>
+                  <path d="M 85 116 L 85 140 M 79 118 L 91 118 M 79 138 L 91 138" class="sketch-accent"></path>
+                  <path d="M 199 116 L 199 140 M 193 118 L 205 118 M 193 138 L 205 138" class="sketch-accent"></path>
 
                   <!-- Bottom Full-Width Composite Pattern Block -->
                   <path d="M 34 142 L 246 142 M 242 138 L 242 238 M 246 236 L 34 236 M 38 238 L 38 138" class="sketch-frame"></path>
                   <!-- Nested UI Anatomy inside bottom block (Button + Input slots) -->
                   <path d="M 54 162 L 146 162 M 54 178 L 122 178" class="sketch-ink"></path>
-                  <!-- Action Button Slot (Terracotta) -->
-                  <path d="M 54 198 L 118 198 L 118 220 L 54 220 Z" class="sketch-terracotta"></path>
-                  <path d="M 68 209 L 104 209" class="sketch-terracotta"></path>
+                  <!-- Action Button Slot (Accent) -->
+                  <path d="M 54 198 L 118 198 L 118 220 L 54 220 Z" class="sketch-accent"></path>
+                  <path d="M 68 209 L 104 209" class="sketch-accent"></path>
                   <!-- Secondary Slot -->
                   <path d="M 132 198 L 224 198 L 224 220 L 132 220 Z" class="sketch-ink-light"></path>
                 </g>
@@ -418,7 +426,7 @@
                 <span>Back to projects</span>
                 
               </a>
-              <a href="antibiogo.html" class="btn btn-secondary btn-small case-next-link">
+              <a href="antibiogo.html" class="btn btn-primary btn-small">
                 <span>View other study: Antibiogo</span>
                 
                 <svg viewBox="0 0 24 24" aria-hidden="true" class="case-arrow-right">

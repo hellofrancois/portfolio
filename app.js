@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initHamburgerMenu();
   initResumeDownloadLinks();
   initMediaScrollHints();
+  initThemeLab();
 });
 
 /**
@@ -416,4 +417,196 @@ function initMediaScrollHints() {
     resizeObserver.observe(el);
     peekObserver.observe(el);
   });
+}
+
+/**
+ * Theme Lab: Interactive Live Switcher for Color Palettes & Typographies
+ */
+function initThemeLab() {
+  const PALETTES = [
+    { id: "default", name: "🌲 Minéral & Végétal (Fond Sable)" },
+    { id: "architect", name: "🏛️ Studio Archi (Fond Béton Minéral)" },
+    { id: "acid-lime", name: "⚡ Acid Lime & Cobalt (Light)" },
+    { id: "acid-lime-violet", name: "⚡ Acid Lime & Violet Royal (Light)" },
+    { id: "acid-lime-rose", name: "⚡ Acid Lime & Rose Magenta (Light)" },
+    { id: "punk-light", name: "⚡ Rose Punk Light (Fond Cendre Rosée)" },
+    { id: "klein-orange", name: "⚡ Bleu Klein & Safety Orange (Fond Porcelaine)" },
+    { id: "acid-lime-dark", name: "⚡ Acid Lime & Carbone (Dark)" },
+    { id: "punk-neon", name: "⚡ Rose Punk & Cyan (Dark)" },
+    { id: "outremer", name: "🌊 Encre Nuit & Ocre (Dark)" }
+  ];
+
+  const HEADING_FONTS = [
+    { id: "syne", name: "Syne (Brutaliste Sculptural — Favori)" },
+    { id: "unbounded", name: "Unbounded (Ultra-Wide Sculptural)" },
+    { id: "sora", name: "Sora (Géométrique Futuriste)" },
+    { id: "space", name: "Space Grotesk (Tech Display)" },
+    { id: "instrument", name: "Instrument Serif (Élancé Haute Couture)" },
+    { id: "fraunces", name: "Fraunces (Serif Expressif)" },
+    { id: "newsreader", name: "Newsreader (Serif Éditorial Classique)" },
+    { id: "blueprint", name: "Bricolage + Mono (Système Technique)" }
+  ];
+
+  const BODY_FONTS = [
+    { id: "outfit", name: "Outfit (Tech Épuré — Favori)" },
+    { id: "default", name: "Plus Jakarta Sans (Actuel)" },
+    { id: "inter", name: "Inter (Standard Suisse)" },
+    { id: "dm-sans", name: "DM Sans (Accessible & Rond)" },
+    { id: "work-sans", name: "Work Sans (Atelier & Craft)" },
+    { id: "newsreader", name: "Newsreader (100% Littéraire)" }
+  ];
+
+  let savedPalette = "default";
+  let savedHeadingFont = "newsreader";
+  let savedBodyFont = "default";
+  try {
+    savedPalette = localStorage.getItem("theme_lab_palette") || "default";
+    savedHeadingFont = localStorage.getItem("theme_lab_font") || "newsreader";
+    savedBodyFont = localStorage.getItem("theme_lab_body") || "default";
+  } catch (e) {}
+
+  const applyPalette = (paletteId) => {
+    if (paletteId === "default") {
+      delete document.documentElement.dataset.theme;
+    } else {
+      document.documentElement.dataset.theme = paletteId;
+    }
+    try {
+      localStorage.setItem("theme_lab_palette", paletteId);
+    } catch (e) {}
+  };
+
+  const applyHeadingFont = (fontId) => {
+    if (fontId === "newsreader") {
+      delete document.documentElement.dataset.font;
+    } else {
+      document.documentElement.dataset.font = fontId;
+    }
+    try {
+      localStorage.setItem("theme_lab_font", fontId);
+    } catch (e) {}
+  };
+
+  const applyBodyFont = (bodyId) => {
+    if (bodyId === "default") {
+      delete document.documentElement.dataset.body;
+    } else {
+      document.documentElement.dataset.body = bodyId;
+    }
+    try {
+      localStorage.setItem("theme_lab_body", bodyId);
+    } catch (e) {}
+  };
+
+  applyPalette(savedPalette);
+  applyHeadingFont(savedHeadingFont);
+  applyBodyFont(savedBodyFont);
+
+  // Widget container
+  const widget = document.createElement("aside");
+  widget.className = "theme-lab-widget";
+  widget.setAttribute("aria-label", "Sélecteur de style Theme Lab");
+
+  // Panel
+  const panel = document.createElement("div");
+  panel.className = "theme-lab-panel";
+  panel.id = "theme-lab-panel";
+
+  // Header
+  const header = document.createElement("div");
+  header.className = "theme-lab-header";
+  header.innerHTML = `
+    <span>🧪 Theme Lab</span>
+    <button type="button" class="theme-lab-close" aria-label="Réduire le panneau Theme Lab">✕</button>
+  `;
+
+  // Palette group
+  const paletteGroup = document.createElement("div");
+  paletteGroup.className = "theme-lab-group";
+  const paletteLabel = document.createElement("label");
+  paletteLabel.className = "theme-lab-label";
+  paletteLabel.htmlFor = "theme-lab-palette-select";
+  paletteLabel.textContent = "Palette & Fond";
+  const paletteSelect = document.createElement("select");
+  paletteSelect.id = "theme-lab-palette-select";
+  paletteSelect.className = "theme-lab-select";
+  PALETTES.forEach((p) => {
+    const opt = document.createElement("option");
+    opt.value = p.id;
+    opt.textContent = p.name;
+    if (p.id === savedPalette) opt.selected = true;
+    paletteSelect.appendChild(opt);
+  });
+  paletteSelect.addEventListener("change", (e) => applyPalette(e.target.value));
+  paletteGroup.appendChild(paletteLabel);
+  paletteGroup.appendChild(paletteSelect);
+
+  // Heading Font group
+  const headingGroup = document.createElement("div");
+  headingGroup.className = "theme-lab-group";
+  const headingLabel = document.createElement("label");
+  headingLabel.className = "theme-lab-label";
+  headingLabel.htmlFor = "theme-lab-heading-select";
+  headingLabel.textContent = "Typographie des titres";
+  const headingSelect = document.createElement("select");
+  headingSelect.id = "theme-lab-heading-select";
+  headingSelect.className = "theme-lab-select";
+  HEADING_FONTS.forEach((f) => {
+    const opt = document.createElement("option");
+    opt.value = f.id;
+    opt.textContent = f.name;
+    if (f.id === savedHeadingFont) opt.selected = true;
+    headingSelect.appendChild(opt);
+  });
+  headingSelect.addEventListener("change", (e) => applyHeadingFont(e.target.value));
+  headingGroup.appendChild(headingLabel);
+  headingGroup.appendChild(headingSelect);
+
+  // Body Font group
+  const bodyGroup = document.createElement("div");
+  bodyGroup.className = "theme-lab-group";
+  const bodyLabel = document.createElement("label");
+  bodyLabel.className = "theme-lab-label";
+  bodyLabel.htmlFor = "theme-lab-body-select";
+  bodyLabel.textContent = "Typographie du texte (Body)";
+  const bodySelect = document.createElement("select");
+  bodySelect.id = "theme-lab-body-select";
+  bodySelect.className = "theme-lab-select";
+  BODY_FONTS.forEach((b) => {
+    const opt = document.createElement("option");
+    opt.value = b.id;
+    opt.textContent = b.name;
+    if (b.id === savedBodyFont) opt.selected = true;
+    bodySelect.appendChild(opt);
+  });
+  bodySelect.addEventListener("change", (e) => applyBodyFont(e.target.value));
+  bodyGroup.appendChild(bodyLabel);
+  bodyGroup.appendChild(bodySelect);
+
+  panel.appendChild(header);
+  panel.appendChild(paletteGroup);
+  panel.appendChild(headingGroup);
+  panel.appendChild(bodyGroup);
+
+  // Floating Toggle button
+  const toggleBtn = document.createElement("button");
+  toggleBtn.type = "button";
+  toggleBtn.className = "theme-lab-toggle";
+  toggleBtn.setAttribute("aria-expanded", "true");
+  toggleBtn.setAttribute("aria-controls", "theme-lab-panel");
+  toggleBtn.innerHTML = `<span>🧪</span><span>Thèmes & Typos</span>`;
+
+  const closeBtn = header.querySelector(".theme-lab-close");
+
+  const togglePanel = (open) => {
+    panel.hidden = !open;
+    toggleBtn.setAttribute("aria-expanded", String(open));
+  };
+
+  closeBtn.addEventListener("click", () => togglePanel(false));
+  toggleBtn.addEventListener("click", () => togglePanel(panel.hidden));
+
+  widget.appendChild(panel);
+  widget.appendChild(toggleBtn);
+  document.body.appendChild(widget);
 }
