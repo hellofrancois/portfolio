@@ -9,10 +9,10 @@
   <!-- Preconnect for Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..600&amp;family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&amp;family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400..700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&amp;family=Outfit:wght@400..700&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;family=Sora:wght@600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Syne:wght@600;700;800&amp;family=Unbounded:wght@600;700;800;900&amp;family=Work+Sans:ital,wght@0,400..700;1,400..600&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Syne:wght@600;700;800&amp;display=swap">
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%231b4332%22/></svg>" type="image/svg+xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%23ccff00%22/></svg>" type="image/svg+xml">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -27,17 +27,9 @@
   <link rel="alternate" hreflang="fr" href="https://hellofrancois.github.io/">
   <link rel="alternate" hreflang="x-default" href="https://hellofrancois.github.io/">
 
-  <!-- Flag JS capability immediately and restore Theme Lab preferences to avoid FOUC -->
+  <!-- Flag JS capability immediately -->
   <script>
     document.documentElement.classList.add("js");
-    try {
-      const p = localStorage.getItem("theme_lab_palette");
-      if (p && p !== "default") document.documentElement.dataset.theme = p;
-      const f = localStorage.getItem("theme_lab_font");
-      if (f && f !== "newsreader") document.documentElement.dataset.font = f;
-      const b = localStorage.getItem("theme_lab_body");
-      if (b && b !== "default") document.documentElement.dataset.body = b;
-    } catch (e) {}
   </script>
 
   <!-- Stylesheet -->
