@@ -468,7 +468,7 @@ ul {
 @media (min-width: 960px) {
   .hero-layout {
     display: grid;
-    grid-template-columns: 1.18fr 0.82fr;
+    grid-template-columns: 1.25fr 0.75fr;
     gap: 3.5rem;
     align-items: center;
   }
@@ -697,7 +697,7 @@ ul {
 }
 
 .editorial-split__aside p:last-child,
-.editorial-split__content > p:last-child {
+.editorial-split__content>p:last-child {
   margin-bottom: 0;
 }
 
@@ -824,6 +824,7 @@ ul {
 }
 
 @media (min-width: 900px) {
+
   /* Desktop: plinth starts 12% inside the visual column and extends to the outer viewport edge (capped at 18rem past the container on ultrawide monitors) */
   .case-preview-visual--antibiogo::before {
     left: 12%;
@@ -1299,7 +1300,7 @@ body.is-project-view .header {
 }
 
 /* Deep Dives & Process Tabs Section */
-.editorial-split + .case-teaser-grid {
+.editorial-split+.case-teaser-grid {
   margin-top: 4rem;
 }
 
@@ -1360,7 +1361,7 @@ body.is-project-view .header {
   z-index: 1;
   pointer-events: none;
   transition: height 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-              border-radius 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius 0.32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (hover: hover) {
