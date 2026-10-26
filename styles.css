@@ -113,41 +113,19 @@
   color-scheme: light;
 }
 
-/* Text Marker / Editorial Highlighter (Chisel Cut & Layered Double-Pass) */
+/* Text Marker / Editorial Highlighter (Chisel Cut & Layered Double-Pass SVG) */
 .highlight-accent {
-  position: relative;
-  display: inline-block;
+  display: inline;
   color: var(--highlight-fg, inherit);
-  z-index: 0;
-}
-
-/* Premier passage : large, incliné de biais, débordant en hauteur et largeur */
-.highlight-accent::before {
-  content: '';
-  position: absolute;
-  inset: -0.12em -0.32em -0.10em -0.32em;
-  background-color: var(--highlight-bg);
-  clip-path: polygon(0.8% 14%, 99.2% 3%, 98.4% 86%, 1.2% 97%);
-  transform: rotate(-0.75deg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M11 5 L196 6 L187 34 L2 33 Z' fill='%23ccff00' fill-opacity='0.15'/%3E%3Cpath d='M16 8 L200 10 L191 38 L7 36 Z' fill='%23ccff00' fill-opacity='0.50'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 92%;
+  background-position: center 85%;
+  padding: 0.08em 0.32em;
+  margin-inline: -0.18em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
   mix-blend-mode: var(--highlight-blend, multiply);
-  border-radius: 2px;
-  z-index: -2;
-  pointer-events: none;
-}
-
-/* Second passage : décalé, renfort au centre avec inclinaison inverse */
-.highlight-accent::after {
-  content: '';
-  position: absolute;
-  inset: -0.06em -0.22em -0.06em -0.22em;
-  background-color: var(--highlight-bg);
-  opacity: 0.55;
-  clip-path: polygon(1.6% 4%, 98.4% 12%, 99% 94%, 0.6% 84%);
-  transform: rotate(0.5deg);
-  mix-blend-mode: var(--highlight-blend, multiply);
-  border-radius: 2px;
-  z-index: -1;
-  pointer-events: none;
 }
 
 /* Base Styles */
@@ -612,6 +590,7 @@ ul {
   margin-bottom: 2rem;
   font-weight: 400;
   line-height: 1.12;
+  text-wrap: balance;
 }
 
 
