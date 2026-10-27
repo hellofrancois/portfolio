@@ -15,7 +15,7 @@ const PAGES = {
   home: {
     fr: {
       title: 'François Ohl — Lead / Senior Product Designer',
-      description: "François Ohl — Lead / Senior Product Designer. Je conçois des interfaces claires et fiables pour des environnements complexes : santé, outils métier et design systems à grande échelle.",
+      description: "François Ohl — Lead / Senior Product Designer. Je conçois des produits exigeants, du terrain jusqu'au code : santé réglementée, espaces clients à grande échelle et design systems.",
       ogTitle: 'François Ohl — Lead / Senior Product Designer',
       ogDescription: "Conception d'outils numériques pour environnements complexes et exigeants. Études de cas : Antibiogo (MSF) & Origami (AG2R LA MONDIALE).",
       canonical: `${BASE_URL}/`,
@@ -26,7 +26,7 @@ const PAGES = {
     },
     en: {
       title: 'François Ohl — Lead / Senior Product Designer',
-      description: 'François Ohl — Lead / Senior Product Designer. Designing clear, resilient interfaces for complex and high-stakes environments: health-tech, enterprise tools, and design systems.',
+      description: 'François Ohl — Lead / Senior Product Designer. Designing high-stakes products, from the field to the code: regulated healthcare, large-scale customer portals, and design systems.',
       ogTitle: 'François Ohl — Lead / Senior Product Designer',
       ogDescription: 'Product design for complex, high-stakes environments. Selected case studies: Antibiogo (MSF) & Origami Design System (AG2R LA MONDIALE).',
       canonical: `${BASE_URL}/en/`,
