@@ -425,7 +425,9 @@ ul {
 
 /* Hero Section */
 .hero {
-  min-height: calc(100vh - var(--header-height));
+  position: relative;
+  overflow: hidden;
+  min-height: min(calc(100svh - var(--header-height)), 860px);
   display: flex;
   align-items: center;
   padding-top: calc(var(--header-height) + 2rem);
@@ -433,34 +435,29 @@ ul {
 }
 
 .hero-layout {
+  position: relative;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 2.75rem;
+  display: block;
 }
 
 .hero-content {
-  max-width: 720px;
-}
-
-@media (min-width: 960px) {
-  .hero-layout {
-    display: grid;
-    grid-template-columns: 1.25fr 0.75fr;
-    gap: 3.5rem;
-    align-items: center;
-  }
-
-  .hero-content {
-    max-width: 100%;
-  }
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
 }
 
 .hero-illustration {
+  position: absolute;
+  inset: -2rem -1rem;
+  z-index: 0;
+  pointer-events: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+}
+
+.hero-illustration[hidden] {
+  display: none;
 }
 
 .svg-filters-defs {
@@ -473,30 +470,55 @@ ul {
 
 .hero-svg {
   width: 100%;
-  max-width: 340px;
-  height: auto;
+  height: 100%;
   overflow: visible;
 }
 
-.hero-svg--mobile {
-  display: none;
+@media (orientation: portrait) {
+  .hero.section {
+    min-height: auto;
+    padding-top: calc(var(--header-height) + clamp(2.5rem, 6vh, 4.5rem));
+    padding-bottom: clamp(3.5rem, 7vh, 5rem);
+  }
+
+  .hero-illustration {
+    inset: -1rem 0;
+  }
 }
 
-@media (max-width: 959px) {
-  .hero-illustration {
-    margin-top: 0.5rem;
-    padding: 0;
-  }
+/* Chisel-Marker Hero Lime Tokens (Variable-Width Ribbons & Layered Groups) */
+.hero-layer--strong {
+  opacity: 0.72;
+  mix-blend-mode: multiply;
+  isolation: isolate;
+}
 
-  .hero-svg--desktop {
-    display: none;
-  }
+.hero-layer--soft {
+  opacity: 0.42;
+  mix-blend-mode: multiply;
+  isolation: isolate;
+}
 
-  .hero-svg--mobile {
-    display: block;
-    max-width: 440px;
-    max-height: 155px;
-  }
+.sketch-lime-strong {
+  fill: var(--accent-primary);
+  fill-opacity: 0.72;
+  mix-blend-mode: multiply;
+}
+
+.sketch-lime-soft {
+  fill: var(--accent-primary);
+  fill-opacity: 0.42;
+  mix-blend-mode: multiply;
+}
+
+.sketch-lime-fill {
+  fill: var(--accent-primary);
+}
+
+.sketch-lime-ring {
+  fill: none;
+  stroke: var(--accent-primary);
+  stroke-width: 23;
 }
 
 /* Minimalist Hand-Sketched SVG Stroke Tokens (Charcoal Ink + Red Pencil) */
@@ -2464,14 +2486,18 @@ body.is-project-view .footer p {
     --section-space: 5rem;
   }
 
-  /* Hero Mobile — Start from top under header, allow natural downward growth */
+  /* Hero Mobile & Small Tablet — Start from top under header, allow natural downward growth */
   .hero.section {
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding-top: calc(var(--header-height) + 1.5rem);
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-illustration {
+    display: none;
   }
 
   /* Mobile Navigation */
