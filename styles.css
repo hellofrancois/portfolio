@@ -375,6 +375,7 @@ ul {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  white-space: nowrap;
 }
 
 .logo-dot {
@@ -2724,4 +2725,41 @@ body.is-project-view .footer p {
     height: 56px;
   }
 
+}
+
+@media (max-width: 450px) {
+  .logo {
+    font-size: 1.15rem;
+  }
+
+  .nav-actions {
+    gap: 0.5rem;
+  }
+
+  /* Single target language button on narrow screens */
+  .lang-switch .lang-btn.active,
+  .lang-switch .lang-btn[aria-pressed="true"],
+  .lang-switch .lang-divider {
+    display: none;
+  }
+
+  .lang-switch {
+    padding: 0;
+    border: none;
+    background: none;
+  }
+
+  .lang-switch .lang-btn {
+    background-color: var(--hover-bg);
+    border: 1px solid var(--border-color);
+    padding: 0.25rem 0.55rem;
+    min-height: 30px;
+    border-radius: var(--border-radius-sm);
+  }
+
+  .lang-switch .lang-btn:hover {
+    background-color: var(--accent-primary);
+    color: var(--fg-color);
+    border-color: var(--accent-primary);
+  }
 }
